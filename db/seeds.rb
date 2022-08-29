@@ -8,6 +8,9 @@
 
 require "open-uri"
 
+Activity.destroy_all
+puts "Activities destroyed"
+
 Trip.destroy_all
 puts "Trips destroyed"
 
@@ -123,7 +126,7 @@ date: "Thu, 01 Sep 2022",
 min_amigos: "4",
 trip_id: Trip.first.id
 )
-sumo_tournament.photo.attach(io: file_sumo_fith, filename: "sumo_tournament.jpg", content_type:"image/jpg")
+sumo_tournament.photo.attach(io: file_sumo_tournament, filename: "sumo_tournament.jpg", content_type:"image/jpg")
 sumo_tournament.save!
 
 p "Activities created"

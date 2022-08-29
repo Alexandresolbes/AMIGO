@@ -87,12 +87,13 @@ p "Trip created"
 file_bar = URI.open("https://media.timeout.com/images/103945922/750/422/image.jpg")
 
 bar = Activity.new(
-name:"Red bar"
+title:"Red bar"
 address: "4 Chome-5-9 Shibuya, Shibuya City, Tokyo",
-category: "Night life",
+categories: "Night life",
 description: "The Red Bar has a chic atmosphere inspired by the rich European past (crystal chandeliers and red fabrics), but unlike the exclusive clubs of Aoyama, the entrance is open to all and the drinks are surprisingly inexpensive (500 yen glass).",
 date: "Tue, 30 Aug 2022",
-min_amigos: "2"
+min_amigos: "2",
+trip_id: Trip.first.id
 )
 bar.photo.attach(io: file_bar, filename: "bar.jpg", content_type:"image/jpg")
 bar.save!
@@ -100,12 +101,13 @@ bar.save!
 file_museum = URI.open("https://www.japan-guide.com/g18/3070_01.jpg")
 
 museum = Activity.new(
-name:"Edo Tokyo Museum"
+title:"Edo Tokyo Museum"
 address: "1 Chome-4-1 Yokoami, Sumida City, Tokyo 130-0015, Japan",
 description: "The Edo-Tokyo Museum  (Edo Tōkyō Hakubutsukan) is a historical museum located at 1-4-1 Yokoami, Sumida-Ku, Tokyo in the Ryogoku district. The museum opened in March 1993 to preserve Edo's cultural heritage"
-category: "Cultural",
+categories: "Cultural",
 date: "Wed, 31 Aug 2022",
-min_amigos: "4"
+min_amigos: "4",
+trip_id: Trip.first.id
 )
 museum.photo.attach(io: file_museum, filename: "museum.jpg", content_type:"image/jpg")
 museum.save!
@@ -113,12 +115,15 @@ museum.save!
 file_sumo_tournament = URI.open("https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2012/05/1491460902_c664678033_o-1280x600.jpg")
 
 sumo_tournament = Activity.new(
-name:"Sumo tournament"
+title:"Sumo tournament"
 address: "1 Chome 3-28, Yokoami, Sumida-ku, Tokyo",
 description: "Each tournament lasts 15 days during which wrestlers compete in one bout per day except lower ranked wrestlers who compete in fewer bouts. All sumo wrestlers are classified in a ranking hierarchy (banzuke), which is updated after each tournament based on the wrestlers' performance."
-category: "Sports",
+categories: "Sports",
 date: "Thu, 01 Sep 2022",
-min_amigos: "4"
+min_amigos: "4",
+trip_id: Trip.first.id
 )
 sumo_tournament.photo.attach(io: file_sumo_fith, filename: "sumo_tournament.jpg", content_type:"image/jpg")
 sumo_tournament.save!
+
+p "Activities created"

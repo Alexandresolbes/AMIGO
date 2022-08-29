@@ -87,7 +87,7 @@ p "Trip created"
 file_bar = URI.open("https://media.timeout.com/images/103945922/750/422/image.jpg")
 
 bar = Activity.new(
-title:"Red bar"
+title:"Red bar",
 address: "4 Chome-5-9 Shibuya, Shibuya City, Tokyo",
 categories: "Night life",
 description: "The Red Bar has a chic atmosphere inspired by the rich European past (crystal chandeliers and red fabrics), but unlike the exclusive clubs of Aoyama, the entrance is open to all and the drinks are surprisingly inexpensive (500 yen glass).",
@@ -101,9 +101,9 @@ bar.save!
 file_museum = URI.open("https://www.japan-guide.com/g18/3070_01.jpg")
 
 museum = Activity.new(
-title:"Edo Tokyo Museum"
+title:"Edo Tokyo Museum",
 address: "1 Chome-4-1 Yokoami, Sumida City, Tokyo 130-0015, Japan",
-description: "The Edo-Tokyo Museum  (Edo Tōkyō Hakubutsukan) is a historical museum located at 1-4-1 Yokoami, Sumida-Ku, Tokyo in the Ryogoku district. The museum opened in March 1993 to preserve Edo's cultural heritage"
+description: "The Edo-Tokyo Museum (Edo Tōkyō Hakubutsukan) is a historical museum located at 1-4-1 Yokoami, Sumida-Ku, Tokyo in the Ryogoku district. The museum opened in March 1993 to preserve Edo's cultural heritage",
 categories: "Cultural",
 date: "Wed, 31 Aug 2022",
 min_amigos: "4",
@@ -115,9 +115,9 @@ museum.save!
 file_sumo_tournament = URI.open("https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2012/05/1491460902_c664678033_o-1280x600.jpg")
 
 sumo_tournament = Activity.new(
-title:"Sumo tournament"
+title:"Sumo tournament",
 address: "1 Chome 3-28, Yokoami, Sumida-ku, Tokyo",
-description: "Each tournament lasts 15 days during which wrestlers compete in one bout per day except lower ranked wrestlers who compete in fewer bouts. All sumo wrestlers are classified in a ranking hierarchy (banzuke), which is updated after each tournament based on the wrestlers' performance."
+description: "Each tournament lasts 15 days during which wrestlers compete in one bout per day except lower ranked wrestlers who compete in fewer bouts. All sumo wrestlers are classified in a ranking hierarchy (banzuke), which is updated after each tournament based on the wrestlers' performance.",
 categories: "Sports",
 date: "Thu, 01 Sep 2022",
 min_amigos: "4",

@@ -84,6 +84,26 @@ amigo_trip.save!
 
 p "Trip created"
 
+UserTrip.create(
+  trip_id: Trip.last,
+  user_id: User.find_by_first_name('Alexandre').id
+)
+
+UserTrip.create(
+  trip_id: Trip.last,
+  user_id: User.find_by_first_name('Lounes').id
+)
+
+UserTrip.create(
+  trip_id: Trip.last,
+  user_id: User.find_by_first_name('Isabel').id
+)
+
+UserTrip.create(
+  trip_id: Trip.last,
+  user_id: User.find_by_first_name('Laura').id
+)
+
 
 # ACTIVITIES
 

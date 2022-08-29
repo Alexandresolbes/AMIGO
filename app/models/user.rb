@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :trips, through: :user_trips
-  has_many :activities, through: :particaptions
+  has_many :activities, through: :participations
 
   has_one_attached :photo
 end

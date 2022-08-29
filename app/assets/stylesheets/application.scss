@@ -10,6 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+
 
 $blue: #5271FF;
 $yellow: #F6C13D;
@@ -18,3 +20,4 @@ $gradient-blue: linear-gradient(180deg, rgba(68,187,254,1) 0%, rgba(30,120,254,1
 $gradient-yellow: linear-gradient(180deg, rgba(255,207,83,1) 0%, rgba(255,153,0,1) 100%);
 $gradient-orange: linear-gradient(180deg, rgba(255,146,82,1) 0%, rgba(255,63,21,1) 100%);
 $gradient-green: linear-gradient(180deg, rgba(144,223,117,1) 0%, rgba(98,182,85,1) 100%);
+

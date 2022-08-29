@@ -3,20 +3,24 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
+    @activities = policy_scope(Activity)
     @activities = current_user.activities
   end
 
   def show
+    authorize @activity
   end
 
   def new
     @activity = Activity.new
+    authorize @activity
   end
 
   def create
     @activity = Activity.new(activity_params)
     @activity.trip = @trip
     @activity.user = current_user
+    authorize @activity
     if @activity.save!
       redirect_to @activity, notice: "Activity created !"
     else
@@ -25,9 +29,11 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
+    authorize @activity
   end
 
   def update
+    authorize @activity
     if @activity.update(activity_params)
       redirect_to @activity, notice: "Activity updated successfully."
     else
@@ -36,6 +42,7 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+    authorize @activity
     @activity.destroy
     redirect_to activities_path, status: :see_other
   end

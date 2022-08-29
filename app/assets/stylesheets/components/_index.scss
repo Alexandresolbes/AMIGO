@@ -3,15 +3,18 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+@import "images";
+
+body{
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
 
 .bg-blue{
   background-color: $blue;
 }
 
-.full-vh{
-  height: 100vh;
-}
-
 .full-h{
-  min-height: 100%;
+  height: 100%;
 }

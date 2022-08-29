@@ -4,7 +4,6 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
-    @activities = policy_scope(Activity)
     @activities = current_user.activities
     @markers = @activities.geocoded.map do |activity|
       {
@@ -36,18 +35,16 @@ def create
   end
 end
 
-def edit
-  authorize @activity
-end
+  def edit
+  end
 
 def update
-  authorize @activity
-  if @activity.update(activity_params)
-    redirect_to @activity, notice: "Activity updated successfully."
-  else
-    render :edit, status: :unprocessable_entity
+    if @activity.update(activity_params)
+      redirect_to @activity, notice: "Activity updated successfully."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
-end
 
 def destroy
   authorize @activity

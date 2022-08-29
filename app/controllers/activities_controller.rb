@@ -4,7 +4,8 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
-    @activities = current_user.activities
+    @activities = policy_scope(Activity)
+    @activities = Activity.where(trip_id: params[:trip_id])
     @markers = @activities.geocoded.map do |activity|
       {
       lat: activity.latitude,

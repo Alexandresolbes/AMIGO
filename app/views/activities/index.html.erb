@@ -1,7 +1,36 @@
-<h1>"ACTIVITIES"</h1>
-<%= ENV['MAPBOX_URL'] %>
-<%= @activities.count %>
-<div style="width: 100%; height: 600px;"
+<h1>Activities:</h1>
+    <% @activities.each do |activity| %>
+    
+    <div class="card mb-3" style="max-width: 100%;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <%= cl_image_tag activity.photo.key, class:"img-fluid rounded-start" %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to activity.title, trip_activity_path(@trip, activity) %></h5>
+          <p class="card-text"><%= activity.description %></p>
+          <p class="card-text">
+            <% if activity.participations.count > activity.min_amigos %>
+              <span>✅</span>
+            <% else %>
+              <span>🟥</span>
+            <% end %>
+            <%= activity.participations.count %>/<%= activity.min_amigos %> Amigos
+          </p>
+          <div>
+            <% activity.users.each do |user| %>
+              <%= cl_image_tag user.photo.key, class:"avatar-md" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>      
+
+<div style="width: 50%; height: 300px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_URL'] %>"></div>
+  data-map-api-key-value="<%= ENV['MAPBOX_URL'] %>">
+</div>

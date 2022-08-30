@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
   def index
     @activities = policy_scope(Activity)
     @activities = Activity.where(trip_id: params[:trip_id])
+    @trip = Trip.find(params[:trip_id])
     @markers = @activities.geocoded.map do |activity|
       {
       lat: activity.latitude,
@@ -17,6 +18,11 @@ class ActivitiesController < ApplicationController
 
   def show
     authorize @activity
+    @markers = [{
+      lat: @activity.latitude,
+      lng: @activity.longitude,
+      info_window: render_to_string(partial: "info_window", locals: {activity: @activity})
+    }]
   end
 
   def new
@@ -27,7 +33,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.trip = @trip
-    @activity.user = current_user
+    @activity.user_id = current_user
     authorize @activity
     if @activity.save!
       redirect_to @activity, notice: "Activity created !"

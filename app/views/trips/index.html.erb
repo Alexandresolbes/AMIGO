@@ -1,16 +1,4 @@
 <h1>My Trips</h1>
 <% @trips.each do |user_trip|%>
-  <h2><%= link_to user_trip.trip.destination, trip_activities_path(user_trip.trip)%></h2>
-    <h3>Activities:</h3>
-      <ul>
-        <% user_trip.trip.activities.each do |activity| %>
-          <li><%= activity.title %></li>
-        <% end %>
-      </ul>
-    <h3>Participants:</h3>
-      <ul>
-      <% user_trip.trip.users.each do |user| %>
-        <li><%= user.first_name %></li>
-      <% end %>
-    </ul>
+  <h2><%= link_to user_trip.trip.destination, trip_path(user_trip.trip)%></h2>
 <% end %>

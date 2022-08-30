@@ -1,0 +1,11 @@
+<h1><%= @activity.title %></h1>
+<h1><%= @activity.address %></h1>
+<p><% if @activity.latitude %><%= @activity.latitude %><% else %>Nil<% end %></p>
+
+<%= link_to "Back", trip_activities_path(@activity.trip) %>
+      
+<div style="width: 50%; height: 300px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_URL'] %>">
+</div>

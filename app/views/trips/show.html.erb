@@ -1,0 +1,15 @@
+<h1>Welcome, <%= current_user.first_name %> !</h1>
+<h3><%= @trip.destination %></h3>
+<p><%= @trip.start_date %> - <%= @trip.end_date %></p>
+<p><%= @trip.users.count %> Amigos</p>
+<%= link_to "Activities",  trip_activities_path(@trip) %>
+
+<h3>Participants:</h3>
+  <div class="row">
+    <% @trip.users.each do |user| %>
+      <div class="col-2">
+        <%= cl_image_tag user.photo.key, class:"avatar-md" %>
+        <%= user.first_name %>
+      </div>
+    <% end %>
+  </div>  

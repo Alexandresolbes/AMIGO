@@ -211,15 +211,18 @@ p "✅ Participations created"
 
 
 Room.create(
-  name: "Général"
+  name: "General",
+  trip_id: amigo_trip.id
 )
 
 Room.create(
-  name: "Activités"
+  name: "Activities",
+  trip_id: amigo_trip.id
 )
 
 Room.create(
-  name: "Logement"
+  name: "Housing",
+  trip_id: amigo_trip.id
 )
 
 p "✅ Rooms created"

@@ -29,7 +29,7 @@ gem "jbuilder"
 
 gem "cloudinary"
 gem "pundit"
-gem 'devise_invitable', '~> 2.0.0'
+gem 'devise_invitable'
 
 
 # Use Redis adapter to run Action Cable in production

@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     resources :activities, only: [:index, :new, :create] do
       resources :participations, only: [:create, :destroy]
     end
-  end
 
-  resources :activities, only: [:show, :destroy, :edit, :update]
+    resources :activities, only: [:show, :destroy, :edit, :update]
+
+    resources :rooms, only: :show do
+      resources :messages, only: :create
+    end
+  end
 end

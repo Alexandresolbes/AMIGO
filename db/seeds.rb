@@ -204,3 +204,18 @@ Participation.create(
 )
 
 p "✅ Participations created"
+
+
+Room.create(
+  name: "Général"
+)
+
+Room.create(
+  name: "Activités"
+)
+
+Room.create(
+  name: "Logement"
+)
+
+p "✅ Participations created"

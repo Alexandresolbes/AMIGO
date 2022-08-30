@@ -1,3 +1,7 @@
+<h1>Welcome, <%= current_user.first_name %> !</h1>
+<h3><%= @trip.destination %></h3>
+<p><%= @trip.start_date %> - <%= @trip.end_date %></p>
+<p><%= @trip.users.count %> Amigos</p>
 <h3>Activities:</h3>
       <ul>
         <% @trip.activities.each do |activity| %>

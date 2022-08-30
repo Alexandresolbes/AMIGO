@@ -1,4 +1,10 @@
 class RoomsController < ApplicationController
+
+  def index
+    @trip = Trip.find(params[:trip_id])
+    @rooms = policy_scope(Room)
+  end
+
   def show
     @trip = Trip.find(params[:trip_id])
     @room = Room.find(params[:id])

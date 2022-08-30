@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
     resources :activities, only: [:show, :destroy, :edit, :update]
 
-    resources :rooms, only: :show do
+    resources :rooms, only: [:index, :show] do
       resources :messages, only: :create
     end
   end

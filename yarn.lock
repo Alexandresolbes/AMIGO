@@ -1200,6 +1200,11 @@ responselike@^2.0.0:
   dependencies:
     lowercase-keys "^2.0.0"
 
+roulette@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/roulette/-/roulette-0.0.0.tgz#281605c52048305cbc5a45079265e57abd2d51d7"
+  integrity sha512-p/2qlvmsy42IUx52Ijg6XTV46MiaV+R2iVIpfjSi/LB1zFDcbDEmLUxmbX/0sWp9MbbY+zTV1B68IS+BdT2Fyw==
+
 safe-buffer@^5.1.0:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"

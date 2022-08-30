@@ -1,23 +1,21 @@
-<div class="container chatroom" 
+ <div class="container chatroom" 
   data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @room.id %>">
+  data-chatroom-subscription-chatroom-id-value="<%= room.id %>">
 
-    <h1>#<%= @room.name %></h1>
+    <h1>#<%= room.name %></h1>
 
     <div class="messages" data-chatroom-subscription-target="messages">
-      <% @room.messages.each do |message| %>
+      <% room.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>
     </div>
-    
-    <%= simple_form_for [@trip, @room, @message],
+    <%= simple_form_for [room.trip_id, room, @message],
     html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
       <%= f.input :content,
         label: false,
-        placeholder: "Message #{@room.name}",
+        placeholder: "Message #{room.name}",
         wrapper_html: {class: "flex-grow-1"}
       %>
       <%= f.submit "Send", class: "btn btn-primary mb-3" %>
     <% end %>
   </div>
-

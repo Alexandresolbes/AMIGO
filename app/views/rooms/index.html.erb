@@ -1,6 +1,10 @@
 <h1>Chatroom</h1>
 <ul>
 <% @rooms.each do |room| %>
-    <%= link_to room.name, trip_room_path(@trip, room) %></option>
+    <%= room.name %>
+    <%= @trip.id %>
   <% end %>
 </ul>
+
+<%= render "rooms/room", room: @rooms.first  %>
+

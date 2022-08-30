@@ -6,4 +6,9 @@ class PagesController < ApplicationController
       redirect_to trips_path
     end
   end
+
+  def random_wheel
+    @trip = Trip.find(params[:trip_id])
+    @users = @trip.users
+  end
 end

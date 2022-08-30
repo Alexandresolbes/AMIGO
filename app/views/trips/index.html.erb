@@ -8,9 +8,12 @@
         <% end %>
       </ul>
     <h3>Participants:</h3>
-      <ul>
+      <div class="row">
       <% user_trip.trip.users.each do |user| %>
-        <li><%= user.first_name %></li>
+        <div class="col-2">
+        <%= cl_image_tag user.photo.key, class:"avatar-md" %>
+        <%= user.first_name %>
+        </div>
       <% end %>
-    </ul>
+      </div>  
 <% end %>

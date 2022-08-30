@@ -1,21 +1,32 @@
-<div class="text-center">
-  <h1>CHATROOM</h1>
-  <% @rooms.each do |room| %>
-      <span><%= link_to room.name, trip_room_path(@trip, room) %></span>
-    <% end %>
-</div>
+<div class="container">
+  <div class="row justify-content-center">
+  <div class="col">
+      <h1>CHATROOM</h1>
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <% @rooms.each do |room| %>
+          <li class="nav-item <% if room.name == "General" %>active<% end %>" role="presentation">
+            <button class="nav-link <% if room.name == "General" %>active<% end %>" id="pills-<%= room.name.downcase %>-tab" data-bs-toggle="pill" data-bs-target="#pills-<%= room.name.downcase %>" type="button" role="tab" aria-controls="pills-<%= room.name.downcase %>" aria-selected="true"><%= room.name.downcase %></button>
+          </li>
+        <% end %>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <% @rooms.each do |room| %>
+        <div class="tab-pane fade <% if room.name == "General" %>show active<% end %>" id="pills-<%= room.name.downcase %>" role="tabpanel" aria-labelledby="pills-<%= room.name.downcase %>-tab" tabindex="0">
+          <div class="container chatroom" 
+          data-controller="chatroom-subscription"
+          data-chatroom-subscription-chatroom-id-value="<%= room.id %>">
 
-<div class="container chatroom" 
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @rooms.first.id %>">
-
-    <h2>#<%= @rooms.first.name %></h2>
-    <div class="messages" data-chatroom-subscription-target="messages">
-      <% @rooms.first.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
-      <% end %>
+            <h2>#<%= room.name %></h2>
+            <div class="messages" data-chatroom-subscription-target="messages">
+              <% room.messages.each do |message| %>
+                <%= render "messages/message", message: message %>
+              <% end %>
+            </div>
+            <%= render "form", trip: @trip, room: room %>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
-    <%= render "form", trip: @trip, room: @rooms.first %>
   </div>
-
-
+</div>

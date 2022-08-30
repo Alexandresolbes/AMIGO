@@ -113,7 +113,8 @@ UserTrip.create(
 
 UserTrip.create(
   trip_id: Trip.last.id,
-  user_id: User.find_by_first_name('Laura').id
+  user_id: User.find_by_first_name('Laura').id,
+  creator: true
 )
 
 p "✅ User Trips created"
@@ -166,7 +167,8 @@ p "✅ Activities created"
 
 Participation.create(
   activity_id: bar.id,
-  user_id: User.find_by_first_name('Alexandre').id
+  user_id: User.find_by_first_name('Alexandre').id,
+  creator: true
 )
 
 Participation.create(
@@ -190,12 +192,14 @@ Participation.create(
 
 Participation.create(
   activity_id: museum.id,
-  user_id: User.find_by_first_name('Lounes').id
+  user_id: User.find_by_first_name('Lounes').id,
+  creator: true
 )
 
 Participation.create(
   activity_id: sumo_tournament.id,
-  user_id: User.find_by_first_name('Isabel').id
+  user_id: User.find_by_first_name('Isabel').id,
+  creator: true
 )
 
 Participation.create(
@@ -218,4 +222,4 @@ Room.create(
   name: "Logement"
 )
 
-p "✅ Participations created"
+p "✅ Rooms created"

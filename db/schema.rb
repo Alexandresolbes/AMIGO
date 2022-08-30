@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_110147) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_124240) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_110147) do
     t.bigint "activity_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "creator", default: false
     t.index ["activity_id"], name: "index_participations_on_activity_id"
     t.index ["user_id"], name: "index_participations_on_user_id"
   end
@@ -98,6 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_110147) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "trip_id", null: false
+    t.boolean "creator", default: false
     t.index ["trip_id"], name: "index_user_trips_on_trip_id"
     t.index ["user_id"], name: "index_user_trips_on_user_id"
   end

@@ -1,0 +1,15 @@
+<h3>Activities:</h3>
+      <ul>
+        <% @trip.activities.each do |activity| %>
+          <li><%= link_to activity.title, activity_path(activity) %></li>
+        <% end %>
+      </ul>
+    <h3>Participants:</h3>
+      <div class="row">
+      <% @trip.users.each do |user| %>
+        <div class="col-2">
+        <%= cl_image_tag user.photo.key, class:"avatar-md" %>
+        <%= user.first_name %>
+        </div>
+      <% end %>
+      </div>  

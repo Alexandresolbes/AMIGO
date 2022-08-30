@@ -8,6 +8,12 @@
 
 require "open-uri"
 
+UserTrip.destroy_all
+puts "User Trips destroyed"
+
+Participation.destroy_all
+puts "Participations destroyed"
+
 Activity.destroy_all
 puts "Activities destroyed"
 
@@ -15,7 +21,7 @@ Trip.destroy_all
 puts "Trips destroyed"
 
 User.destroy_all
-puts " Users destroyed"
+puts "Users destroyed"
 
 # ALL USERS
 
@@ -85,25 +91,26 @@ amigo_trip.save!
 p "Trip created"
 
 UserTrip.create(
-  trip_id: Trip.last,
+  trip_id: Trip.last.id,
   user_id: User.find_by_first_name('Alexandre').id
 )
 
 UserTrip.create(
-  trip_id: Trip.last,
+  trip_id: Trip.last.id,
   user_id: User.find_by_first_name('Lounes').id
 )
 
 UserTrip.create(
-  trip_id: Trip.last,
+  trip_id: Trip.last.id,
   user_id: User.find_by_first_name('Isabel').id
 )
 
 UserTrip.create(
-  trip_id: Trip.last,
+  trip_id: Trip.last.id,
   user_id: User.find_by_first_name('Laura').id
 )
 
+p "User Trips created"
 
 # ACTIVITIES
 
@@ -150,3 +157,44 @@ sumo_tournament.photo.attach(io: file_sumo_tournament, filename: "sumo_tournamen
 sumo_tournament.save!
 
 p "Activities created"
+
+Participation.create(
+  activity_id: bar.id,
+  user_id: User.find_by_first_name('Alexandre').id
+)
+
+Participation.create(
+  activity_id: bar.id,
+  user_id: User.find_by_first_name('Lounes').id
+)
+
+Participation.create(
+  activity_id: bar.id,
+  user_id: User.find_by_first_name('Isabel').id
+)
+
+Participation.create(
+  activity_id: bar.id,
+  user_id: User.find_by_first_name('Laura').id
+)
+Participation.create(
+  activity_id: museum.id,
+  user_id: User.find_by_first_name('Alexandre').id
+)
+
+Participation.create(
+  activity_id: museum.id,
+  user_id: User.find_by_first_name('Lounes').id
+)
+
+Participation.create(
+  activity_id: sumo_tournament.id,
+  user_id: User.find_by_first_name('Isabel').id
+)
+
+Participation.create(
+  activity_id: sumo_tournament.id,
+  user_id: User.find_by_first_name('Laura').id
+)
+
+p "Participations created"

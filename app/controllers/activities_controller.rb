@@ -33,10 +33,11 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.trip = @trip
-    @activity.user_id = current_user
     authorize @activity
     if @activity.save!
-      redirect_to @activity, notice: "Activity created !"
+      participation = Participation.new(user_id: current_user.id, activity_id: @activity.id, creator: true)
+      participation.save!
+      redirect_to trip_activities_path(trip_id: @trip.id), notice: "Activity created!"
     else
       render :new, status: :unprocessable_entity
     end

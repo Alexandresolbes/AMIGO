@@ -1,0 +1,5 @@
+<h1>Random Wheel</h1>
+
+<% @users.each do |user| %>
+<%= cl_image_tag user.photo.key, class:"avatar-md" %>
+<% end %>

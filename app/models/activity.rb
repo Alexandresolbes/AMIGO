@@ -1,5 +1,6 @@
 class Activity < ApplicationRecord
   belongs_to :trip
+  has_many :participations
   has_many :users, through: :participations
 
   has_one_attached :photo

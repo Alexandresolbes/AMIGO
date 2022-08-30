@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
   def index
     @activities = policy_scope(Activity)
     @activities = Activity.where(trip_id: params[:trip_id])
+    @trip = Trip.find(params[:trip_id])
     @markers = @activities.geocoded.map do |activity|
       {
       lat: activity.latitude,

@@ -1,10 +1,21 @@
-<h1>Chatroom</h1>
-<ul>
-<% @rooms.each do |room| %>
-    <%= room.name %>
-    <%= @trip.id %>
-  <% end %>
-</ul>
+<div class="text-center">
+  <h1>CHATROOM</h1>
+  <% @rooms.each do |room| %>
+      <span><%= link_to room.name, trip_room_path(@trip, room) %></span>
+    <% end %>
+</div>
 
-<%= render "rooms/room", room: @rooms.first  %>
+<div class="container chatroom" 
+  data-controller="chatroom-subscription"
+  data-chatroom-subscription-chatroom-id-value="<%= @rooms.first.id %>">
+
+    <h2>#<%= @rooms.first.name %></h2>
+    <div class="messages" data-chatroom-subscription-target="messages">
+      <% @rooms.first.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
+    <%= render "form", trip: @trip, room: @rooms.first %>
+  </div>
+
 

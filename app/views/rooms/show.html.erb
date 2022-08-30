@@ -1,7 +1,7 @@
 <div class="container chatroom" 
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @room.id %>">
-
+    <%= link_to "back", trip_rooms_path(@room.trip_id) %>
     <h1>#<%= @room.name %></h1>
 
     <div class="messages" data-chatroom-subscription-target="messages">

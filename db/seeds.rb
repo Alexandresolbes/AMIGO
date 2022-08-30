@@ -8,20 +8,26 @@
 
 require "open-uri"
 
+Message.destroy_all
+puts "✅ Messages destroyed"
+
+Room.destroy_all
+puts "✅ Rooms destroyed"
+
 UserTrip.destroy_all
-puts "User Trips destroyed"
+puts "✅ User Trips destroyed"
 
 Participation.destroy_all
-puts "Participations destroyed"
+puts "✅ Participations destroyed"
 
 Activity.destroy_all
-puts "Activities destroyed"
+puts "✅ Activities destroyed"
 
 Trip.destroy_all
-puts "Trips destroyed"
+puts "✅ Trips destroyed"
 
 User.destroy_all
-puts "Users destroyed"
+puts "✅ Users destroyed"
 
 # ALL USERS
 
@@ -36,7 +42,7 @@ password: "123456"
 
 lounes.photo.attach(io: file_lounes, filename: "lounes.jpg", content_type:"image/jpg")
 lounes.save!
-p "Lounes created"
+p "✅ Lounes created"
 
 file_isabel = URI.open("https://avatars.githubusercontent.com/u/61071369?v=4")
 
@@ -49,7 +55,7 @@ password: "123456"
 
 isabel.photo.attach(io: file_isabel, filename: "isabel.jpg", content_type:"image/jpg")
 isabel.save!
-p "Isabel created"
+p "✅ Isabel created"
 
 file_laura = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1655708276/flpuxxozbaolhgvsimuv.jpg")
 
@@ -62,7 +68,7 @@ password: "123456"
 
 laura.photo.attach(io: file_laura, filename: "laura.jpg", content_type:"image/jpg")
 laura.save!
-p "Laura created"
+p "✅ Laura created"
 
 file_alex = URI.open("https://avatars.githubusercontent.com/u/98179884?v=4")
 
@@ -75,7 +81,7 @@ password: "123456",
 
 alexandre.photo.attach(io: file_alex, filename: "alex.jpg", content_type:"image/jpg")
 alexandre.save!
-p "Alexandre created"
+p "✅ Alexandre created"
 
  #A TRIP
 
@@ -88,7 +94,7 @@ user_id: User.first.id,
 
 amigo_trip.save!
 
-p "Trip created"
+p "✅ Trip created"
 
 UserTrip.create(
   trip_id: Trip.last.id,
@@ -110,7 +116,7 @@ UserTrip.create(
   user_id: User.find_by_first_name('Laura').id
 )
 
-p "User Trips created"
+p "✅ User Trips created"
 
 # ACTIVITIES
 
@@ -118,7 +124,7 @@ file_bar = URI.open("https://media.timeout.com/images/103945922/750/422/image.jp
 
 bar = Activity.new(
 title:"Red bar",
-address: "4 Chome-5-9 Shibuya, Shibuya City, Tokyo",
+address: "4-5-9 Shibuya, Tokyo",
 categories: "Night life",
 description: "The Red Bar has a chic atmosphere inspired by the rich European past (crystal chandeliers and red fabrics), but unlike the exclusive clubs of Aoyama, the entrance is open to all and the drinks are surprisingly inexpensive (500 yen glass).",
 date: "Tue, 30 Aug 2022",
@@ -132,7 +138,7 @@ file_museum = URI.open("https://www.japan-guide.com/g18/3070_01.jpg")
 
 museum = Activity.new(
 title:"Edo Tokyo Museum",
-address: "1 Chome-4-1 Yokoami, Sumida City, Tokyo 130-0015, Japan",
+address: "1-4-1 Yokoami, Sumida-Ku, Tokyo",
 description: "The Edo-Tokyo Museum (Edo Tōkyō Hakubutsukan) is a historical museum located at 1-4-1 Yokoami, Sumida-Ku, Tokyo in the Ryogoku district. The museum opened in March 1993 to preserve Edo's cultural heritage",
 categories: "Cultural",
 date: "Wed, 31 Aug 2022",
@@ -146,7 +152,7 @@ file_sumo_tournament = URI.open("https://cdn.cheapoguides.com/wp-content/uploads
 
 sumo_tournament = Activity.new(
 title:"Sumo tournament",
-address: "1 Chome 3-28, Yokoami, Sumida-ku, Tokyo",
+address: "Ryogoku Kokugikan, Sumida-ku, Tokyo",
 description: "Each tournament lasts 15 days during which wrestlers compete in one bout per day except lower ranked wrestlers who compete in fewer bouts. All sumo wrestlers are classified in a ranking hierarchy (banzuke), which is updated after each tournament based on the wrestlers' performance.",
 categories: "Sports",
 date: "Thu, 01 Sep 2022",
@@ -156,7 +162,7 @@ trip_id: Trip.first.id
 sumo_tournament.photo.attach(io: file_sumo_tournament, filename: "sumo_tournament.jpg", content_type:"image/jpg")
 sumo_tournament.save!
 
-p "Activities created"
+p "✅ Activities created"
 
 Participation.create(
   activity_id: bar.id,
@@ -197,4 +203,4 @@ Participation.create(
   user_id: User.find_by_first_name('Laura').id
 )
 
-p "Participations created"
+p "✅ Participations created"

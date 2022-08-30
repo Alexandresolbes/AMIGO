@@ -27,7 +27,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.trip = @trip
-    @activity.user = current_user
+    @activity.user_id = current_user
     authorize @activity
     if @activity.save!
       redirect_to @activity, notice: "Activity created !"

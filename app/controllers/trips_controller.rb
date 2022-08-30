@@ -16,9 +16,11 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
-    @trip.user = current_user
+    @trip.user_id = current_user.id
     authorize @trip
     if @trip.save!
+      user_trip = UserTrip.new(user_id: current_user.id, trip_id: @trip.id, creator: true)
+      user_trip.save!
       redirect_to @trip, notice: "Trip created successfully."
     else
       render :new, status: :unprocessable_entity

@@ -5,11 +5,12 @@
 @import "navbar";
 @import "images";
 @import "chatroom";
+@import "address_autocomplete";
+
 
 body{
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
 }
 
 .bg-blue{

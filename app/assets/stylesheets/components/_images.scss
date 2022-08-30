@@ -3,3 +3,10 @@
   max-width: 450px;
   margin: 0 auto;
 }
+
+.avatar-md{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}

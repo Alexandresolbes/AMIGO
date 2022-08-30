@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+      <%= simple_form_for @trip do |f| %>
+        <%= f.input :destination %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit "Create a Trip" %>
+      <% end %>
+
+      <%= link_to 'Back', trip_path  %>
+    </div>
+  </div>
+</div>

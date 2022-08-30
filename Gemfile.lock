@@ -286,11 +286,7 @@ DEPENDENCIES
   cloudinary
   debug
   devise
-  
-  devise_invitable (~> 2.0.0)
-
   devise_invitable
-
   dotenv-rails
   font-awesome-sass (~> 6.1)
   geocoder

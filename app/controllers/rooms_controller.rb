@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @rooms = policy_scope(Room)
+    @message = Message.new
   end
 
   def show

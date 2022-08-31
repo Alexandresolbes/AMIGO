@@ -1,11 +1,12 @@
-<div class="bg-blue">
-  <div class="row align-items-center justify-content-center vh-100">
+<div class="bg-blue h-100">
+  <div class="row align-items-center justify-content-center m-0 h-100">
     <div class="col-12 d-flex flex-column align-items-center text-center">
+      <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1/development/logo-amigo_lxuzv7", height="100" id="logo">
+      <h1 class="text-light fs-2 fw-light">Moins d'organisation<br><span class="fw-bold"><strong><em>Plus de voyages</em></strong></span></h1>
       <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1/development/illustration-amigo_h7cj8x" id="illustration">
-    <div>
-      <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1/development/logo-amigo_lxuzv7", height="100">
-        <h1 class="text-light fs-2">Moins d'organisation<br>
-        <strong><em>Plus de voyages</em></strong></h1>
+      <div>
+        <%= link_to "Discover Amigo", new_user_session_path, class: "btn btn-blue" %>
+         <%= link_to "Sign in/up", new_user_session_path, class: "btn btn-second" %>
       </div>
     </div>
   </div>

@@ -2,9 +2,15 @@
 
 // For example:
 $red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
 $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
+$blue: #5271FF;
+$yellow: #F6C13D;
+$dark-grey: #333333;
+$gradient-blue: linear-gradient(180deg, rgba(68,187,254,1) 0%, rgba(30,120,254,1) 100%);
+$gradient-yellow: linear-gradient(180deg, rgba(255,207,83,1) 0%, rgba(255,153,0,1) 100%);
+$gradient-orange: linear-gradient(180deg, rgba(255,146,82,1) 0%, rgba(255,63,21,1) 100%);
+$gradient-green: linear-gradient(180deg, rgba(144,223,117,1) 0%, rgba(98,182,85,1) 100%);
+

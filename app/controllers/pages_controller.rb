@@ -11,4 +11,17 @@ class PagesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @users = @trip.users
   end
+
+  def invite
+  end
+
+  def send_invite
+    @user = current_user
+    @address = params[:address]
+    @trip = Trip.find(params[:trip_id])
+    @url = trip_path(@trip)
+
+    InvitationMailer.with(user: @user, address: @address, trip: @trip).invitation_email.deliver_now
+    redirect_to trip_path(@trip), notice: "Your invitation was sent."
+  end
 end

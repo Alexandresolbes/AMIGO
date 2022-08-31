@@ -12,6 +12,6 @@ class User < ApplicationRecord
   has_many :activities, through: :participations
   has_many :trips, through: :user_trips
   has_many :activities, through: :participations
-
+  has_many :notifications, dependent: :destroy
   has_one_attached :photo
 end

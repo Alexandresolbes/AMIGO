@@ -12,7 +12,7 @@ class ActivityPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == current_user
+    record.user == user
   end
 
   def destroy?

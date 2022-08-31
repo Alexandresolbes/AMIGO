@@ -31,6 +31,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    @user = current_user
     @activity = Activity.new(activity_params)
     @activity.trip = @trip
     authorize @activity

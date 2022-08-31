@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <%= simple_form_for [@trip, @activity] do |f| %>
+      <%= simple_form_for [trip, @activity] do |f| %>
         <%= f.input :title %>
         <%= f.input :categories %>
         <%= f.input :description %>

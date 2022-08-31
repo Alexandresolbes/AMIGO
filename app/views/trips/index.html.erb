@@ -2,3 +2,4 @@
 <% @trips.each do |user_trip|%>
   <h2><%= link_to user_trip.trip.destination, trip_path(user_trip.trip)%></h2>
 <% end %>
+<%= link_to "Create a trip", new_trip_path %>

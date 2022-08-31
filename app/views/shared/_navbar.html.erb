@@ -7,7 +7,7 @@
           <% end %>
         </li>
         <% if user_signed_in? %>
-          <% if @trip %>
+          <% if !@trip.nil? && !@trip.id.nil? %>
             <li class="nav-item d-inline-block">
               <%= link_to trip_rooms_path(@trip), class:"nav-link" do  %>
                 <i class="fa-solid fa-message"></i>
@@ -23,7 +23,7 @@
          <li class="nav-item  d-inline-block dropdown">
           <a class="nav-link" href="#" data-bs-toggle="dropdown"><i class="fa-solid fa-user-group"></i></a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <% if @trip %>
+            <% if !@trip.nil? && !@trip.id.nil? %>
               <%= link_to "Invite a friend", trip_invite_path(@trip), class: "dropdown-item" %>
             <% end %>
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>

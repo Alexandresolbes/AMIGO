@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_103209) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_31_112114) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,9 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_103209) do
     t.date "date"
     t.float "latitude"
     t.float "longitude"
-    t.bigint "user_id", null: false
     t.index ["trip_id"], name: "index_activities_on_trip_id"
-    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -137,7 +135,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_103209) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "activities", "trips"
-  add_foreign_key "activities", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "participations", "activities"

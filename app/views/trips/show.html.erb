@@ -4,6 +4,7 @@
 <p><%= @trip.users.count %> Amigos</p>
 <%= link_to "Activities",  trip_activities_path(@trip) %>
 
+
 <h3>Participants:</h3>
   <div class="row">
     <% @trip.users.each do |user| %>
@@ -12,4 +13,9 @@
         <%= user.first_name %>
       </div>
     <% end %>
-  </div>  
+  </div>
+
+  <% if  @trip.user_id == current_user.id %>
+    <%= link_to "Edit trip", edit_trip_path(@trip) %>
+    <%= link_to "Delete trip", trip_path(@trip), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'} %>
+  <% end %>

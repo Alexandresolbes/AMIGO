@@ -6,14 +6,14 @@ class MessagesController < ApplicationController
     @message.room = @room
     @message.user = current_user
     authorize @message
-    if @message.save
+    if @message.save!
       ChatroomChannel.broadcast_to(
         @room,
         render_to_string(partial: "message", locals: {message: @message})
       )
       head :ok
     else
-      render "rooms/show", status: :unprocessable_entity
+      render trip_rooms_path(@trip), status: :unprocessable_entity
     end
   end
 

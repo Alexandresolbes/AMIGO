@@ -1,0 +1,18 @@
+.btn-second, .btn-blue{
+  font-family: $poppins;
+  font-weight: 400;
+  border-radius: 30px;
+  padding: 8px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-second{
+  background-color: white;
+  color: $blue;
+}
+
+.btn-blue{
+  background-color: $blue;
+  color: white;
+  border: white solid 1px;
+}

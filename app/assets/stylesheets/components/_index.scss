@@ -6,17 +6,16 @@
 @import "images";
 @import "chatroom";
 @import "address_autocomplete";
-
+@import "buttons";
 
 body{
-  position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  
+  h1{
+    font-family: $poppins;
+  }
 }
 
 .bg-blue{
   background-color: $blue;
-}
-
-.full-h{
-  height: 100%;
 }

@@ -1,1 +1,6 @@
 <h1>Notifications</h1>
+<div>
+<% @notifications.each do |notif| %>
+  <p><%= cl_image_tag User.find(notif.user_id).photo.key, class: "avatar-md" %> <%= notif.content %> by <strong><%= User.find(notif.user_id).first_name %></strong></p>
+<% end %>
+</div>

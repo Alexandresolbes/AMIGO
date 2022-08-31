@@ -26,5 +26,7 @@ class PagesController < ApplicationController
   end
 
   def notifications
+    @notifications = Notification.all
+    @notification = Notification.new()
   end
 end

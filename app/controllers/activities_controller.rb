@@ -39,6 +39,7 @@ class ActivitiesController < ApplicationController
     if @activity.save!
       participation = Participation.new(user_id: current_user.id, activity_id: @activity.id, creator: true)
       participation.save!
+      create_notification("created", @activity)
       redirect_to trip_activities_path(trip_id: @trip.id), notice: "Activity created!"
     else
       render :new, status: :unprocessable_entity
@@ -52,6 +53,7 @@ class ActivitiesController < ApplicationController
   def update
     authorize @activity
     if @activity.update(activity_params)
+      create_notification("updated", @activity)
       redirect_to trip_activity_path, notice: "Activity updated successfully."
     else
       render :edit, status: :unprocessable_entity
@@ -77,6 +79,13 @@ class ActivitiesController < ApplicationController
   def set_trip
     @trip = Trip.find(params[:trip_id])
   end
-end
 
-# commentaire
+  def create_notification(action, target)
+    @user = current_user
+    @trip = Trip.find(params[:trip_id])
+    @notification = Notification.new(content: "#{target.title} was #{action}")
+    @notification.user_id = current_user.id
+    @notification.trip_id = @trip.id
+    @notification.save!
+  end
+end

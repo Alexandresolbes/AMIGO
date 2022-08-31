@@ -1,5 +1,5 @@
 class Trip < ApplicationRecord
-  validates :destination, presence: true, uniqueness: true
+  validates :destination, presence: true
 
   has_many :activities, dependent: :destroy
   has_many :user_trips, dependent: :destroy

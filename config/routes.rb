@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :trips do
     get "/random-wheel", to: "pages#random_wheel"
+    get "/invite", to: "pages#invite"
+    post "/invite", to: "pages#send_invite"
     resources :user_trips, only: [:create, :destroy]
     resources :activities, only: [:index, :new, :create] do
       resources :participations, only: [:create, :destroy]

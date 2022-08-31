@@ -1,0 +1,5 @@
+Your friend <%= @user.first_name %> has invited you to join their <%= @trip.destination %> trip.
+
+Click <%= link_to "here", trip_url(@trip.id)  %> to join them!
+
+If you have trouble accessing the link:  <%= "#{trip_url(@trip.id)}" %>

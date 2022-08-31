@@ -24,4 +24,7 @@ class PagesController < ApplicationController
     InvitationMailer.with(user: @user, address: @address, trip: @trip).invitation_email.deliver_now
     redirect_to trip_path(@trip), notice: "Your invitation was sent."
   end
+
+  def notifications
+  end
 end

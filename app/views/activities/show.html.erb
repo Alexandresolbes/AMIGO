@@ -1,11 +1,11 @@
 <h1><%= @activity.title %></h1>
 <% if  @activity.participations.find_by_user_id(current_user.id) && @activity.participations.find_by_user_id(current_user.id).creator == true %>
   <%= link_to "Edit activity", edit_trip_activity_path(@activity.trip_id, @activity) %>
-  <%= link_to "Delete activity", trip_activity_path(@activity.trip_id, @activity) %>
+  <%= link_to "Delete activity", trip_activity_path(@activity.trip_id, @activity), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'} %>
 <% end %>
 
 <%= link_to "Back", trip_activities_path(@activity.trip) %>
-      
+
 <div style="width: 50%; height: 300px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"

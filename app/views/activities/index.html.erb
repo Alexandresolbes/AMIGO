@@ -29,7 +29,7 @@
               <h5 class="card-title"><%= link_to activity.title, trip_activity_path(@trip, activity) %></h5>
               <p class="card-text"><%= activity.description %></p>
               <p class="card-text">
-                <% if activity.participations.count > activity.min_amigos %>
+                <% if activity.participations.count >= activity.min_amigos %>
                   <span>✅</span>
                 <% else %>
                   <span>🟥</span>
@@ -47,7 +47,7 @@
       </div>
     <% end %>
   </div>
-  
+
   <div class="tab-pane fade" id="create-tab-pane" role="tabpanel" aria-labelledby="create-tab" tabindex="0">
     <%= render 'form', trip: @trip %>
   </div>
@@ -61,11 +61,3 @@
   </div>
 
 </div>
-
-
-
-
-
-
-   
-

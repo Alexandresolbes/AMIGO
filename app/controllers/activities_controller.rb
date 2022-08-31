@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
 
-  before_action :set_trip, only: [:create, :new, :edit, :update]
+  before_action :set_trip, only: [:create, :new, :edit, :update, :destroy]
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -61,7 +61,7 @@ class ActivitiesController < ApplicationController
   def destroy
     authorize @activity
     @activity.destroy
-    redirect_to activities_path, status: :see_other
+    redirect_to trip_activities_path(@trip), status: :see_other
   end
 
   private

@@ -21,7 +21,7 @@ class TripsController < ApplicationController
     if @trip.save!
       user_trip = UserTrip.new(user_id: current_user.id, trip_id: @trip.id, creator: true)
       user_trip.save!
-      create_chats()
+      create_chats
       redirect_to @trip, notice: "Trip created successfully."
     else
       render :new, status: :unprocessable_entity
@@ -57,8 +57,7 @@ class TripsController < ApplicationController
     params.require(:trip).permit(:destination, :start_date, :end_date)
   end
 
-  def create_chats()
-    set_trip
+  def create_chats
     @room_general = Room.new(trip_id: @trip.id, name: "General")
     @room_activities = Room.new(trip_id: @trip.id, name: "Activities")
     @room_housing = Room.new(trip_id: @trip.id, name: "Housing")

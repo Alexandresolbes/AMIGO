@@ -45,9 +45,7 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
-    unless authorize @activity
-      redirect_to trips_path, notice: "You cannot edit this activity."
-    end
+    authorize @activity
   end
 
   def update

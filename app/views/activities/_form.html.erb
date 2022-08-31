@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col"></div>
+    <div class="col">
       <%= simple_form_for [@trip, @activity] do |f| %>
         <%= f.input :title %>
+        <%= f.input :category %>
+        <%= f.input :description %>
         <%= f.input :address,
         input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_URL"]}} %>
-        <%= f.input :description %>
-        <%= f.input :min_amigos %>
-        <%= f.input :max_amigos %>
+        <%= f.input :min_amigos, input_html: { min: 1, max: 10, step: 1, value: 1 } %>
+        <%= f.input :max_amigos, input_html: { min: 1, max: 10, step: 1, value: 1 } %>
         <%= f.input :date %>
-         <%= f.input :photos, as: :file %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit "Create an activity" %>
       <% end %>
-
       <%= link_to 'Back', trip_activities_path  %>
     </div>
   </div>

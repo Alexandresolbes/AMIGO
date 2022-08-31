@@ -1,13 +1,17 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.default_url_options = {
+    host: "http://localhost:3000",
+    protocol: 'http'
+    }
+  config.action_mailer.delivery_method = :smtp
   # Defaults to:
   # config.action_mailer.sendmail_settings = {
   #   location: '/usr/sbin/sendmail',
   #   arguments: '-i'
   # }
+
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 

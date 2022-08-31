@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
 
-  before_action :set_trip, only: [:create, :new]
+  before_action :set_trip, only: [:create, :new, :edit, :update]
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -44,11 +44,13 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
+    authorize @activity
   end
 
   def update
+    authorize @activity
     if @activity.update(activity_params)
-      redirect_to @activity, notice: "Activity updated successfully."
+      redirect_to trip_activity_path, notice: "Activity updated successfully."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -63,7 +65,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:categories, :address, :description, :min_amigos, :max_amigos, :title, :date)
+    params.require(:activity).permit(:categories, :address, :description, :min_amigos, :max_amigos, :title, :date, :photo)
   end
 
   def set_activity

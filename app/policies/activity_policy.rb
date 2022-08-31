@@ -8,15 +8,15 @@ class ActivityPolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    record.participations.where(creator: true).first.user_id == user.id
   end
 
   def update?
-    record.user == user
+    record.participations.where(creator: true).first.user_id == user.id
   end
 
   def destroy?
-    record.user == user
+    record.participations.where(creator: true).first.user_id == user.id
   end
 
   class Scope < Scope

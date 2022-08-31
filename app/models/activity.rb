@@ -1,6 +1,6 @@
 class Activity < ApplicationRecord
-  validates :title, :address, presence: true, uniqueness: true
-  validates :categories, :description, presence: true
+  validates :title, presence: true, uniqueness: true
+  validates :address, :categories, :description, presence: true
   validates :min_amigos, presence: true, numericality: { only_integer: true }, allow_blank: false
 
   belongs_to :trip

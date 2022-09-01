@@ -1,8 +1,13 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
+
   def index
     @trips = policy_scope(Trip)
     @trips = UserTrip.where(user_id: current_user.id)
+    if current_user.trips.count == 1
+      @trip = UserTrip.find_by_user_id(current_user.id).trip_id
+      redirect_to trip_path(@trip)    
+    end
   end
 
   def show

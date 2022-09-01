@@ -1,9 +1,27 @@
-<div class="bg-gradient-blue text-center text-light">
-<div class="container">
-<h1>My Trips</h1>
-<% @trips.each do |user_trip|%>
-  <h2><%= link_to user_trip.trip.destination, trip_path(user_trip.trip)%></h2>
-<% end %>
-<%= link_to "Create a trip", new_trip_path %>
+<div class="bg-gradient-blue-white text-light">
+  <div class="container py-5 px-3">
+    <div class="row justify-content-between">
+      <div class="col">
+        <h1>My Trips</h1>
+      </div>
+      <div class="col text-end">
+        <%= link_to "Create a trip", new_trip_path, class:"btn btn-second" %>
+      </div>
+    </div>
+    <% @trips.each do |user_trip|%>
+        <div class="my-4 p-4 bg-light text-center border-sm">
+          <h2 class="fs-3"><strong><%= link_to user_trip.trip.destination, trip_path(user_trip.trip), class:"text-decoration-none" %></strong></h2>
+          <p class="p-0 mb-2 text-dark">
+            ⌛<%= user_trip.trip.start_date.strftime("%d %b") %> - <%= user_trip.trip.end_date.strftime("%d %b %Y") %>
+          </p>
+          <div class="d-flex justify-content-center">
+            <h5 class="me-2"><span class="badge rounded-pill text-bg-primary text-light"><%= user_trip.trip.users.count %> Amigos</span></h5>
+            <h5><span class="badge rounded-pill text-bg-primary text-light"><%= user_trip.trip.activities.count %> Activities</span></h5>
+          </div>
+          <hr class="text-dark">
+          <%= link_to "Manage my trip", trip_path(user_trip.trip) %>
+        </div>
+    <% end %>
+  </div>
 </div>
-</div>
+

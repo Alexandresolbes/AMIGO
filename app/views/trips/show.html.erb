@@ -1,12 +1,13 @@
-<div class="bg-gradient-blue px-3">
-  <h1 class="fs-2 p-4 text-center text-light">Welcome, <%= current_user.first_name %> !</h1>
+<div class="bg-gradient-blue-white px-3">
+  <h1 class="fs-2 pt-4 pb-3 px-3 text-center text-light">Welcome, <%= current_user.first_name %> !</h1>
 
-  <div class="container bg-light px-2 py-4 rounded-4">
+  <div class="container bg-light px-2 pt-2 pb-4 rounded-4 trip-card position-relative mb-5">
     <div class="row">
-      <div class="col-5">
+      <div class="col-4">
         <div class="d-flex flex-column justify-content-center align-items-center" data-controller="weather">
-          <img src="" alt="Weather Icon" data-weather-target="img" height=60>
+          <img src="" alt="Weather Icon" data-weather-target="img" height=70 class="">
           <p class="fs-1" data-weather-target="temp"></p>
+          <!--
           <div class="col text-start trip-form">
           <% if @trip.user_trips.find_by_user_id(current_user.id) %>
             <%= button_to "🚪", trip_user_trip_path(user: current_user, trip_id: @trip.id, user_trip: @trip.user_trips.find_by_user_id(current_user.id)), method: :delete, class:"btn btn-outline-danger p-2 my-1 rounded-5 border-0 shadow" %>
@@ -19,39 +20,72 @@
             <%= link_to "❌", trip_path(@trip), class:"btn btn-outline-secondary p-2 my-1 rounded-5 border-0 shadow", data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'} %>
           <% end %>
         </div>
+        -->
         </div>
       </div>
-      <div class="col-7 d-flex flex-column justify-content-center">
+      <div class="col-8 d-flex flex-column justify-content-center">
         <h3><strong><%= @trip.destination %></strong></h3>
-        <p class="p-0 mb-2"><%= @trip.start_date.strftime("%A %d %b %Y") %><br><%= @trip.end_date.strftime("%A %d %b %Y") %></p>
-       <h5> <span class="badge text-bg-primary text-light"><%= @trip.users.count %> Amigos 🥳</span></h5>
+        <h6 class="mb-2"><%= @trip.start_date.strftime("%d %b") %> - <%= @trip.end_date.strftime("%d %b %Y") %>
+        </h6>
+        <div class="d-flex">
+          <h6 class="me-1 fw-bold d-block rounded-4 border border-secondary px-2 py-1"><i class="fa-solid fa-users text-secondary"></i> <%= @trip.users.count %></h6>
+          <h6 class="fw-bold d-block rounded-4 border border-secondary px-2 py-1"><i class="fa-solid fa-person-hiking text-secondary"></i> <%= @trip.activities.count %></h6>
+        </div>
       </div>
     </div>
-    
-    
-    <hr>
-    <div class="row my-2 d-flex justify-content-center">
+    <div class="row my-2 justify-content-center position-absolute trip-card-avatars">
       <% @trip.users.each do |user| %>
-        <div class="col text-center p-0 m-0">
-          <%= cl_image_tag user.photo.key, class:"avatar-sm" %>
+        <div class="col-2">
+        <%= cl_image_tag user.photo.key, class:"avatar-sm overflow-visible" %>
         </div>
       <% end %>
+        <div class="col-2">
+          <div class="avatar-sm d-flex align-items-center justify-content-center">
+            <p class="fs-1 p-0 m-0 text-blue">
+             <%= link_to trip_invite_path(@trip), class: "dropdown-item" do %>
+              <i class="fa-solid fa-plus"></i>
+            <% end %>
+            </p>
+          </div>
+        </div>
+        <div class="col-1">
+     </div>
     </div>
   </div>
 
-  <div class="container mt-4">
-    <div class="row d-flex justify-content-center align-items-center ">
-      <div class="col-6 text-center btn-activity d-flex justify-content-center align-items-center rounded-4">
-        <%= link_to trip_activities_path(@trip), class:"" do %>
-        <i class="fa-solid fa-person-hiking icon-size text-light"></i>
-        <p class="p-0 m-0 text-light">Activities</p>
-        <% end %>
+  <div class="container mt-5 pt-3">
+    <div class="row d-flex justify-content-center align-items-center text-center">
+      <div class="col-6 d-flex justify-content-center align-items-center ps-0">
+        <div class="btn-activity d-flex justify-content-center align-items-center rounded-4 my-2">
+          <%= link_to trip_activities_path(@trip) do %>
+          <i class="fa-solid fa-person-hiking icon-size text-light"></i>
+          <p class="mt-2 mb-0 text-light">Activities</p>
+          <% end %>
+        </div>
       </div>
-      <div class="col-6 text-center btn-random">
-        <%= link_to trip_random_wheel_path(@trip) do %>
-          <i class="fa-solid fa-dice icon-size"></i>
-          <p>Randomizer</p>
-        <% end %>
+      <div class="col-6 d-flex justify-content-center align-items-center pe-0">
+        <div class="btn-random d-flex justify-content-center align-items-center rounded-4 my-2">
+          <%= link_to trip_random_wheel_path(@trip) do %>
+            <i class="fa-solid fa-dice icon-size"></i>
+            <p class="mt-2 mb-0 text-light">Randomizer</p>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-6 d-flex justify-content-center align-items-center ps-0 mt-2">
+        <div class="btn-trip d-flex justify-content-center align-items-center rounded-4">
+          <%= link_to trip_random_wheel_path(@trip) do %>
+            <i class="fa-solid fa-plane-up icon-size"></i>
+            <p class="mt-2 mb-0 text-light">My trip</p>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-6 d-flex justify-content-center align-items-center pe-0 mt-2">
+        <div class="btn-bank d-flex justify-content-center align-items-center rounded-4">
+          <%= link_to trip_random_wheel_path(@trip) do %>
+            <i class="fa-solid fa-piggy-bank icon-size"></i>
+            <p class="mt-2 mb-0 text-light">Amigo Bank</p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

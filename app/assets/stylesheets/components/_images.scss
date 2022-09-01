@@ -7,16 +7,19 @@
 .avatar-sm, .avatar-md, .avatar-lg{
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
 }
 
 .avatar-sm{
-  height: 60px;
-  width: 60px;
+  height: 70px;
+  width: 70px;
+  background-color: white;
 }
 
 .avatar-md{
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
 }
 
 

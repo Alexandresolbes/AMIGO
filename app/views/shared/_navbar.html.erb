@@ -2,8 +2,14 @@
   <div class="container-fluid justify-content-center">
       <ul class="navbar-nav w-100 justify-content-between py-0">
         <li class="nav-item d-inline-block">
-          <%= link_to root_path, class: "nav-link" do %>
-            <i class="fa-solid fa-house"></i>
+          <% if @trip %>
+            <%= link_to trip_path(@trip), class: "nav-link" do %>
+              <i class="fa-solid fa-house"></i>
+            <% end %>
+          <% else %>
+            <%= link_to root_path, class: "nav-link" do %>
+              <i class="fa-solid fa-house"></i>
+            <% end %>
           <% end %>
         </li>
         <% if user_signed_in? %>

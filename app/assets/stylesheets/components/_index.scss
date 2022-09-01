@@ -8,28 +8,40 @@
 @import "address_autocomplete";
 @import "buttons";
 @import "forms";
+@import "cards";
 
 body{
   height: 100vh;
+  position: relative;
 
   h1{
     font-family: $poppins;
   }
 }
 
+.text-blue{
+  color: $blue;
+}
+
 .bg-blue{
   background-color: $blue;
 }
 
-a{
-  color:$blue;
-}
-
-.bg-gradient-blue {
+.bg-gradient-blue-white {
   background: linear-gradient(180deg, #0066FF 0%, #a2afed 30%, #FFFFFF 70.53%);
   height: 100%;
 }
 
 .icon-size{
-  font-size: 3rem;
+  font-size: 2rem;
+}
+
+.border-sm{
+  border-radius: 10px;
+}
+
+.text-bg-yellow{
+  color: white;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.383);
+  background-color: $yellow;
 }

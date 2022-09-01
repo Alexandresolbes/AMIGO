@@ -5,7 +5,7 @@ class ParticipationsController < ApplicationController
     @participation.user = current_user
     @participation.activity_id = params[:activity_id]
     if @participation.save!
-      create_notification("joined")
+      create_notification("joined", @participation.activity)
       redirect_to trip_activity_path(trip_id: params[:trip_id], id: params[:activity_id])
     else
       render :new, status: :unprocessable_entity

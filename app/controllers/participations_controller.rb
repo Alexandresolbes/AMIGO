@@ -23,7 +23,7 @@ class ParticipationsController < ApplicationController
   def create_notification(action)
     @user = current_user
     @trip = Trip.find(params[:trip_id])
-    @notification = Notification.new(content: "#{@trip.destination} trip was #{action}")
+    @notification = Notification.new(content: "#{@trip.destination} was #{action}")
     @notification.user_id = current_user.id
     @notification.trip_id = @trip.id
     @notification.save!

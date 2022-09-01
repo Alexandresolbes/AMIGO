@@ -2,20 +2,28 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="random-wheel"
 export default class extends Controller {
-  static targets = ["wheel", "photo"]
+  static targets = ["carousel", "wheel", "users", "result", "restart", "randomize"]
 
   connect() {
+    console.log("Connecté")
   }
 
   spin(event){
-    event.preventDefault();
-    this.wheelTarget.classList.add("d-none");
-    for (this.photoCounter = this.photoTargets.length - 1; this.photoCounter < 0; this.photoCounter--) {
-      setTimeout(hide(this.photoCounter), 3000);
-    }
+    event.preventDefault()
+    this.wheelTarget.classList.add("d-none")
+    this.carouselTarget.classList.remove("d-none")
+    setTimeout(() => this.#hide(), 5000);
   }
 
-  hide(i){
-    this.photoTargets[i].classList.add("d-none");
+  restart(){
+    document.reload()
+  }
+
+  #hide() {
+    console.log("hide func")
+    this.carouselTarget.classList.add("d-none")
+    this.resultTarget.classList.remove("d-none")
+    this.randomizeTarget.classList.add("d-none")
+    this.restartTarget.classList.remove("d-none")
   }
 }

@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   def random_wheel
     @trip = Trip.find(params[:trip_id])
     @users = @trip.users
+    @user = @users.sample
   end
 
   def invite

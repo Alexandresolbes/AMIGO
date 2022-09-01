@@ -1,5 +1,9 @@
 <h1>Welcome, <%= current_user.first_name %> !</h1>
 <h3><%= @trip.destination %></h3>
+ <div data-controller="weather">
+    <img src="" alt="Weather Icon" data-weather-target="img">
+    <h2 data-weather-target="temp"></h2>
+  </div>
 <p><%= @trip.start_date %> - <%= @trip.end_date %></p>
 <p><%= @trip.users.count %> Amigos</p>
 <%= link_to "Activities",  trip_activities_path(@trip) %>
@@ -19,37 +23,3 @@
     <%= link_to "Edit trip", edit_trip_path(@trip) %>
     <%= link_to "Delete trip", trip_path(@trip), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'} %>
   <% end %>
-
-
-<div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-8" data-controller="weather">
-        <form class="d-flex my-5" data-action="submit->weather#getCity">
-          <input type="text" placeholder="Enter city" class="form-control flex-grow-1" data-weather-target="inputCity">
-          <a href="" class="position"><i class="bi bi-geo-alt"></i></a>
-          <input type="submit" value="Get the weather" class="btn btn-primary ms-3">
-        </form>
-        <div class="card mt-4 mb-5">
-          <div class="card-body">
-            <h1>Weather in <span data-weather-target="displayCity">
-                <!-- TODO: CITY NAME -->
-              </span></h1>
-            <h3 class="text-secondary" data-weather-target="date">
-              <!-- TODO: DATE -->
-            </h3>
-            <div>
-              <p data-weather-target="desc">
-                <!-- TODO: DESCRIPTION -->
-              </p>
-              <div class="d-flex">
-                <img src="" alt="Weather Icon" data-weather-target="img">
-                <h2 data-weather-target="temp">
-                  <!-- TODO: TEMPERATURE -->
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>

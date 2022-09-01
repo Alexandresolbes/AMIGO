@@ -26,6 +26,7 @@ class PagesController < ApplicationController
   end
 
   def notifications
+    @trip = Trip.find(params[:trip_id])
     @notifications = Notification.where(["user_id != ?", current_user.id])
     @notification = Notification.new()
   end

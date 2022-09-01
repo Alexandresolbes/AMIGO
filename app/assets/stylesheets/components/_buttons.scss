@@ -16,3 +16,16 @@
   color: white;
   border: white solid 1px;
 }
+
+.btn-second:hover{
+  font-weight: 400;
+  color: white;
+  border: white solid 1px;
+}
+
+.btn-blue:hover{
+  background-color: $yellow;
+  color: $blue;
+  font-weight: 400;
+  border: transparent solid 1px;
+}

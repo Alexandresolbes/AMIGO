@@ -11,12 +11,19 @@ export default class extends Controller {
   spin(event){
     event.preventDefault()
     this.wheelTarget.classList.add("d-none")
+    this.randomizeTarget.classList.add("d-none")
     this.carouselTarget.classList.remove("d-none")
     setTimeout(() => this.#hide(), 5000);
   }
 
-  restart(){
-    document.reload()
+  restart(event){
+    event.preventDefault()
+    this.resultTarget.classList.add("d-none")
+    this.restartTarget.classList.add("d-none")
+    this.wheelTarget.classList.remove("d-none")
+    this.randomizeTarget.classList.remove("d-none")
+    this.spin()
+
   }
 
   #hide() {

@@ -23,7 +23,6 @@ export default class extends Controller {
     this.wheelTarget.classList.remove("d-none")
     this.randomizeTarget.classList.remove("d-none")
     this.spin()
-
   }
 
   #hide() {

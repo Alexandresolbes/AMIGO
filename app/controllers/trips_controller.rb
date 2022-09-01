@@ -35,6 +35,7 @@ class TripsController < ApplicationController
   def update
     authorize @trip
     if @trip.update(trip_params)
+      create_notification("updated")
       redirect_to @trip, notice: "Trip updated successfully."
     else
       render :edit, status: :unprocessable_entity
@@ -64,5 +65,14 @@ class TripsController < ApplicationController
     @room_general.save!
     @room_activities.save!
     @room_housing.save!
+  end
+
+  def create_notification(action)
+    @user = current_user
+    @trip = Trip.find(params[:id])
+    @notification = Notification.new(content: "#{@trip.destination} trip was #{action}")
+    @notification.user_id = current_user.id
+    @notification.trip_id = @trip.id
+    @notification.save!
   end
 end

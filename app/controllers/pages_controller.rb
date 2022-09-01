@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   end
 
   def notifications
-    @notifications = Notification.all
+    @notifications = Notification.where(["user_id != ?", current_user.id])
     @notification = Notification.new()
   end
 end

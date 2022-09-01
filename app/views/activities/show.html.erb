@@ -3,6 +3,11 @@
   <%= link_to "Edit activity", edit_trip_activity_path(@activity.trip_id, @activity) %>
   <%= link_to "Delete activity", trip_activity_path(@activity.trip_id, @activity), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'} %>
 <% end %>
+<% if  @activity.participations.find_by_user_id(current_user.id) %>
+<%= button_to "No longer participate", trip_activity_participation_path(user: current_user, activity_id: @activity.id, participation: @activity.participations.find_by_user_id(current_user.id)), method: :delete %>
+<% else %>
+<%= button_to "Participate in this activity", trip_activity_participations_path(current_user, @activity), method: :post %>
+<% end %>
 
 <%= link_to "Back", trip_activities_path(@activity.trip) %>
 

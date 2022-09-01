@@ -16,5 +16,7 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import RandomWheelController from "./random_wheel_controller"
+
 import WeatherController from "./weather_controller"
 application.register("weather", WeatherController)

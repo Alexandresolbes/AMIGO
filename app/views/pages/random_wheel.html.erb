@@ -1,7 +1,34 @@
-<h1>Random Wheel</h1>
+<div class="container text-center" data-controller="random-wheel">
+  <div class="row h-100 justify-content-center">
+    <div class="col-8">
 
-<div class="container">
-  <% @users.each do |user| %>
-    <%= cl_image_tag user.photo.key, class:"avatar-md" %>
-  <% end %>
+     <img src="https://essendonvolkswagen.com.au/images/content/2021/may/spinningwheel2.gif" class="d-block w-100 mb-5" data-random-wheel-target="wheel">
+
+      <div id="carouselExampleInterval" class="carousel slide d-none" data-bs-ride="carousel" data-random-wheel-target="carousel">
+        <div class="carousel-inner" data-random-wheel-target="users">
+          <% @users.each do |user| %>
+          <% if user.id == User.first.id  %>
+            <div class="carousel-item active" data-bs-interval="1">
+          <% else %>
+            <div class="carousel-item" data-bs-interval="1">
+          <% end %>
+              <%= cl_image_tag user.photo.key, class:"avatar-lg p-1 d-block" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="d-none my-5" id="result" data-random-wheel-target="result">
+        <%= cl_image_tag @user.photo.key, class:"avatar-lg" %>
+        <h1>🥳🥳🥳🥳<%= @user.first_name %>, paye ton verre !</h1>
+      </div>
+
+      <%= link_to "Randomize", "/", class:"btn btn-blue", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>
+
+      <%= link_to "Recommencer", trip_random_wheel_path(@trip), class:"btn btn-blue d-none", data: {random_wheel_target: "restart"} %>
+
+    </div>
+  </div>
 </div>
+
+

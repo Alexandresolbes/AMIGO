@@ -4,7 +4,7 @@
   margin: 0 auto;
 }
 
-.avatar-sm, .avatar-md{
+.avatar-sm, .avatar-md, .avatar-lg{
   border-radius: 50%;
   object-fit: cover;
 }
@@ -17,6 +17,16 @@
 .avatar-md{
   height: 100px;
   width: 100px;
+}
+
+
+.avatar-lg{
+  height: 200px;
+  width: 200px;
+}
+
+.top-25{
+  top: 25%;
 }
 
 @media (min-width: 576px) { 

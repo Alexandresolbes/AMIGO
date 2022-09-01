@@ -23,7 +23,7 @@
         <h1>🥳🥳🥳🥳<%= @user.first_name %>, paye ton verre !</h1>
       </div>
 
-      <%= link_to "Randomize", "/", class:"btn btn-blue", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>
+      <%= link_to "Randomize", trip_random_wheel_path(@trip), class:"btn btn-blue", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>
 
       <%= link_to "Recommencer", trip_random_wheel_path(@trip), class:"btn btn-blue d-none", data: {random_wheel_target: "restart"} %>
 

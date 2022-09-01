@@ -1,3 +1,11 @@
+.navbar-expand{
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .nav-link, .navbar-brand{
   color: $dark-grey;
   font-size: 1.6em;

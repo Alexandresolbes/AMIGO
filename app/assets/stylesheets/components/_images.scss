@@ -1,12 +1,26 @@
 #illustration{
-  min-width: 300px;
-  max-width: 450px;
+  min-width: 200px;
+  max-width: 90%;
   margin: 0 auto;
+}
+
+.avatar-sm, .avatar-md{
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-sm{
+  height: 60px;
+  width: 60px;
 }
 
 .avatar-md{
   height: 100px;
   width: 100px;
-  border-radius: 50%;
-  object-fit: cover;
+}
+
+@media (min-width: 576px) { 
+  #illustration{
+    max-width: 400px;
+  }
 }

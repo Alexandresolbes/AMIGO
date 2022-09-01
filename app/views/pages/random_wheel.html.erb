@@ -1,7 +1,15 @@
-<h1>Random Wheel</h1>
-
-<div class="container">
-  <% @users.each do |user| %>
-    <%= cl_image_tag user.photo.key, class:"avatar-md" %>
-  <% end %>
+<div class="container h-50 text-center" data-controller="random-wheel">
+  <h1>Random Wheel</h1>
+  <div class="row h-100 position-relative">
+    <div class="col-12">
+      <% @users.each do |user| %>
+        <%= cl_image_tag user.photo.key, class:"avatar-lg p-1  position-absolute start-50 translate-middle top-25", data: {random_wheel_target: "photo"} %>
+      <% end %>
+      <img src="https://thumbs.gfycat.com/DishonestValuableDunnart-size_restricted.gif" class="avatar-lg position-absolute start-50 translate-middle top-25" data-random-wheel-target="wheel">
+    </div>
+    <div class="col-12 mt-5">
+      <%= link_to "Randomize", trip_random_wheel_path(@trip), class:"btn btn-primary", data: {action: "click->random-wheel#spin"} %>
+    </div>
+  </div>
 </div>
+

@@ -25,7 +25,7 @@
 
       <%= link_to "Randomize", trip_random_wheel_path(@trip), class:"btn btn-blue", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>
 
-      <%= link_to "Recommencer", trip_random_wheel_path(@trip), class:"btn btn-blue d-none", data: {random_wheel_target: "restart"} %>
+      <%= link_to "Recommencer", trip_random_wheel_path(@trip), class:"btn btn-blue d-none", data: {random_wheel_target: "restart", action:"click->random-wheel#restart"} %>
 
     </div>
   </div>

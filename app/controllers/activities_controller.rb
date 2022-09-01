@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
 
-  before_action :set_trip, only: [:create, :new, :edit, :update, :destroy]
+  before_action :set_trip, only: [:create, :show, :new, :edit, :update, :destroy]
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -4,8 +4,8 @@ class ParticipationsController < ApplicationController
     @participation.user = current_user
     @participation.activity_id = params[:activity_id]
     if @participation.save!
-      create_notification("joined")
-      redirect_to trip_activity_path(trip_id: params[:trip_id], activity_id: params[:activity_id])
+      create_notification("joined", @participation.activity)
+      redirect_to trip_activity_path(trip_id: params[:trip_id], activity_id: params[:trip_id])
     else
       render :new, status: :unprocessable_entity
     end
@@ -20,10 +20,10 @@ class ParticipationsController < ApplicationController
 
   private
 
-  def create_notification(action)
+  def create_notification(action, target)
     @user = current_user
-    @trip = Trip.find(params[:trip_id])
-    @notification = Notification.new(content: "#{@trip.destination} was #{action}")
+    @trip = Trip.find(target.trip_id)
+    @notification = Notification.new(content: "#{target.title} was #{action}")
     @notification.user_id = current_user.id
     @notification.trip_id = @trip.id
     @notification.save!

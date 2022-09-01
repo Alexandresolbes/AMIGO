@@ -18,7 +18,11 @@
       </div>
     <% end %>
   </div>
-
+  <% if  @trip.user_trips.find_by_user_id(current_user.id) %>
+    <%= button_to "No longer participate", trip_user_trip_path(user: current_user, trip_id: @trip.id, user_trip: @trip.user_trips.find_by_user_id(current_user.id)), method: :delete %>
+  <% else %>
+  <%= button_to "Participate in this trip", trip_user_trips_path(user: current_user, trip_id: @trip.id), method: :post %>
+  <% end %>
   <% if  @trip.user_id == current_user.id %>
     <%= link_to "Edit trip", edit_trip_path(@trip) %>
     <%= link_to "Delete trip", trip_path(@trip), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'} %>

@@ -15,7 +15,7 @@ export default class extends Controller {
   fetchCity(){
     this.apiKey = "8fb2d6628d33c7f495dbd77884e26a45";
     this.city = "Tokyo"
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${this.city}&limit=1&appid=${this.apiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${this.city}&limit=1&appid=${this.apiKey}`)
     .then(response => response.json())
     .then((data => {
       this.fetchWeather(data[0].lat, data[0].lon, this.apiKey);

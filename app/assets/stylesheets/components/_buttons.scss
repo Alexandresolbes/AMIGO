@@ -1,3 +1,5 @@
+$gradient-orange: linear-gradient(180deg, rgba(255,146,82,1) 0%, rgba(255,63,21,1) 100%);
+
 .btn-second, .btn-blue{
   font-family: $poppins;
   font-weight: 400;
@@ -28,4 +30,15 @@
   color: $blue;
   font-weight: 400;
   border: transparent solid 1px;
+}
+
+.btn-activity{
+  height: 100px;
+  width: 100px;
+  background: rgba(255,146,82,1);
+  background: linear-gradient(180deg, rgba(255,146,82,1) 0%, rgba(255,63,21,1) 100%);
+  a{
+    color: white;
+    text-decoration: none;
+  }
 }

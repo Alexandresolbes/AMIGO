@@ -11,6 +11,14 @@ class Activity < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  def creator
+    @users = User.all
+    @creator = @users.select do |user|
+      self.participations.find_by_user_id(user.id) && self.participations.find_by_user_id(user.id).creator == true
+    end
+    return @creator.first
+  end
+
   def creator?(user)
     return true if self.participations.find_by_user_id(user.id) && self.participations.find_by_user_id(user.id).creator == true
   end

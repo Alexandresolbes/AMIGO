@@ -2,6 +2,16 @@
   bottom: -50px;
 }
 
+.activity-show-card{
+  height: 90px;
+
+  .activity-show-card--img{
+    height: 90px;
+    width: 90px;
+    object-fit: cover;
+  }
+}
+
 @media (min-width: 576px) { 
   .trip-card{
     max-width: 50%;

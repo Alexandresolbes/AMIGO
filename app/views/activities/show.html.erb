@@ -1,17 +1,61 @@
-<h1><%= @activity.title %></h1>
-<% if  @activity.creator?(current_user) %>
-  <%= link_to "Edit activity", edit_trip_activity_path(@activity.trip_id, @activity) %>
-  <%= link_to "Delete activity", trip_activity_path(@activity.trip_id, @activity), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'} %>
-<% elsif @activity.participates?(current_user) %>
-  <%= button_to "No longer participate", trip_activity_participation_path(user: current_user, activity_id: @activity.id, participation: @activity.participations.find_by_user_id(current_user.id)), method: :delete %>
-<% else %>
-  <%= button_to "Participate in this activity", trip_activity_participations_path(current_user, @activity), method: :post %>
-<% end %>
+<div class="container h-100 px-3 mb-5">
+  <h1 class="mt-4 mb-2 fw-bold"><%= @activity.title %></h1>
+  <div class="row activity-show-card">
+    <div class="col-3">
+      <%= cl_image_tag @activity.photo.key, class:"activity-show-card--img rounded-4" %>
+    </div>
+    <div class="col-9 ps-4">
+      <h3 class="fs-4 fw-bold m-0"><%= @activity.categories %></h3>
+      <p class="mb-1">Proposed by <%= @activity.creator.first_name %></p>
+      <p class="card-text d-inline-block fw-bold m-0 rounded-4 border border-secondary px-3 py-1 bg-light"><i class="fa-solid fa-users"></i>
+      <% if @activity.participations.count >= @activity.min_amigos %>
+        <span class="text-success">
+        <%= @activity.participations.count %>
+        </span>/<%= @activity.min_amigos %>
+      <% else %>
+        <span class="text-danger">
+        <%= @activity.participations.count %></span>
+        /<%= @activity.min_amigos %>
+      <% end %>                 
+      </p>
+    </div>
+  </div>
+  <div class="row my-3 justify-content-between">
+    <h5><strong>Amigos participants</strong></h5>
+      <% @trip.users.each do |user| %>
+        <div class="col">
+         <%= cl_image_tag user.photo.key, class:"avatar-sm overflow-visible" %>
+        </div>
+      <% end %>
+  </div>
+  <div class="row">
+    <h5><strong>Description</strong></h5>
+     <div class="col-12">
+      <p class=" text-wrap text-break"><%= @activity.description %></p>
+     </div>
+  </div>
+  <div class="row">
+    <div class="col d-flex mt-2 mb-4">
+      <% if  @activity.creator?(current_user) %>
+        <%= link_to "Edit", edit_trip_activity_path(@activity.trip_id, @activity), class:"btn btn-outline-secondary me-1" %>
+        <%= link_to "Delete", trip_activity_path(@activity.trip_id, @activity), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'}, class:"btn btn-outline-danger me-1" %>
+      <% elsif @activity.participates?(current_user) %>
+        <%= button_to "Quit activity", trip_activity_participation_path(user: current_user, activity_id: @activity.id, participation: @activity.participations.find_by_user_id(current_user.id)), method: :delete, class:"btn btn-outline-danger me-1"  %>
+      <% else %>
+        <%= button_to "Participate", trip_activity_participations_path(current_user, @activity), method: :post, class:"btn btn-outline-success me-1"  %>
+      <% end %>
 
-<%= link_to "Back", trip_activities_path(@activity.trip) %>
-
-<div style="width: 50%; height: 300px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_URL'] %>">
+      <%= link_to "Back", trip_activities_path(@activity.trip), class:"btn text-blue"  %>
+    </div>
+  </div>
+  
+  <div class="row mb-5">
+    <div class="col-12" height='400'>
+      <div style="width: 100%; height: 300px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_URL'] %>">
+      </div>
+    </div>
+  </div>
 </div>

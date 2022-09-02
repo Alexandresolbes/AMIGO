@@ -6,6 +6,9 @@
   right: 0;
 }
 
+.dropdown-menu[data-bs-popper] {
+  top: -125px;
+}
 .nav-link, .navbar-brand{
   color: $dark-grey;
   font-size: 1.6em;
@@ -51,7 +54,5 @@
   .nav-link{
     font-size: 1rem;
     border-radius: 10px;
-  }
-  .nav-item{
   }
 }

@@ -1,63 +1,71 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="all-activities-tab" data-bs-toggle="tab" data-bs-target="#all-activities-tab-pane" type="button" role="tab" aria-controls="all-activities-tab-pane" aria-selected="true">All activities</button>
-  </li>
+<div class="container">
+  <div class="nav nav-tabs tabs-activity mx-2 my-4 rounded-5 p-0 row justify-content-between" id="myTab" role="tablist">
+    <div class="col-4 nav-item" role="presentation">
+      <button class="nav-link active" id="all-activities-tab" data-bs-toggle="tab" data-bs-target="#all-activities-tab-pane" type="button" role="tab" aria-controls="all-activities-tab-pane" aria-selected="true"><i class="fa-solid fa-list"></i></button>
+    </div>
 
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="create-tab" data-bs-toggle="tab" data-bs-target="#create-tab-pane" type="button" role="tab" aria-controls="create-tab-pane" aria-selected="false">Create activity</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="map-tab" data-bs-toggle="tab" data-bs-target="#map-tab-pane" type="button" role="tab" aria-controls="map-tab-pane" aria-selected="false">Map of activities</button>
-  </li>
-</ul>
+    <div class="col-4 nav-item" role="presentation">
+      <button class="nav-link" id="create-tab" data-bs-toggle="tab" data-bs-target="#create-tab-pane" type="button" role="tab" aria-controls="create-tab-pane" aria-selected="false"><i class="fa-solid fa-pen-to-square"></i></button>
+    </div>
 
-<div class="tab-content" id="myTabContent">
+    <div class="col-4 nav-item" role="presentation">
+      <button class="nav-link" id="map-tab" data-bs-toggle="tab" data-bs-target="#map-tab-pane" type="button" role="tab" aria-controls="map-tab-pane" aria-selected="false"><i class="fa-solid fa-map-location-dot"></i></button>
+    </div>
+  </div>
 
-  <div class="tab-pane fade show active" id="all-activities-tab-pane" role="tabpanel" aria-labelledby="all-activities-tab" tabindex="0">
-    <% @activities.each do |activity| %>
-      <div class="card mb-3" style="max-width: 100%;">
-        <div class="row g-0">
-          <div class="col-md-4">
-          <% if activity.photo.key != nil %>
-            <%= cl_image_tag activity.photo.key, class:"img-fluid rounded-start" %>
-          <% else  %>
-            <%= image_tag "https://source.unsplash.com/random",  class:"img-fluid rounded-start" %>
-          <% end %>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title"><%= link_to activity.title, trip_activity_path(@trip, activity) %></h5>
-              <p class="card-text"><%= activity.description %></p>
-              <p class="card-text">
-                <% if activity.participations.count >= activity.min_amigos %>
-                  <span>✅</span>
-                <% else %>
-                  <span>🟥</span>
-                <% end %>
-                <%= activity.participations.count %>/<%= activity.min_amigos %> Amigos
-              </p>
-              <div>
-                <% activity.users.each do |user| %>
-                  <%= cl_image_tag user.photo.key, class:"avatar-md" %>
-                <% end %>
+  <div class="tab-content" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="all-activities-tab-pane" role="tabpanel" aria-labelledby="all-activities-tab" tabindex="0">
+
+      <% @activities.each do |activity| %>
+        <div class="card mb-3 mx-2 rounded-4" style="max-width: 100%;">
+          <div class="row g-0">
+            <div class="col-4">
+              <% if activity.photo.key != nil %>
+                <%= cl_image_tag activity.photo.key, class:"img-fluid rounded-4 rounded-end obj-fit activity-img" %>
+              <% else %>
+                <%= image_tag "https://source.unsplash.com/random",  class:"img-fluid rounded-start" %>
+              <% end %>
+            </div>
+            <div class="col-8 position-relative">
+              <div class="card-body">
+                <h5 class="card-title p-0 m-0 fw-bold"><%= link_to activity.title, trip_activity_path(@trip, activity), class:"text-decoration-none" %></h5>
+                <p class="card-title p-0 m-0 fw-bold"><i class="fa-solid fa-bullseye"></i> <%= activity.categories.capitalize %></p>
+                <p class="card-text p-0 m-0"><i class="fa-solid fa-users"></i>
+                  <% if activity.participations.count >= activity.min_amigos %>
+                    <span class="text-success"><%= activity.participations.count %></span>/<%= activity.min_amigos %>
+                  <% else %>
+                    <span class="text-danger"><%= activity.participations.count %></span>/<%= activity.min_amigos %>
+                  <% end %>  
+                  <%= link_to trip_activity_path(@trip, activity), class:"btn btn-eye rounded-5 shadow position-absolute" do %>
+                    <i class="fa-solid fa-eye text-blue"></i>
+                  <% end %>                
+                </p>
+                <div class="row justify-content-start mt-2">
+                  <% activity.participations.each do |participation| %>
+                    <div class="col-2">
+                    <%= cl_image_tag User.find(participation.user_id).photo.key, class:"avatar-xs overflow-visible" %>
+                    </div>
+                  <% end %>
+                </div>
+                
               </div>
             </div>
           </div>
         </div>
+      <% end %>
+    </div>
+
+    <div class="tab-pane fade" id="create-tab-pane" role="tabpanel" aria-labelledby="create-tab" tabindex="0">
+      <%= render 'form', trip: @trip %>
+    </div>
+
+    <div class="tab-pane fade h-100" id="map-tab-pane" role="tabpanel" aria-labelledby="map-tab" tabindex="0">
+      <div style="width: 100%; height: 100vh;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_URL'] %>">
       </div>
-    <% end %>
-  </div>
-
-  <div class="tab-pane fade" id="create-tab-pane" role="tabpanel" aria-labelledby="create-tab" tabindex="0">
-    <%= render 'form', trip: @trip %>
-  </div>
-
-  <div class="tab-pane fade" id="map-tab-pane" role="tabpanel" aria-labelledby="map-tab" tabindex="0">
-    <div style="width: 100%; height: 300px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_URL'] %>">
     </div>
   </div>
-
 </div>

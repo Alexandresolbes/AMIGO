@@ -12,9 +12,12 @@
         <%= f.input :max_amigos, input_html: { min: 1, max: 10, step: 1 } %>
         <%= f.input :date %>
         <%= f.input :photo, as: :file %>
-        <%= f.submit "Create an activity" %>
+        <div class="text-center">
+          <%= f.submit "Create an activity", class:"btn btn-blue my-2" %>
       <% end %>
-      <%= link_to 'Back', trip_activities_path  %>
+      <br>
+      <%= link_to 'Back', trip_activities_path, class:"btn text-blue" %>
+        </div>
     </div>
   </div>
 </div>

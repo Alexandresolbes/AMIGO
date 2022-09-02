@@ -3,8 +3,8 @@
   <div class="col">
       <ul class="nav nav-chatroom nav-pills rounded-4 mt-3" id="pills-tab" role="tablist">
         <% @rooms.each do |room| %>
-          <li class="nav-item <% if room.name == "General" %>active<% end %>" role="presentation">
-            <button class="nav-link <% if room.name == "General" %>active<% end %>" id="pills-<%= room.name.capitalize %>-tab" data-bs-toggle="pill" data-bs-target="#pills-<%= room.name.capitalize %>" type="button" role="tab" aria-controls="pills-<%= room.name.downcase %>" aria-selected="true"><%= room.name.capitalize %></button>
+          <li class="nav-item <% if room.name.capitalize == "General" %>active<% end %>" role="presentation">
+            <button class="nav-link <% if room.name.capitalize == "General" %>active<% end %>" id="pills-<%= room.name.downcase %>-tab" data-bs-toggle="pill" data-bs-target="#pills-<%= room.name.downcase %>" type="button" role="tab" aria-controls="pills-<%= room.name.downcase %>" aria-selected="true"><%= room.name.downcase %></button>
           </li>
         <% end %>
       </ul>

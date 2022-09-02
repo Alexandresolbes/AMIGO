@@ -1,8 +1,8 @@
-<div class="container text-center" data-controller="random-wheel">
-  <div class="row h-100 justify-content-center">
-    <div class="col-8">
-
-     <img src="https://essendonvolkswagen.com.au/images/content/2021/may/spinningwheel2.gif" class="d-block w-100 mb-5" data-random-wheel-target="wheel">
+<div class="container h-100 text-center d-flex flex-column align-items-center justify-content-center bg-gradient-blue-white" data-controller="random-wheel">
+  <h1 data-random-wheel-target="intro" class="text-white p-3 shadow fs-2 rounded-4"> Pick randomly an amigo !</h1>
+  <div class="row justify-content-center align-items-center mt-2">
+    <div class="col-12 text-center">
+     <img src="https://i02.appmifile.com/images/2019/09/10/b3788a8e-24d2-41b3-91c4-131968dab219.gif" class="d-block mb-3" data-random-wheel-target="wheel">
 
       <div id="carouselExampleInterval" class="carousel slide d-none" data-bs-ride="carousel" data-random-wheel-target="carousel">
         <div class="carousel-inner" data-random-wheel-target="users">
@@ -18,9 +18,10 @@
         </div>
       </div>
 
-      <div class="d-none my-5" id="result" data-random-wheel-target="result">
+      <div class="d-none my-3" id="result" data-random-wheel-target="result">
         <%= cl_image_tag @user.photo.key, class:"avatar-lg" %>
-        <h1>🥳🥳🥳🥳<%= @user.first_name %>, paye ton verre !</h1>
+        <h2 class="mt-2 m-0">🥳🥳🥳<br><%= @user.first_name %></h2>
+        <p>will spend money tonight ! 💸</p>
       </div>
 
       <%= link_to "Randomize", trip_random_wheel_path(@trip), class:"btn btn-blue", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>

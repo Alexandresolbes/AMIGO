@@ -10,4 +10,12 @@ class Activity < ApplicationRecord
   has_one_attached :photo
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def creator?(user)
+    return true if self.participations.find_by_user_id(user.id) && self.participations.find_by_user_id(user.id).creator == true
+  end
+
+  def participates?(user)
+    return true if self.participations.find_by_user_id(user.id)
+  end
 end

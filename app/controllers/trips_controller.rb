@@ -53,6 +53,11 @@ class TripsController < ApplicationController
     redirect_to trips_path, status: :see_other
   end
 
+  def board
+    @trip = Trip.find(params[:trip_id])
+    authorize @trip
+  end
+
   private
 
   def set_trip

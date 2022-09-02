@@ -65,7 +65,7 @@
       </div>
       <div class="col-6 d-flex justify-content-center align-items-center pe-0">
         <div class="btn-random d-flex justify-content-center align-items-center rounded-4 my-2">
-          <%= link_to trip_random_wheel_path(@trip) do %>
+          <%= link_to trip_random_wheel_path(@trip), data: {turbo: false} do %>
             <i class="fa-solid fa-dice icon-size"></i>
             <p class="mt-2 mb-0 text-light">Randomizer</p>
           <% end %>
@@ -73,7 +73,7 @@
       </div>
       <div class="col-6 d-flex justify-content-center align-items-center ps-0 mt-2">
         <div class="btn-trip d-flex justify-content-center align-items-center rounded-4">
-          <%= link_to edit_trip_path(@trip) do %>
+          <%= link_to trip_board_path(@trip) do %>
             <i class="fa-solid fa-plane-up icon-size"></i>
             <p class="mt-2 mb-0 text-light">My trip(soon)</p>
           <% end %>

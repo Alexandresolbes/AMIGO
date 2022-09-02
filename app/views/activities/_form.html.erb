@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container vh-100">
   <div class="row">
-    <div class="col">
+    <div class="col-12">
       <%= simple_form_for [trip, @activity] do |f| %>
         <%= f.input :title %>
         <%= f.input :categories %>
@@ -14,10 +14,12 @@
         <%= f.input :photo, as: :file %>
         <div class="text-center">
           <%= f.submit "Create an activity", class:"btn btn-blue my-2" %>
+        </div>
       <% end %>
       <br>
-      <%= link_to 'Back', trip_activities_path, class:"btn text-blue" %>
-        </div>
-    </div>
+      <div class="text-center">
+        <%= link_to 'Back', trip_activities_path, class:"btn text-blue" %>
+      </div>
+      </div>
   </div>
-</div>
+</div>       

@@ -11,7 +11,7 @@
   </div>
 </div>
 <% else %>
-  <div class="row" id="message-<%= message.id %>">
+  <div class="row my-2" id="message-<%= message.id %>">
   <div class="col-2">
     <%= cl_image_tag message.user.photo.key, width: 50, height:50, radius: :max %>
   </div>

@@ -16,15 +16,15 @@
         <span class="text-danger">
         <%= @activity.participations.count %></span>
         /<%= @activity.min_amigos %>
-      <% end %>                 
+      <% end %>
       </p>
     </div>
   </div>
   <div class="row my-3 justify-content-between">
     <h5><strong>Amigos participants</strong></h5>
-      <% @trip.users.each do |user| %>
+      <% @activity.participations.each do |participation| %>
         <div class="col">
-         <%= cl_image_tag user.photo.key, class:"avatar-sm overflow-visible" %>
+         <%= cl_image_tag participation.user.photo.key, class:"avatar-sm overflow-visible" %>
         </div>
       <% end %>
   </div>
@@ -48,7 +48,7 @@
       <%= link_to "Back", trip_activities_path(@activity.trip), class:"btn text-blue"  %>
     </div>
   </div>
-  
+
   <div class="row mb-5">
     <div class="col-12" height='400'>
       <div style="width: 100%; height: 300px;"

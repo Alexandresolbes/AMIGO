@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="random-wheel"
 export default class extends Controller {
-  static targets = ["carousel", "wheel", "users", "result", "restart", "randomize"]
+  static targets = ["carousel", "wheel", "users", "result", "restart", "randomize", "intro"]
 
   connect() {
     console.log("Connecté")
@@ -10,6 +10,7 @@ export default class extends Controller {
 
   spin(event){
     event.preventDefault()
+    this.introTarget.classList.add("d-none")
     this.wheelTarget.classList.add("d-none")
     this.randomizeTarget.classList.add("d-none")
     this.carouselTarget.classList.remove("d-none")
@@ -18,6 +19,8 @@ export default class extends Controller {
 
   restart(event){
     event.preventDefault()
+    
+    this.introTarget.classList.remove("d-none")
     this.resultTarget.classList.add("d-none")
     this.restartTarget.classList.add("d-none")
     this.wheelTarget.classList.remove("d-none")

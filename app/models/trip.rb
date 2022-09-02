@@ -6,4 +6,12 @@ class Trip < ApplicationRecord
   has_many :users, through: :user_trips
   has_many :notifications, dependent: :destroy
   has_many :rooms, dependent: :destroy
+
+  def creator?(user)
+    return true if self.user_trips.find_by_user_id(user.id) && self.user_trips.find_by_user_id(user.id).creator == true
+  end
+
+  def participates?(user)
+    return true if self.user_trips.find_by_user_id(user.id)
+  end
 end

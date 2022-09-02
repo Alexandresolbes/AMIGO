@@ -28,8 +28,8 @@
         <h6 class="mb-2"><%= @trip.start_date.strftime("%d %b") %> - <%= @trip.end_date.strftime("%d %b %Y") %>
         </h6>
         <div class="d-flex">
-          <h6 class="me-1 fw-bold d-block rounded-4 border border-secondary px-2 py-1"><i class="fa-solid fa-users text-secondary"></i> <%= @trip.users.count %></h6>
-          <h6 class="fw-bold d-block rounded-4 border border-secondary px-2 py-1"><i class="fa-solid fa-person-hiking text-secondary"></i> <%= @trip.activities.count %></h6>
+          <h6 class="me-1 fw-bold d-block rounded-4 border border-secondary px-2 py-1"><i class="fa-solid fa-users text-blue"></i> <%= @trip.users.count %></h6>
+          <h6 class="fw-bold d-block rounded-4 border border-secondary px-2 py-1"><i class="fa-solid fa-person-hiking text-yellow"></i> <%= @trip.activities.count %> activities</h6>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@
     </div>
   </div>
 
-  <div class="container mt-5 pt-3">
+  <div class="container mt-5 pt-3 trip-buttons-box">
     <div class="row d-flex justify-content-center align-items-center text-center">
       <div class="col-6 d-flex justify-content-center align-items-center ps-0">
         <div class="btn-activity d-flex justify-content-center align-items-center rounded-4 my-2">

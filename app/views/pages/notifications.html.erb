@@ -1,6 +1,15 @@
-<h1>Notifications</h1>
-<div>
+<div class="container h-100">
+<h1 class="mb-3 mt-5 border-bottom text-center">Notifications 👩‍💻📧</h1>
 <% @notifications.each do |notif| %>
-  <p><%= cl_image_tag User.find(notif.user_id).photo.key, class: "avatar-md" %> <%= notif.content %> by <strong><%= User.find(notif.user_id).first_name %></strong></p>
+<div class="container card-notifications p-1 my-3 shadow rounded-4">
+<div class="row p-1 justify-content-center align-items-center">
+  <div class="col-2">
+  <%= cl_image_tag User.find(notif.user_id).photo.key,class: "avatar-xs" %>
+  </div>
+    <div class="col-10 d-flex align-items-center">
+   <p class="m-0 py-2"> <%= notif.content %> by <strong><%= User.find(notif.user_id).first_name %></strong></p>
+    </div>
+  </div>
+</div>
 <% end %>
 </div>

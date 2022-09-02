@@ -2,7 +2,7 @@
     html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
       <%= f.input :content,
         label: false,
-        placeholder: "Message #{@rooms.first.name}",
+        placeholder: "Message #{room.name}",
         wrapper_html: {class: "flex-grow-1"}
       %>
     <%= f.submit "Send", class: "btn btn-primary text-light mb-3 rounded-end" %>

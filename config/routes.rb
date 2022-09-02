@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get "/invite", to: "pages#invite"
     post "/invite", to: "pages#send_invite"
     get "/notifications", to: "pages#notifications"
+    get "/board", to: "trips#board"
     resources :user_trips, only: [:create, :destroy]
     resources :activities, only: [:index, :new, :create] do
       resources :participations, only: [:create, :destroy]

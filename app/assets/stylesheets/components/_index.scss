@@ -60,6 +60,11 @@ body{
   height: 100%;
 }
 
+.bg-transparent{
+  background: rgba(255, 255, 255, 0.8);
+  background: linear-gradient(180deg, #ffffffb4 0%, #ffffffb4 100%);
+}
+
 .icon-size{
   font-size: 2rem;
 }

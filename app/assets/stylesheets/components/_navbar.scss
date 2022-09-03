@@ -16,7 +16,7 @@
 
 .nav-link, .navbar-brand{
   color: $dark-grey;
-  font-size: 1.6em;
+  font-size: 1.4em;
   border-color: transparent;
 }
 
@@ -47,6 +47,8 @@
   .active{
     background: rgba(255,146,82,1);
     background: $gradient-yellow;
+    margin: 0;
+    border-radius: 15px 0 0 15px;
     i{
       color: white;
     }
@@ -57,7 +59,7 @@
   }
 
   #all-activities-tab{
-    border-radius: 30px 0 0 30px;
+    border-radius: 10px;
   }
 }
 

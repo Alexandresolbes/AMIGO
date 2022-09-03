@@ -64,6 +64,43 @@
 }
 
 /*****************************************************/
+// Navbar Trip with tabs
+/*****************************************************/
+
+.tabs-trip{
+  background: rgba(144,223,117,1);
+  background: $gradient-green;
+  box-shadow: 0px 10px 20px rgba(144,223,117,0.3);
+
+  .nav-link{
+    font-size: 1rem;
+    border:0;
+    display: block;
+    width: 100%;
+    font-size: 1.4rem;
+    color: white;
+  }
+
+  .active{
+    background: rgba(144,223,117,1);
+    background: $gradient-green;
+    margin: 0;
+    border-radius: 15px 0 0 15px;
+    i{
+      color: white;
+    }
+  }
+  
+  .nav{
+    padding: 10px;
+  }
+
+  #trip-users-tab{
+    border-radius: 10px;
+  }
+}
+
+/*****************************************************/
 // Navbar Chatroom with Tabs
 /*****************************************************/
 

@@ -1,5 +1,6 @@
 <div class="container px-3 mb-5  min-h-100">
   <h1 class="mt-4 mb-2 fw-bold"><%= @activity.title %></h1>
+
   <div class="row activity-show-card">
     <div class="col-3">
       <%= cl_image_tag @activity.photo.key, class:"activity-show-card--img rounded-4" %>
@@ -20,20 +21,23 @@
       </p>
     </div>
   </div>
-  <div class="row my-3 justify-content-between">
+
+  <div class="row my-3 justify-content-start">
     <h5><strong>Amigos participants</strong></h5>
       <% @activity.participations.each do |participation| %>
-        <div class="col">
-         <%= cl_image_tag participation.user.photo.key, class:"avatar-sm overflow-visible" %>
+        <div class="col-2">
+          <%= cl_image_tag participation.user.photo.key, class:"avatar-sm" %>
         </div>
       <% end %>
   </div>
+
   <div class="row">
     <h5><strong>Description</strong></h5>
      <div class="col-12">
       <p class=" text-wrap text-break"><%= @activity.description %></p>
      </div>
   </div>
+
   <div class="row">
     <div class="col d-flex mt-2 mb-4">
       <% if  @activity.creator?(current_user) %>
@@ -42,7 +46,7 @@
       <% elsif @activity.participates?(current_user) %>
         <%= button_to "Quit activity", trip_activity_participation_path(user: current_user, activity_id: @activity.id, participation: @activity.participations.find_by_user_id(current_user.id)), method: :delete, class:"btn btn-outline-danger me-1"  %>
       <% else %>
-        <%= button_to "Participate", trip_activity_participations_path(current_user, @activity), method: :post, class:"btn btn-outline-success me-1"  %>
+        <%= button_to "Participate", trip_activity_participations_path(current_user, @activity), method: :post, class:"btn btn-success text-light me-1"  %>
       <% end %>
 
       <%= link_to "Back", trip_activities_path(@activity.trip), class:"btn text-blue"  %>

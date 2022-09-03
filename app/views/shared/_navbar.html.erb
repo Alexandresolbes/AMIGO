@@ -1,14 +1,14 @@
-<nav class="navbar navbar-expand bg-light">
+<nav class="navbar navbar-expand bg-light px-3">
   <div class="container-fluid justify-content-center">
       <ul class="navbar-nav w-100 justify-content-between py-0">
         <li class="nav-item d-inline-block">
           <% if @trip %>
             <%= link_to trip_path(@trip), class: "nav-link" do %>
-              <i class="fa-solid fa-house"></i>
+              <%= image_tag("icons/home-icon.svg", height: '32', width: '32') %>
             <% end %>
           <% else %>
             <%= link_to root_path, class: "nav-link" do %>
-              <i class="fa-solid fa-house"></i>
+              <%= image_tag("icons/home-icon.svg", height: '32', width: '32') %>
             <% end %>
           <% end %>
         </li>
@@ -16,18 +16,20 @@
           <% if !@trip.nil? && !@trip.id.nil? %>
             <li class="nav-item d-inline-block">
               <%= link_to trip_rooms_path(@trip), class:"nav-link" do  %>
-                <i class="fa-solid fa-message"></i>
+                  <%= image_tag("icons/chat-icon.svg", height: '36', width: 'auto') %>
               <% end %>
             </li>
             <li class="nav-item d-inline-block">
               <%= link_to trip_notifications_path(@trip), class:"nav-link" do  %>
-                <i class="fa-solid fa-bell"></i>
+                <%= image_tag("icons/notification-icon.svg", height: '32', width: 'auto') %>
               <% end %>
             </li>
           <% end %>
 
          <li class="nav-item  d-inline-block dropdown">
-          <a class="nav-link" href="#" data-bs-toggle="dropdown"><i class="fa-solid fa-user-group"></i></a>
+          <a class="nav-link" href="#" data-bs-toggle="dropdown">
+            <%= image_tag("icons/user-icon.svg", height: '40', width: 'auto') %>
+          </a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <% if !@trip.nil? && !@trip.id.nil? %>
               <%= link_to "Invite a friend", trip_invite_path(@trip), class: "dropdown-item" %>

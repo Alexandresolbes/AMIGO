@@ -1,50 +1,16 @@
-.btn-second, .btn-blue, .btn-activity, .btn-random, .btn-trip, .btn-bank{
-  font-family: $poppins;
+.btn-activity, .btn-random, .btn-trip, .btn-bank{
   font-weight: 500;
   border-radius: 10px;
-}
-
-.btn-second, .btn-blue{
-  padding: 8px 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn-second{
-  background-color: white;
-  color: $blue;
-}
-
-.btn-blue{
-  background-color: $blue;
-  color: white;
-  border: white solid 1px;
-}
-
-.btn-second:hover{
-  font-weight: 400;
-  color: white;
-  border: white solid 1px;
-}
-
-.btn-blue:hover{
-  background-color: $yellow;
-  color: $blue;
-  font-weight: 400;
-  border: transparent solid 1px;
 }
 
 .btn-activity, .btn-random, .btn-trip, .btn-bank{
   height: 110px;
   width: 100%;
-  outline: 8px solid rgba(255, 255, 255, 0.538);
-  outline-offset: -8px;
-
   a{
     color: white;
     text-decoration: none;
     text-shadow: 2px 2px solid rgba(0, 0, 0, 0.178);
   }
-
 }
 
 .btn-activity{
@@ -86,8 +52,4 @@
   .trip-buttons-box{
     max-width: 50%;
   }
-}
-
-.btn-outline-danger:hover{
-  color:white!important;
 }

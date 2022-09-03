@@ -1,5 +1,5 @@
 <div class="container  min-h-100">
-  <div class="nav nav-tabs tabs-activity mx-2 my-4 rounded-5 p-0 row justify-content-between" id="myTab" role="tablist">
+  <div class="nav nav-tabs tabs-activity mx-2 my-4 rounded-4 p-0 row justify-content-between" id="myTab" role="tablist">
     <div class="col-4 nav-item" role="presentation">
       <button class="nav-link active" id="all-activities-tab" data-bs-toggle="tab" data-bs-target="#all-activities-tab-pane" type="button" role="tab" aria-controls="all-activities-tab-pane" aria-selected="true"><i class="fa-solid fa-list"></i></button>
     </div>
@@ -29,9 +29,9 @@
             </div>
             <div class="col-8 position-relative">
               <div class="card-body">
-                <h5 class="card-title p-0 m-0 fw-bold"><%= link_to activity.title, trip_activity_path(@trip, activity), class:"text-decoration-none" %></h5>
-                <p class="card-title p-0 m-0 fw-bold"><i class="fa-solid fa-bullseye"></i> <%= activity.categories.capitalize %></p>
-                <p class="card-text p-0 m-0"><i class="fa-solid fa-users"></i>
+                <h6 class="card-title p-0 m-0 fw-bold"><%= link_to activity.title, trip_activity_path(@trip, activity), class:"text-decoration-none" %></h6>
+                <p class="card-title p-0 m-0 fw-normal fs-6"><%= activity.categories %></p>
+                <p class="card-text p-0 m-0">🧑🏻‍🤝‍🧑🏽
                   <% if activity.participations.count >= activity.min_amigos %>
                     <span class="text-success"><%= activity.participations.count %></span>/<%= activity.min_amigos %>
                   <% else %>

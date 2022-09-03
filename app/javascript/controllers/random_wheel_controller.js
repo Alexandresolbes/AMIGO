@@ -19,13 +19,12 @@ export default class extends Controller {
 
   restart(event){
     event.preventDefault()
-    
+    location.reload()
     this.introTarget.classList.remove("d-none")
     this.resultTarget.classList.add("d-none")
     this.restartTarget.classList.add("d-none")
     this.wheelTarget.classList.remove("d-none")
     this.randomizeTarget.classList.remove("d-none")
-    this.spin()
   }
 
   #hide() {

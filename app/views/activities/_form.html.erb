@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-12">
+    <div class="col-12 px-3">
       <%= simple_form_for [trip, @activity] do |f| %>
         <%= f.input :title %>
-        <%= f.input :categories %>
+        <%= f.input :categories, collection: %w[🍺Bar 🚴🏼‍♀️Sport 🎟️Show 🧘🏼‍♂️Health 🥳Nightclub 🍽️Restaurant 🍵CoffeeShop 🎨Cultural 🏔️Nature ] %>
         <%= f.input :description %>
         <%= f.input :address,
         input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},

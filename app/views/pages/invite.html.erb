@@ -1,17 +1,19 @@
-<h1>Invite a friend to join you in your trip</h1>
-
-<div class="container">
-  <div class="row">
-    <div class="col"></div>
-      <%= form_with url: trip_invite_path, method: :post, class: "d-flex" do %>
-        <%= text_field_tag :address,
-          params[:address],
-          class: "form-control",
-          placeholder: "Invite a friend"
-        %>
-        <%= submit_tag "Invite", class: "btn btn-primary" %>
-      <% end %>
-      <%= link_to 'Back', trips_path  %>
+<div class="container h-100">
+  <div class="container mt-5">
+    <div class="row centered-box">
+      
+      <h1 class="text-center">Invite an Amigo<br>to join you in your Trip 🌺</h1>
+      <div class="col">
+        <%= form_with url: trip_invite_path, method: :post, class: "d-flex" do %>
+          <%= text_field_tag :address,
+            params[:address],
+            class: "form-control",
+            placeholder: "Invite a friend"
+          %>
+          <%= submit_tag "Invite", class: "btn btn-primary" %>
+        <% end %>
+        <%= link_to 'Back', trips_path  %>
+      </div>
     </div>
   </div>
 </div>

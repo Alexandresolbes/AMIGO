@@ -4,7 +4,7 @@
   <div class="container bg-light px-2 pt-2 pb-4 rounded-4 trip-card position-relative mb-5">
     <div class="row">
       <div class="col-4">
-        <div class="d-flex flex-column justify-content-center align-items-center" data-controller="weather">
+        <div class="centered-box flex-column" data-controller="weather">
           <img src="" alt="Weather Icon" data-weather-target="img" height=70 class="">
           <p class="fs-1" data-weather-target="temp"></p>
           <!--
@@ -23,7 +23,7 @@
         -->
         </div>
       </div>
-      <div class="col-8 d-flex flex-column justify-content-center">
+      <div class="col-8 centered-box flex-column ">
         <h3><strong><%= @trip.destination %></strong></h3>
         <h6 class="mb-2"><%= @trip.start_date.strftime("%d %b") %> - <%= @trip.end_date.strftime("%d %b %Y") %>
         </h6>
@@ -40,22 +40,22 @@
         </div>
       <% end %>
         <div class="col-2">
-          <div class="avatar-sm d-flex align-items-center justify-content-center">
+          <div class="avatar-sm centered-box">
             <p class="fs-1 p-0 m-0 text-blue">
              <%= link_to trip_invite_path(@trip), class: "dropdown-item" do %>
               <i class="fa-solid fa-plus"></i>
             <% end %>
             </p>
           </div>
-        </div>
+         </div>
         <div class="col-1">
-     </div>
-    </div>
+        </div>
+      </div>
   </div>
 
   <div class="container mt-5 pt-3 trip-buttons-box">
-    <div class="row d-flex justify-content-center align-items-center text-center">
-      <div class="col-6 d-flex justify-content-center align-items-center ps-0">
+    <div class="row centered-box text-center">
+      <div class="col-6 centered-box ps-0">
         <div class="btn-activity d-flex justify-content-center align-items-center rounded-4 my-2">
           <%= link_to trip_activities_path(@trip) do %>
           <i class="fa-solid fa-person-hiking icon-size text-light"></i>
@@ -63,24 +63,24 @@
           <% end %>
         </div>
       </div>
-      <div class="col-6 d-flex justify-content-center align-items-center pe-0">
-        <div class="btn-random d-flex justify-content-center align-items-center rounded-4 my-2">
+      <div class="col-6 centered-box pe-0">
+        <div class="btn-random centered-box rounded-4 my-2">
           <%= link_to trip_random_wheel_path(@trip), data: {turbo: false} do %>
             <i class="fa-solid fa-dice icon-size"></i>
             <p class="mt-2 mb-0 text-light">Randomizer</p>
           <% end %>
         </div>
       </div>
-      <div class="col-6 d-flex justify-content-center align-items-center ps-0 mt-2">
-        <div class="btn-trip d-flex justify-content-center align-items-center rounded-4">
+      <div class="col-6 centered-box ps-0 mt-2">
+        <div class="btn-trip centered-box rounded-4">
           <%= link_to trip_board_path(@trip) do %>
             <i class="fa-solid fa-plane-up icon-size"></i>
             <p class="mt-2 mb-0 text-light">My trip(soon)</p>
           <% end %>
         </div>
       </div>
-      <div class="col-6 d-flex justify-content-center align-items-center pe-0 mt-2">
-        <div class="btn-bank d-flex justify-content-center align-items-center rounded-4">
+      <div class="col-6 centered-box pe-0 mt-2">
+        <div class="btn-bank centered-box rounded-4">
           <%= link_to trip_random_wheel_path(@trip) do %>
             <i class="fa-solid fa-piggy-bank icon-size"></i>
             <p class="mt-2 mb-0 text-light">AmiBank(Soon)</p>

@@ -1,8 +1,8 @@
-<div class="container">
-  <h1 class="mb-3 mt-3 pb-3 border-bottom text-center">Notifications 👩‍💻📧</h1>
+<div class="container h-100">
+  <h1 class="mb-3 mt-4 pb-3 text-center">Notifications 👩‍💻📧</h1>
   <% @notifications.each do |notif| %>
-  <div class="container card-notifications p-1 my-3 shadow rounded-4">
-    <div class="row p-1 justify-content-center align-items-center">
+  <div class="container card-notifications p-1 my-3 shadow rounded-4 bg-white">
+    <div class="row p-1 centered-box">
       <div class="col-2">
         <%= cl_image_tag User.find(notif.user_id).photo.key,class: "avatar-xs" %>
       </div>

@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @users = @trip.users
     @user = @users.sample
+    create_notification(@user)
   end
 
   def invite
@@ -30,5 +31,15 @@ class PagesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @notifications = Notification.where(["user_id != ?", current_user.id])
     @notification = Notification.new()
+  end
+
+  private
+
+  def create_notification(wheel_choice)
+    @trip = Trip.find(params[:trip_id])
+    @notification = Notification.new(content: "#{wheel_choice.first_name} was chosen by the wheel 😋")
+    @notification.user_id = wheel_choice.id
+    @notification.trip_id = @trip.id
+    @notification.save!
   end
 end

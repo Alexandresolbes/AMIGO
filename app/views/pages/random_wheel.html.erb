@@ -4,15 +4,15 @@
     <div class="col-12 text-center">
      <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662218327/fortune-wheel_bwei0a.png" class="fortune-wheel mb-3" data-random-wheel-target="wheel">
 
-      <div id="carouselExampleInterval" class="carousel slide d-none" data-bs-ride="carousel" data-random-wheel-target="carousel">
+      <div id="carouselExampleInterval" class="carousel slide d-none mb-5" data-bs-ride="carousel" data-random-wheel-target="carousel">
         <div class="carousel-inner" data-random-wheel-target="users">
           <% @users.each do |user| %>
           <% if user.id == User.first.id  %>
-            <div class="carousel-item active" data-bs-interval="1">
+            <div class="carousel-item active" data-bs-interval="100">
           <% else %>
-            <div class="carousel-item" data-bs-interval="1">
+            <div class="carousel-item" data-bs-interval="100">
           <% end %>
-              <%= cl_image_tag user.photo.key, class:"avatar-lg d-block" %>
+              <%= cl_image_tag user.photo.key, class:"avatar-lg" %>
             </div>
           <% end %>
         </div>

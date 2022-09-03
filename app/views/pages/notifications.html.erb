@@ -7,7 +7,7 @@
         <%= cl_image_tag User.find(notif.user_id).photo.key,class: "avatar-xs" %>
       </div>
       <div class="col-10 d-flex align-items-center">
-        <p class="m-0 py-2"> <%= notif.content %> by <strong><%= User.find(notif.user_id).first_name %></strong></p>
+        <p class="m-0 py-2"><%= notif.content %></p>
       </div>
     </div>
   </div>

@@ -23,13 +23,13 @@
         -->
         </div>
       </div>
-      <div class="col-8 centered-box flex-column ">
+      <div class="col-8 d-flex justify-content-center flex-column ">
         <h3><strong><%= @trip.destination %></strong></h3>
         <h6 class="mb-2"><%= @trip.start_date.strftime("%d %b") %> - <%= @trip.end_date.strftime("%d %b %Y") %>
         </h6>
         <div class="d-flex">
-          <h6 class="me-1 fw-bold d-block rounded-4 border border-secondary px-2 py-1"><i class="fa-solid fa-users text-blue"></i> <%= @trip.users.count %></h6>
-          <h6 class="fw-bold d-block rounded-4 border border-secondary px-2 py-1"><i class="fa-solid fa-person-hiking text-yellow"></i> <%= @trip.activities.count %> activities</h6>
+          <h5 class="me-1 fw-bold d-block rounded-4 border border-secondary px-3 py-1"><i class="fa-solid fa-users text-blue"></i> <%= @trip.users.count %></h5>
+          <h5 class="fw-bold d-block rounded-4 border border-secondary px-3 py-1"><i class="fa-solid fa-person-hiking text-yellow"></i> <%= @trip.activities.count %></h5>
         </div>
       </div>
     </div>

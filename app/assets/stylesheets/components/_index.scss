@@ -6,7 +6,8 @@
 @import "images";
 @import "chatroom";
 @import "address_autocomplete";
-@import "buttons";
+@import "buttons_cta";
+@import "buttons_amigos";
 @import "forms";
 @import "cards";
 @import "map";
@@ -19,7 +20,7 @@ html {
 body{
   height: 100%;
   position: relative;
-  font-family: $poppins;
+  color: $gray;
 }
 
 .centered-box{

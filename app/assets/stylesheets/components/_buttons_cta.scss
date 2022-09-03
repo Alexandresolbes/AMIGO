@@ -1,0 +1,35 @@
+.btn-second, .btn-blue{
+  font-weight: 500;
+  border-radius: 10px;
+}
+
+.btn-second, .btn-blue{
+  padding: 8px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-blue, .btn-second:hover, .btn-outline-danger:hover{
+  color: white;
+}
+
+.btn-second, .btn-blue:hover{
+  color: $blue;
+}
+
+.btn-second{
+  background-color: white;
+}
+
+.btn-blue{
+  background-color: $blue;
+  border: $blue solid 1px;
+}
+
+.btn-second:hover{
+  border: white solid 1px;
+}
+
+.btn-blue:hover{
+  background-color: $yellow;
+  border: transparent solid 1px;
+}

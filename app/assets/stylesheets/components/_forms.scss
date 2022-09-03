@@ -1,9 +1,12 @@
-
 .trip-form{
     form{
       display: inline-block!important;
     }
   }
+
+input[type=text], select, textarea{
+  background-color: white!important;
+}
 
 @media (min-width: 576px) { 
   .form-box{

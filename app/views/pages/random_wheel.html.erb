@@ -1,8 +1,8 @@
-<div class="container h-100 text-center d-flex flex-column align-items-center justify-content-center bg-gradient-blue-white" data-controller="random-wheel">
-  <h1 data-random-wheel-target="intro" class="text-blue p-3 shadow fs-2 rounded-4 bg-light"> Pick randomly an amigo !</h1>
-  <div class="row justify-content-center align-items-center mt-2">
+<div class="container min-h-100 text-center flex-column centered-box bg-gradient-blue-white" data-controller="random-wheel">
+  <h1 data-random-wheel-target="intro" class="text-light fs-2 fw-bold">Pick randomly an amigo !</h1>
+  <div class="row centered-box mt-2 ">
     <div class="col-12 text-center">
-     <img src="https://i02.appmifile.com/images/2019/09/10/b3788a8e-24d2-41b3-91c4-131968dab219.gif" class="d-block mb-3" data-random-wheel-target="wheel">
+     <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662218327/fortune-wheel_bwei0a.png" class="fortune-wheel mb-3" data-random-wheel-target="wheel">
 
       <div id="carouselExampleInterval" class="carousel slide d-none" data-bs-ride="carousel" data-random-wheel-target="carousel">
         <div class="carousel-inner" data-random-wheel-target="users">
@@ -12,7 +12,7 @@
           <% else %>
             <div class="carousel-item" data-bs-interval="1">
           <% end %>
-              <%= cl_image_tag user.photo.key, class:"avatar-lg p-1 d-block" %>
+              <%= cl_image_tag user.photo.key, class:"avatar-lg d-block" %>
             </div>
           <% end %>
         </div>
@@ -20,13 +20,13 @@
 
       <div class="d-none my-3" id="result" data-random-wheel-target="result">
         <%= cl_image_tag @user.photo.key, class:"avatar-lg" %>
-        <h2 class="mt-2 m-0">🥳🥳🥳<br><%= @user.first_name %></h2>
+        <h2 class="mt-2">🥳😱😢<br><%= @user.first_name %></h2>
         <p>will spend money tonight ! 💸</p>
       </div>
 
-      <%= link_to "Randomize", trip_random_wheel_path(@trip), class:"btn btn-blue", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>
+      <%= link_to "Randomize", trip_random_wheel_path(@trip), class:"btn btn-blue mb-5", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>
 
-      <%= link_to "Recommencer", trip_random_wheel_path(@trip), class:"btn btn-blue d-none", data: {random_wheel_target: "restart", action:"click->random-wheel#restart"} %>
+      <%= link_to "Recommencer", trip_random_wheel_path(@trip), class:"btn btn-blue d-none mb-5", data: {random_wheel_target: "restart", action:"click->random-wheel#restart"} %>
 
     </div>
   </div>

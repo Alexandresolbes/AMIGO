@@ -5,6 +5,7 @@ class UserTripsController < ApplicationController
     @user_trip.trip_id = params[:trip_id]
     authorize @user_trip
     if @user_trip.save!
+      Wallet.create(user_trip_id: @user_trip.id)
       redirect_to trip_path(@user_trip.trip_id), notice: "You participate in this trip."
       create_notification("joined", @user_trip)
     else

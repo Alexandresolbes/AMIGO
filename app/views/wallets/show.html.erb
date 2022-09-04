@@ -1,0 +1,62 @@
+<div class="container h-100 my-4 px-3">
+  <div class="nav nav-tabs tabs-bank mx-2 mb-4 rounded-4 p-0 row justify-content-between" id="myTab" role="tablist">
+    <div class="col-4 nav-item" role="presentation">
+      <button class="nav-link active" id="wallet-tab" data-bs-toggle="tab" data-bs-target="#wallet-tab-pane" type="button" role="tab" aria-controls="wallet-tab-pane" aria-selected="true">
+        <i class="fa-solid fa-wallet"></i>
+      </button>
+    </div>
+    <div class="col-4 nav-item" role="presentation">
+      <button class="nav-link" id="create-bill-tab" data-bs-toggle="tab" data-bs-target="#create-bill-tab-pane" type="button" role="tab" aria-controls="create-bill-tab-pane" aria-selected="true">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+    </div>
+    <div class="col-4 nav-item" role="presentation">
+      <button class="nav-link" id="all-bills-tab" data-bs-toggle="tab" data-bs-target="#all-bills-tab-pane" type="button" role="tab" aria-controls="all-bills-tab-pane" aria-selected="true">
+        <i class="fa-solid fa-list"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="tab-content px-3" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="wallet-tab-pane" role="tabpanel" aria-labelledby="wallet-tab" tabindex="0">
+      <div class="centered-box flex-column bg-white rounded-4 shadow">
+        <h1 class="pt-4">My Amigo Bank</h1>
+          <% if @wallet.balance > 0 %>
+            <img src="https://cdn.dribbble.com/users/347403/screenshots/2660094/_oink.gif" style="width:70%">
+          <% else %>
+            <img src=" https://pngimg.com/uploads/piggy_bank/piggy_bank_PNG49.png" style="width:50%">
+          <% end %>
+          <% if !@wallet.bills.empty? %>
+            <div class="pb-3 text-center row">
+              <div class="col-6">
+                <h3 class="text-secondary mb-3">Balance</h3>
+                <p class="text-<% if @wallet.balance > 0 %>success<% else %>danger<% end %> fs-5">
+                  <%= @wallet.balance.round(2) %> $
+                </p>
+              </div>
+              <div class="col-6">
+                <h3 class="text-secondary mb-3">Pending<br></h3>
+                <p class="fs-5 fw-normal"><%= @wallet.bills.where(paid: false).count %></p>
+              </div>
+            </div>
+          <% else %>
+            <div class="pb-3 text-center">
+              <span class="text-danger fs-4 mb-5">No bills yet</span>
+            </div>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="create-bill-tab-pane" role="tabpanel" aria-labelledby="create-bill-tab" tabindex="0">
+      <%= render "bills/form", trip: @trip, wallet: @wallet, bill: @bill %>
+    </div>
+
+    <div class="tab-pane fade" id="all-bills-tab-pane" role="tabpanel" aria-labelledby="alls-bills-tab" tabindex="0">
+      <% @bills.each do |bill| %>
+        <%= render "bills/bill_card", bill: bill %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

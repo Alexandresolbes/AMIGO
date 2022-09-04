@@ -68,7 +68,7 @@
       </div>
       <div class="col-6 centered-box pe-0 mt-2">
         <div class="btn-bank centered-box rounded-4">
-          <%= link_to trip_random_wheel_path(@trip) do %>
+          <%= link_to trip_wallet_path(@trip, UserTrip.find_by_user_id(current_user.id).wallet) do %>
             <i class="fa-solid fa-piggy-bank icon-size"></i>
             <p class="mt-2 mb-0 text-light">AmiBank(Soon)</p>
           <% end %>

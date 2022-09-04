@@ -15,8 +15,10 @@ class ParticipationsController < ApplicationController
   def destroy
     @participation = Participation.find(params[:participation])
     authorize @participation
-    @participation.destroy
-    redirect_to trip_activity_path(trip_id: @participation.activity.trip.id, activity_id: @participation.activity_id), status: :see_other
+    if @participation.destroy
+      create_notification("left", @participation.activity)
+      redirect_to trip_activity_path(trip_id: @participation.activity.trip.id, activity_id: @participation.activity_id), status: :see_other
+    end
   end
 
   private
@@ -24,7 +26,7 @@ class ParticipationsController < ApplicationController
   def create_notification(action, target)
     @user = current_user
     @trip = Trip.find(target.trip_id)
-    @notification = Notification.new(content: "#{target.title} was #{action}")
+    @notification = Notification.new(content: "#{target.title} was #{action} by #{@user.first_name}")
     @notification.user_id = current_user.id
     @notification.trip_id = @trip.id
     @notification.save!

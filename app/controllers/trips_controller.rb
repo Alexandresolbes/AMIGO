@@ -51,6 +51,7 @@ class TripsController < ApplicationController
 
   def board
     @trip = Trip.find(params[:trip_id])
+    @user_trip = @trip.user_trips.find_by_user_id(current_user.id)
     authorize @trip
   end
 

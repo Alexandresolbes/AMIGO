@@ -7,20 +7,7 @@
         <div class="centered-box flex-column" data-controller="weather">
           <img src="" alt="Weather Icon" data-weather-target="img" height=70 class="">
           <p class="fs-3" data-weather-target="temp"></p>
-          <!--
-          <div class="col text-start trip-form">
-          <% if @trip.user_trips.find_by_user_id(current_user.id) %>
-            <%= button_to "🚪", trip_user_trip_path(user: current_user, trip_id: @trip.id, user_trip: @trip.user_trips.find_by_user_id(current_user.id)), method: :delete, class:"btn btn-outline-danger p-2 my-1 rounded-5 border-0 shadow" %>
-          <% else %>
-            <%= button_to "Join trip", trip_user_trips_path(user: current_user, trip_id: @trip.id), method: :post, class:"btn btn-outline-success p-2" %>
-          <% end %>
 
-          <% if  @trip.user_id == current_user.id %>
-            <%= link_to "🖋️", edit_trip_path(@trip), class:"btn btn-outline-secondary p-2 my-1 rounded-5 border-0 shadow" %>
-            <%= link_to "❌", trip_path(@trip), class:"btn btn-outline-secondary p-2 my-1 rounded-5 border-0 shadow", data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'} %>
-          <% end %>
-        </div>
-        -->
         </div>
       </div>
       <div class="col-8 d-flex justify-content-center flex-column rounded-4 p-2">

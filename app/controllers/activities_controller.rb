@@ -80,10 +80,10 @@ class ActivitiesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
   end
 
-  def create_notification(action, target)
+  def create_notification(target, action)
     @user = current_user
     @trip = Trip.find(params[:trip_id])
-    @notification = Notification.new(content: "#{target.title} was #{action} by #{current_user}")
+    @notification = Notification.new(content: "#{target.title} was #{action} by #{@user.first_name}")
     @notification.user_id = current_user.id
     @notification.trip_id = @trip.id
     @notification.save!

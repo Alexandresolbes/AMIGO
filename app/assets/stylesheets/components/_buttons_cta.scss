@@ -1,6 +1,6 @@
 .btn-second, .btn-blue{
   font-weight: 500;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .btn-second, .btn-blue{
@@ -22,11 +22,11 @@
 
 .btn-blue{
   background-color: $blue;
-  border: $blue solid 1px;
+  border: white solid 1px;
 }
 
 .btn-second:hover{
-  border: white solid 1px;
+  border: transparent solid 1px;
 }
 
 .btn-blue:hover{

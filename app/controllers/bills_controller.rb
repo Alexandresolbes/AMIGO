@@ -1,7 +1,4 @@
 class BillsController < ApplicationController
-  def index
-    @bills = Bill.all
-  end
 
   def create
     @trip = Trip.find(params[:trip_id])

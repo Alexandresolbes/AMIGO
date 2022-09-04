@@ -8,12 +8,20 @@ class Wallet < ApplicationRecord
 
   def balance
     if !self.bills.empty?
-      credit_amount = self.bills.map { |bill| 
+
+      credit_amount = self.bills.select { |bill| 
+        !bill.credit.zero?
+      }
+      credit_amount = credit_amount.map { |bill|
         bill.credit
       }
       credit_amount = (credit_amount.sum / credit_amount.size.to_f)
-      debit_amount = self.bills.map { |bill| 
-      bill.debit
+
+      debit_amount = self.bills.select { |bill| 
+        !bill.debit.zero?
+      }
+      debit_amount = debit_amount.map { |bill|
+        bill.debit
       }
       debit_amount = (debit_amount.sum / debit_amount.size.to_f)
       amount = (credit_amount - debit_amount)

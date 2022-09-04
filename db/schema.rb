@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_01_083703) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_04_143502) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_083703) do
     t.float "latitude"
     t.float "longitude"
     t.index ["trip_id"], name: "index_activities_on_trip_id"
+  end
+
+  create_table "bills", force: :cascade do |t|
+    t.float "credit", default: 0.0
+    t.float "debit", default: 0.0
+    t.boolean "paid", default: false
+    t.bigint "wallet_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bills_on_user_id"
+    t.index ["wallet_id"], name: "index_bills_on_wallet_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -143,9 +155,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_083703) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wallets", force: :cascade do |t|
+    t.bigint "user_trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_trip_id"], name: "index_wallets_on_user_trip_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "activities", "trips"
+  add_foreign_key "bills", "users"
+  add_foreign_key "bills", "wallets"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "notifications", "trips"
@@ -156,4 +177,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_083703) do
   add_foreign_key "trips", "users"
   add_foreign_key "user_trips", "trips"
   add_foreign_key "user_trips", "users"
+  add_foreign_key "wallets", "user_trips"
 end

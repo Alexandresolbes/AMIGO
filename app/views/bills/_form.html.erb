@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-12 px-3">
+    <h1 class="text-center my-2">Create a bill</h1>
+      <%= simple_form_for [trip, wallet, @bill] do |f| %>
+        <%= f.input :debit, :label => "🔴 I owe ", input_html: { placeholder: 0.0 }  %>
+        <%= f.input :credit, :label => "🟢 I lent", input_html: { placeholder: 0.0 }  %>
+        <%= f.association :user, :label => "😎 To my Amigo : ", :collection => @amigos, :label_method => :first_name, :value_method => :id %>
+        <div class="mt-4 mb-5 d-flex justify-content-center">
+          <%= f.submit class:"btn btn-blue" %>
+      <% end %>
+          <%= link_to 'Back', trip_wallet_path(@trip, @wallet), class:"btn text-blue text-center ms-2" %>
+        </div>
+     </div>
+  </div>

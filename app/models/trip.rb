@@ -7,6 +7,14 @@ class Trip < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :rooms, dependent: :destroy
 
+  def creator
+    @users = User.all
+    @creator = @users.select do |user|
+      self.user_trips.find_by_user_id(user.id) && self.user_trips.find_by_user_id(user.id).creator == true
+    end
+    return @creator.first
+  end
+
   def creator?(user)
     return true if self.user_trips.find_by_user_id(user.id) && self.user_trips.find_by_user_id(user.id).creator == true
   end

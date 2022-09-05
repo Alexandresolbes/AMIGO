@@ -8,7 +8,7 @@ class TripPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user_trips.where(creator: true).first.user.id == user.id
+    true
   end
 
   def destroy?

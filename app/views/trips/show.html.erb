@@ -39,41 +39,47 @@
         </div>
       </div>
   </div>
-
-  <div class="container mt-5 pt-3 trip-buttons-box">
-    <div class="row centered-box text-center">
-      <div class="col-6 centered-box ps-0">
-        <div class="btn-activity d-flex justify-content-center align-items-center rounded-4 my-2">
-          <%= link_to trip_activities_path(@trip) do %>
-          <i class="fa-solid fa-person-hiking icon-size text-light"></i>
-          <p class="mt-2 mb-0 text-light">Activities</p>
-          <% end %>
+  <% if @trip.participates?(current_user) %>
+    <div class="container mt-5 pt-3 trip-buttons-box">
+      <div class="row centered-box text-center">
+        <div class="col-6 centered-box ps-0">
+          <div class="btn-activity d-flex justify-content-center align-items-center rounded-4 my-2">
+            <%= link_to trip_activities_path(@trip) do %>
+            <i class="fa-solid fa-person-hiking icon-size text-light"></i>
+            <p class="mt-2 mb-0 text-light">Activities</p>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="col-6 centered-box pe-0">
-        <div class="btn-random centered-box rounded-4 my-2">
-          <%= link_to trip_random_wheel_path(@trip), data: {turbo: false} do %>
-            <i class="fa-solid fa-dice icon-size"></i>
-            <p class="mt-2 mb-0 text-light">AmigoFortune</p>
-          <% end %>
+        <div class="col-6 centered-box pe-0">
+          <div class="btn-random centered-box rounded-4 my-2">
+            <%= link_to trip_random_wheel_path(@trip), data: {turbo: false} do %>
+              <i class="fa-solid fa-dice icon-size"></i>
+              <p class="mt-2 mb-0 text-light">AmigoFortune</p>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="col-6 centered-box ps-0 mt-2">
-        <div class="btn-trip centered-box rounded-4">
-          <%= link_to trip_board_path(@trip) do %>
-            <i class="fa-solid fa-plane-up icon-size"></i>
-            <p class="mt-2 mb-0 text-light">My Trip</p>
-          <% end %>
+        <div class="col-6 centered-box ps-0 mt-2">
+          <div class="btn-trip centered-box rounded-4">
+            <%= link_to trip_board_path(@trip) do %>
+              <i class="fa-solid fa-plane-up icon-size"></i>
+              <p class="mt-2 mb-0 text-light">My Trip</p>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class="col-6 centered-box pe-0 mt-2">
-        <div class="btn-bank centered-box rounded-4">
-          <%= link_to trip_wallet_path(@trip, UserTrip.find_by_user_id(current_user.id).wallet) do %>
-            <i class="fa-solid fa-piggy-bank icon-size"></i>
-            <p class="mt-2 mb-0 text-light">AmigoBank</p>
-          <% end %>
+        <div class="col-6 centered-box pe-0 mt-2">
+          <div class="btn-bank centered-box rounded-4">
+            <%= link_to trip_wallet_path(@trip, UserTrip.find_by_user_id(current_user.id).wallet) do %>
+              <i class="fa-solid fa-piggy-bank icon-size"></i>
+              <p class="mt-2 mb-0 text-light">AmigoBank</p>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="centered-box flex-column">
+      You were invited to join this trip.
+      <%= button_to "Participate", trip_user_trips_path(user_id: current_user.id, trip_id: params[:id]), method: :post, class:"btn btn-success text-light me-1"  %>
+    </div>
+  <% end %>
 </div>

@@ -29,9 +29,13 @@ class PagesController < ApplicationController
 
   def notifications
     @trip = Trip.find(params[:trip_id])
-    @notifications = Notification.where(["user_id != ?", current_user.id])
-    @user_notifications = UserNotification.where(["user_id = ?", current_user.id])
-    @notification = Notification.new()
+    @all_user_notifications = UserNotification.where(user_id: current_user.id)
+    @user_notifications = []
+    @all_user_notifications.each do |user_notification|
+      if user_notification.notification.trip_id == @trip.id
+        @user_notifications << user_notification
+      end
+    end
   end
 
   private

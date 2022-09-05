@@ -6,27 +6,27 @@ class Wallet < ApplicationRecord
     self.user_trip.user
   end
 
+  def credit_amount(credit_bills)
+      credits_array = credit_bills.map { |bill| bill.credit }
+      credit_amount = credits_array.sum
+  end
+
+  def debit_amount(debit_bills)
+      debits_array = debit_bills.map { |bill| bill.debit }
+      debit_amount = debits_array.sum
+  end
+
   def balance
     if !self.bills.empty?
-
-      credit_amount = self.bills.select { |bill| 
-        !bill.credit.zero?
-      }
-      credit_amount = credit_amount.map { |bill|
-        bill.credit
-      }
-      credit_amount = (credit_amount.sum / credit_amount.size.to_f)
-
-      debit_amount = self.bills.select { |bill| 
-        !bill.debit.zero?
-      }
-      debit_amount = debit_amount.map { |bill|
-        bill.debit
-      }
-      debit_amount = (debit_amount.sum / debit_amount.size.to_f)
-      amount = (credit_amount - debit_amount)
-    else
-      return 0.00
+      credit_bills = self.bills.select { |bill| !bill.credit.nil? && !bill.credit.zero? }
+      debit_bills = self.bills.select { |bill| bill.debit.nil? && !bill.debit.zero? }
+      if credit_bills.empty?
+        return debit_amount(debit_bills) * -1
+      elsif debit_bills.empty?
+        return credit_amount(credit_bills)
+      else
+        return amount = (credit_amount(credit_bills) - debit_amount(debit_bills))
+      end
     end
   end
 end

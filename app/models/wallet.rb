@@ -8,7 +8,6 @@ class Wallet < ApplicationRecord
 
   def balance
     if !self.bills.empty?
-
       credit_amount = self.bills.select { |bill| 
         !bill.credit.zero?
       }
@@ -24,9 +23,14 @@ class Wallet < ApplicationRecord
         bill.debit
       }
       debit_amount = (debit_amount.sum / debit_amount.size.to_f)
-      amount = (credit_amount - debit_amount)
-    else
-      return 0.00
+      
+      if credit_amount.nil?
+        return debit_amount
+      elsif debit_amount.nil?
+        return credit_amount
+      else
+        amount = (credit_amount - debit_amount)
+      end
     end
   end
 end

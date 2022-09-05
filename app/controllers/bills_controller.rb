@@ -17,6 +17,13 @@ class BillsController < ApplicationController
     end
   end
 
+  def destroy
+    @wallet = @bill.wallet_id
+    authorize @bill
+    @bill.destroy
+    redirect_to trip_wallet_path(@trip, @wallet), status: :see_other
+  end
+
   private
 
   def bill_params

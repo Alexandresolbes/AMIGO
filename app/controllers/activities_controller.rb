@@ -39,7 +39,7 @@ class ActivitiesController < ApplicationController
     if @activity.save!
       participation = Participation.new(user_id: current_user.id, activity_id: @activity.id, creator: true)
       participation.save!
-      create_notification("created", @activity)
+      create_notification(@activity, "created")
       redirect_to trip_activities_path(trip_id: @trip.id), notice: "Activity created!"
     else
       render :new, status: :unprocessable_entity
@@ -53,7 +53,7 @@ class ActivitiesController < ApplicationController
   def update
     authorize @activity
     if @activity.update(activity_params)
-      create_notification("updated", @activity)
+      create_notification(@activity, "updated")
       redirect_to trip_activity_path, notice: "Activity updated successfully."
     else
       render :edit, status: :unprocessable_entity
@@ -87,5 +87,6 @@ class ActivitiesController < ApplicationController
     @notification.user_id = current_user.id
     @notification.trip_id = @trip.id
     @notification.save!
+    @notification.generate_user_notifications
   end
 end

@@ -1,20 +1,22 @@
-<div class="row">
-    <div class="col-12 px-3">
-      <%= simple_form_for [trip, @activity] do |f| %>
-        <%= f.input :title %>
-        <%= f.input :categories, collection: %w[🍺Bar 🚴🏼‍♀️Sport 🎟️Show 🧘🏼‍♂️Health 🥳Nightclub 🍽️Restaurant 🍵CoffeeShop 🎨Cultural 🏔️Nature ] %>
-        <%= f.input :description %>
-        <%= f.input :address,
-        input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_URL"]}} %>
-        <%= f.input :min_amigos, input_html: { min: 1, max: 10, step: 1, value: 1 } %>
-        <%= f.input :max_amigos, input_html: { min: 1, max: 10, step: 1 } %>
-        <%= f.input :date, as: :string, required: false, html5: true, as: :date %>
-        <%= f.input :photo, as: :file %>
-        <div class="mt-4 mb-5 d-flex justify-content-center">
-          <%= f.submit class:"btn btn-blue" %>
-      <% end %>
-          <%= link_to 'Back', trip_activities_path, class:"btn text-blue text-center m-0" %>
-        </div>
-     </div>
+<div class="container h-100 p-large">
+  <div class="row">
+      <div class="col-12 px-3">
+        <%= simple_form_for [trip, @activity] do |f| %>
+          <%= f.input :title %>
+          <%= f.input :categories, collection: %w[🍺Bar 🚴🏼‍♀️Sport 🎟️Show 🧘🏼‍♂️Health 🥳Nightclub 🍽️Restaurant 🍵CoffeeShop 🎨Cultural 🏔️Nature ] %>
+          <%= f.input :description %>
+          <%= f.input :address,
+          input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_URL"]}} %>
+          <%= f.input :min_amigos, input_html: { min: 1, max: 10, step: 1, value: 1 } %>
+          <%= f.input :max_amigos, input_html: { min: 1, max: 10, step: 1 } %>
+          <%= f.input :date, as: :string, required: false, html5: true, as: :date %>
+          <%= f.input :photo, as: :file %>
+          <div class="mt-4 mb-5 d-flex justify-content-center">
+            <%= f.submit class:"btn btn-blue" %>
+        <% end %>
+            <%= link_to 'Back', trip_activities_path, class:"btn text-blue text-center m-0" %>
+          </div>
+      </div>
+    </div>
   </div>

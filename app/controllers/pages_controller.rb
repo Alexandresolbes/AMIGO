@@ -30,6 +30,7 @@ class PagesController < ApplicationController
   def notifications
     @trip = Trip.find(params[:trip_id])
     @notifications = Notification.where(["user_id != ?", current_user.id])
+    @user_notifications = UserNotification.where(["user_id = ?", current_user.id])
     @notification = Notification.new()
   end
 
@@ -41,5 +42,6 @@ class PagesController < ApplicationController
     @notification.user_id = wheel_choice.id
     @notification.trip_id = @trip.id
     @notification.save!
+    @notification.generate_user_notifications
   end
 end

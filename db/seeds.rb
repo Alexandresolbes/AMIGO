@@ -8,6 +8,15 @@
 
 require "open-uri"
 
+UserNotification.destroy_all
+puts "✅ User Notifications destroyed"
+
+Notification.destroy_all
+puts "✅ Notifications destroyed"
+
+Wallet.destroy_all
+puts "✅ Wallets destroyed"
+
 Message.destroy_all
 puts "✅ Messages destroyed"
 
@@ -226,3 +235,5 @@ Room.create(
 )
 
 p "✅ Rooms created"
+
+UserTrip.all.each { |u| Wallet.create(user_trip_id: u.id) }

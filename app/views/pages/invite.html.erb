@@ -1,0 +1,22 @@
+<div class="container responsive h-100">
+  <div class="row centered-box mt-5">
+    <div class="col mb-5">
+
+      <img src="https://pngimg.com/uploads/minions/minions_PNG65.png" width="300">
+      <h1 class="text-center my-3 fs-2">
+        Invite an Amigo to join your Trip !
+        </h1>
+        <%= form_with url: trip_invite_path, method: :post, class: "d-flex" do %>
+          <%= text_field_tag :address,
+            params[:address],
+            class: "form-control",
+            placeholder: "my-amigo@email.com"
+          %>
+          <%= submit_tag "Invite", class: "btn btn-blue rounded-0" %>
+        <% end %>
+        <div class="text-center">
+          <%= link_to 'Back', trips_path, class:"btn text-blue mt-4 rounded-0" %>
+        </div>
+      </div>
+    </div>
+</div>

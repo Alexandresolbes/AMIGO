@@ -1,4 +1,4 @@
-<div class="container h-100">
+<div class="container responsive h-100">
   <div class="row justify-content-center">
   <div class="col">
       <ul class="nav nav-chatroom nav-pills rounded-4 mt-3" id="pills-tab" role="tablist">
@@ -11,7 +11,7 @@
       <div class="tab-content" id="pills-tabContent">
         <% @rooms.each do |room| %>
         <div class="tab-pane fade <% if room.name == "General" %>show active<% end %>" id="pills-<%= room.name.downcase %>" role="tabpanel" aria-labelledby="pills-<%= room.name.downcase %>-tab" tabindex="0">
-          <div class="container chatroom rounded-4" 
+          <div class="container chatroom rounded-4"
           data-controller="chatroom-subscription"
           data-chatroom-subscription-chatroom-id-value="<%= room.id %>">
             <div class="messages mb-3" data-chatroom-subscription-target="messages">

@@ -2,7 +2,7 @@
   <div class="container-fluid justify-content-center">
       <ul class="navbar-nav w-100 justify-content-between py-0">
         <li class="nav-item d-inline-block">
-          <% if @trip %>
+          <% if !@trip.nil? && !@trip.id.nil? %>
             <%= link_to trip_path(@trip), class: "nav-link" do %>
               <%= image_tag("icons/home-icon.svg", height: '32', width: '32') %>
             <% end %>
@@ -13,12 +13,14 @@
           <% end %>
         </li>
         <% if user_signed_in? %>
+
           <% if !@trip.nil? && !@trip.id.nil? %>
             <li class="nav-item d-inline-block">
               <%= link_to trip_rooms_path(@trip), class:"nav-link" do  %>
                   <%= image_tag("icons/chat-icon.svg", height: '36', width: 'auto') %>
               <% end %>
             </li>
+
             <li class="nav-item d-inline-block">
               <%= link_to trip_notifications_path(@trip), class:"nav-link" do  %>
                 <%= image_tag("icons/notification-icon.svg", height: '32', width: 'auto') %>
@@ -26,14 +28,11 @@
             </li>
           <% end %>
 
-         <li class="nav-item  d-inline-block dropdown">
-          <a class="nav-link" href="#" data-bs-toggle="dropdown">
-            <%= image_tag("icons/user-icon.svg", height: '40', width: 'auto') %>
-          </a>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-          </div>
-        </li>
+          <li class="nav-item d-inline-block">
+            <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class:"nav-link" do %>
+              <%= image_tag("icons/logout-icon.svg", height: '32', width: 'auto') %>
+            <% end %>
+          </li>
       <% else %>
         <li class="nav-item d-inline-block ">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>

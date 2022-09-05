@@ -72,3 +72,13 @@ body{
 .border-sm{
   border-radius: 10px;
 }
+
+@media (min-width: 768px) {
+  .responsive{
+    max-width: 50%;
+  }
+}
+
+.p-large {
+  padding-bottom: 45px;
+}

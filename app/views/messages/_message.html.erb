@@ -1,5 +1,5 @@
 <% if message.user_id == current_user.id %>
-  <div class="row justify-content-between my-2" id="message-<%= message.id %>">
+  <div class="row responsive justify-content-between my-2" id="message-<%= message.id %>">
   <div class="col-10 p-1">
     <div class="ps-3 bg-light-blue rounded-4 py-1">
       <small><i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i></small>

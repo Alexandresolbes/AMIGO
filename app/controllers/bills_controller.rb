@@ -18,8 +18,10 @@ class BillsController < ApplicationController
   end
 
   def destroy
-    @wallet = @bill.wallet_id
+    @bill = Bill.find(params[:id])
     authorize @bill
+    @wallet = @bill.wallet_id
+    @trip = Trip.find(params[:trip_id])
     @bill.destroy
     redirect_to trip_wallet_path(@trip, @wallet), status: :see_other
   end

@@ -1,18 +1,26 @@
-<div class="row pe-2 py-2 my-3 bg-white rounded-pill shadow-sm">
+<div class="row pe-2 py-2 my-3 bg-white rounded-4 shadow-sm">
   <div class="col-3">
-    <%= cl_image_tag User.find(bill.user_id).photo.key, class:"avatar-sm obj-fit", height:70, width:70 %>
+    <%= cl_image_tag Wallet.find(bill.wallet_id).owner.photo.key, class:"avatar-xs obj-fit", height:50, width:50 %>
+    <%= cl_image_tag User.find(bill.user_id).photo.key, class:"avatar-xs sobj-fit", height:50, width:50 %>
   </div>
   <div class="col-9 ps-2 d-flex justify-content-between align-items-center">
-    <% if !bill.credit.zero? %>
-      <h6 class="text-success m-0">I lent <strong><%= bill.credit %>$</strong> to <%= bill.user.first_name %></h6>
+
+    <% if bill && bill.credit != 0 %>
+
+      <h6 class="text-success m-0"><%= Wallet.find(bill.wallet_id).owner.first_name %><br><strong><span class="fs-3">  LENT <%= bill.credit %>$</span></strong><br>to <%= bill.user.first_name %></h6>
       
     <% end %>
-    <% if !bill.debit.zero? %>
-      <h6 class="text-danger m-0">I owe <strong><%= bill.debit %>$</strong> to <%= bill.user.first_name %></h6>
+
+    <% if bill && bill.debit != 0 %>
+
+      <h6 class="text-danger m-0"><%= Wallet.find(bill.wallet_id).owner.first_name %><br><strong><span class="fs-3"> OWES <%= bill.debit %>$</span></strong><br> to <%= bill.user.first_name %></h6>
+
     <% end %>
 
-    <%= link_to trip_wallet_bill_path(trip, bill.wallet_id, bill), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'}, class:"btn btn-bill shadow" do %>
-      <i class="fa-solid fa-handshake"></i>
+    <% if current_user == Wallet.find(bill.wallet_id).owner.first_name || bill.user.first_name %>
+      <%= link_to trip_wallet_bill_path(trip, bill.wallet_id, bill), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'}, class:"btn btn-bill shadow" do %>
+        <i class="fa-solid fa-handshake"></i>
+      <% end %>
     <% end %>
   </div>
 </div>

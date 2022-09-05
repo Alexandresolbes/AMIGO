@@ -6,27 +6,30 @@ class Wallet < ApplicationRecord
     self.user_trip.user
   end
 
-  def credit_amount(credit_bills)
-      credits_array = credit_bills.map { |bill| bill.credit }
-      credit_amount = credits_array.sum
+  def credit_amount(bills)
+    credits_array = bills.map { |bill| bill.credit if bill.credit }
+    credits_array.sum
   end
 
-  def debit_amount(debit_bills)
-      debits_array = debit_bills.map { |bill| bill.debit }
-      debit_amount = debits_array.sum
+  def debit_amount(bills)
+    debits_array = bills.map { |bill| bill.debit if bill.debit }
+    debits_array.sum
   end
 
   def balance
-    if !self.bills.empty?
-      credit_bills = self.bills.select { |bill| !bill.credit.nil? && !bill.credit.zero? }
-      debit_bills = self.bills.select { |bill| bill.debit.nil? && !bill.debit.zero? }
-      if credit_bills.empty?
-        return debit_amount(debit_bills) * -1
-      elsif debit_bills.empty?
-        return credit_amount(credit_bills)
-      else
-        return amount = (credit_amount(credit_bills) - debit_amount(debit_bills))
-      end
+    if self.bills.any? && credit_amount(self.bills) && debit_amount(self.bills)
+      return (credit_amount(self.bills) - debit_amount(self.bills))
+    else
+      credit_amount(self.bills) if credit_amount(self.bills) || debit_amount(self.bills) if debit_amount(self.bills)
+    end
+  end
+
+  def account(user)
+    @amigo_account = self.bills.where(user_id: user)
+    if @amigo_account.any?  && credit_amount(@amigo_account) && debit_amount(@amigo_account)
+      return (credit_amount(@amigo_account) - debit_amount(@amigo_account))
+    else
+      credit_amount(@amigo_account) if credit_amount(@amigo_account) || debit_amount(@amigo_account) if debit_amount(@amigo_account)
     end
   end
 end

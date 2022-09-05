@@ -6,7 +6,6 @@ class WalletsController < ApplicationController
     authorize @wallet
     @amigos = User.all.select { |u| u.id != current_user.id }
     @bills = @wallet.bills
-    Bill.where(user_id: current_user.id).each { |b| @bills << b }
     @bill = Bill.new
     authorize @bill
   end

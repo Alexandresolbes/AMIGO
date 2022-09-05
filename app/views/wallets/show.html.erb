@@ -17,27 +17,24 @@
     </div>
   </div>
 
-  <div class="tab-content px-3" id="myTabContent">
+  <div class="tab-content px-2" id="myTabContent">
 
     <div class="tab-pane fade show active" id="wallet-tab-pane" role="tabpanel" aria-labelledby="wallet-tab" tabindex="0">
       <div class="container h-100 centered-box flex-column bg-white rounded-4 shadow-sm">
         <h1 class="pt-4">My Amigo Bank</h1>
           <% if @wallet.balance && @wallet.balance >= 0 %>
-            <img src="https://cdn.dribbble.com/users/347403/screenshots/2660094/_oink.gif" style="width:70%">
+            <img src="https://cdn.dribbble.com/users/347403/screenshots/2660094/_oink.gif" style="width:100%">
           <% else %>
-            <img src=" https://pngimg.com/uploads/piggy_bank/piggy_bank_PNG49.png" style="width:50%">
+            <img src=" https://pngimg.com/uploads/piggy_bank/piggy_bank_PNG49.png" style="width:70%">
           <% end %>
-          <% if !@wallet.bills.empty? %>
+
+          <% if @wallet.bills.any? %>
             <div class="pb-3 text-center row">
-              <div class="col-6">
-                <h3 class="text-secondary mb-3">Balance</h3>
-                <p class="text-<% if @wallet.balance && @wallet.balance > 0 %>success<% else %>danger<% end %> fs-5">
+              <div class="col-12">
+                <h3 class="text-secondary mt-2 mb-3">Balance</h3>
+                <p class="text-<% if @wallet.balance && @wallet.balance >= 0 %>success<% else %>danger<% end %> fs-1">
                   <%= @wallet.balance.round(2) %> $
                 </p>
-              </div>
-              <div class="col-6">
-                <h3 class="text-secondary mb-3">Pending<br></h3>
-                <p class="fs-5 fw-normal"><%= @wallet.bills.where(paid: false).count %></p>
               </div>
             </div>
           <% else %>
@@ -55,8 +52,9 @@
     <div class="tab-pane fade" id="all-bills-tab-pane" role="tabpanel" aria-labelledby="alls-bills-tab" tabindex="0">
       <div class="container min-h-100">
         <% if @bills %>
-          <% @bills.each do |bill| %>
-            <%= render "bills/bill_card", trip: @trip, bill: bill %>
+          <h2></h2>
+          <% @amigos.each do |amigo| %>
+            <%= render "bills/accounts_card", trip: @trip, account: @wallet.account(amigo.id), amigo: amigo %>
           <% end %>
         <% end %>
       </div>

@@ -14,10 +14,12 @@ class UserTripsController < ApplicationController
   end
 
   def destroy
-    @user_trip = UserTrip.find(params[:user_trip])
+    @user_trips = UserTrip.where(user_id: current_user.id)
+    @user_trip = @user_trips.where(trip_id: params[:trip_id]).first
     authorize @user_trip
+    @user_trip.wallet.destroy
     @user_trip.destroy
-    redirect_to trip_path(@user_trip.trip_id), status: :see_other
+    redirect_to trips_path, status: :see_other
   end
 
   private

@@ -24,6 +24,7 @@
             <li class="nav-item d-inline-block">
               <%= link_to trip_notifications_path(@trip), class:"nav-link" do  %>
                 <%= image_tag("icons/notification-icon.svg", height: '32', width: 'auto') %>
+                <%= UserNotification.display_unread(current_user.id) %>
               <% end %>
             </li>
           <% end %>

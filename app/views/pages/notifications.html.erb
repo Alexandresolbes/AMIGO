@@ -1,15 +1,17 @@
 <div class="container responsive min-h-100">
   <h1 class="mb-3 mt-4 pb-3 text-center">Notifications 👩‍💻📧</h1>
-  <% @notifications.each do |notif| %>
+  <% @user_notifications.each do |user_notif| %>
     <div class="container card-notifications p-1 my-3 rounded-4 shadow-sm bg-white">
       <div class="row p-1 centered-box">
         <div class="col-2">
-          <%= cl_image_tag User.find(notif.user_id).photo.key, class: "avatar-xs" %>
+          <%= cl_image_tag User.find(user_notif.notification.user_id).photo.key, class: "avatar-xs" %>
         </div>
         <div class="col-10 d-flex align-items-center">
-          <p class="m-0 p-2"><%= notif.content %></p>
+          <p class="m-0 p-2"><%= user_notif.notification.content %></p>
         </div>
       </div>
     </div>
+    <% user_notif.read = true %>
+    <% user_notif.save! %>
   <% end %>
 </div>

@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
         render_to_string(partial: "message", locals: {message: @message})
       )
       head :ok
+      generate_notifications
     else
       render trip_rooms_path(@trip), status: :unprocessable_entity
     end
@@ -21,5 +22,15 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def generate_notifications
+    @trip.users.each do |user|
+      if user.id == current_user.id
+        UserMessage.create(user_id: user.id, message_id: @message.id, read: true)
+      else
+        UserMessage.create(user_id: user.id, message_id: @message.id)
+      end
+    end
   end
 end

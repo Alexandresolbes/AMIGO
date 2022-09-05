@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_101216) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_134507) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -118,6 +118,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_101216) do
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
+  create_table "user_messages", force: :cascade do |t|
+    t.bigint "message_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "read", default: false
+    t.index ["message_id"], name: "index_user_messages_on_message_id"
+    t.index ["user_id"], name: "index_user_messages_on_user_id"
+  end
+
   create_table "user_notifications", force: :cascade do |t|
     t.boolean "read"
     t.bigint "notification_id", null: false
@@ -185,6 +195,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_101216) do
   add_foreign_key "participations", "users"
   add_foreign_key "rooms", "trips"
   add_foreign_key "trips", "users"
+  add_foreign_key "user_messages", "messages"
+  add_foreign_key "user_messages", "users"
   add_foreign_key "user_notifications", "notifications"
   add_foreign_key "user_notifications", "users"
   add_foreign_key "user_trips", "trips"

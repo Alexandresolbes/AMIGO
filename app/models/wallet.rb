@@ -8,12 +8,12 @@ class Wallet < ApplicationRecord
 
   def credit_amount(bills)
     credits_array = bills.map { |bill| bill.credit if bill.credit }
-    credits_array.sum if credits_array.count > 1
+    credits_array.sum
   end
 
   def debit_amount(bills)
     debits_array = bills.map { |bill| bill.debit if bill.debit }
-    debits_array.sum if debits_array.count > 1
+    debits_array.sum
   end
 
   def balance

@@ -31,5 +31,6 @@ class UserTripsController < ApplicationController
     @notification.user_id = current_user.id
     @notification.trip_id = @trip.id
     @notification.save!
+    @notification.generate_user_notifications
   end
 end

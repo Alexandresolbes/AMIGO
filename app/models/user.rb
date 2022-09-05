@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :wallets, through: :user_trips
   has_many :bills, dependent: :destroy
+  has_many :user_notifications, dependent: :destroy
   has_one_attached :photo
 
 end

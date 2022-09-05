@@ -41,5 +41,6 @@ class PagesController < ApplicationController
     @notification.user_id = wheel_choice.id
     @notification.trip_id = @trip.id
     @notification.save!
+    @notification.generate_user_notifications
   end
 end

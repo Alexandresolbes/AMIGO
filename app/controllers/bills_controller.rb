@@ -10,6 +10,7 @@ class BillsController < ApplicationController
     @bill.wallet_id = @wallet.id
     @bill.paid = false
     if @bill.save!
+      generate_counter_bill
       redirect_to trip_wallet_path(@trip, @wallet), notice: "Bill created!"
     else
       render :new, status: :unprocessable_entity
@@ -26,6 +27,15 @@ class BillsController < ApplicationController
   end
 
   private
+
+  def generate_counter_bill
+    bill = Bill.new
+    bill.user_id = @bill.wallet.user_trip.user_id
+    bill.credit = @bill.debit if @bill.debit
+    bill.debit = @bill.credit if @bill.credit
+    bill.wallet_id = UserTrip.find_by(user_id: @bill.user_id, trip_id: @trip.id).wallet.id
+    bill.save
+  end
 
   def bill_params
     params.require(:bill).permit(:debit, :credit, :paid, :user_id)

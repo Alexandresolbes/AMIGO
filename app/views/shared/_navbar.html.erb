@@ -2,7 +2,7 @@
   <div class="container-fluid justify-content-center">
       <ul class="navbar-nav w-100 justify-content-between py-0">
         <li class="nav-item d-inline-block">
-          <% if @trip %>
+          <% if !@trip.nil? && !@trip.id.nil? %>
             <%= link_to trip_path(@trip), class: "nav-link" do %>
               <%= image_tag("icons/home-icon.svg", height: '32', width: '32') %>
             <% end %>

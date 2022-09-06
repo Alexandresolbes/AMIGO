@@ -49,9 +49,7 @@
   width: 100%;
 }
 
-.trip-card-avatars{
-  position: relative;
-  top : -20px;
+.trip-card-avatars, .activity-card-avatars, .activity-show-avatars{
 
   ul {
     list-style-type: none;
@@ -81,6 +79,15 @@
     background-color: rgba(255, 255, 255, 0.408);
   }
   
+}
+
+.trip-card-avatars{
+  position: relative;
+  top : -20px;
+}
+
+.activity-card-avatars{
+  position: relative;
 }
 
 @media (min-width: 576px) {

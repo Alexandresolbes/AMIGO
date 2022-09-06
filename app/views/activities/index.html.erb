@@ -1,4 +1,4 @@
-<div class="container responsive min-h-100">
+<div class="container responsive h-100">
   <div class="nav nav-tabs tabs-activity mx-2 my-4 rounded-4 p-0 row justify-content-between" id="myTab" role="tablist">
     <div class="col-4 nav-item" role="presentation">
       <button class="nav-link active" id="all-activities-tab" data-bs-toggle="tab" data-bs-target="#all-activities-tab-pane" type="button" role="tab" aria-controls="all-activities-tab-pane" aria-selected="true"><i class="fa-solid fa-list"></i></button>
@@ -41,14 +41,15 @@
                     <i class="fa-solid fa-eye text-blue"></i>
                   <% end %>
                 </p>
-                <div class="row justify-content-start mt-2">
-                  <% activity.participations.each do |participation| %>
-                    <div class="col-2">
-                    <%= cl_image_tag User.find(participation.user_id).photo.key, class:"avatar-xs overflow-visible" %>
-                    </div>
-                  <% end %>
+               <div class="row justify-content-center activity-card-avatars p-2">
+                <div class="col p-0">
+                  <ul class="text-start">
+                    <% @trip.users.each do |user| %>
+                      <li><%= cl_image_tag user.photo.key, class:"avatar-xs" %></li>
+                    <% end %>
+                  </ul>
                 </div>
-
+              </div>
               </div>
             </div>
           </div>

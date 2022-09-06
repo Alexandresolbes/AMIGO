@@ -1,4 +1,4 @@
-<div class="container responsive px-3 mb-5  min-h-100">
+<div class="container responsive px-3 mb-5 min-h-100 p-large">
   <h1 class="mt-4 mb-2 fw-bold"><%= @activity.title %></h1>
 
   <div class="row activity-show-card">
@@ -23,14 +23,18 @@
     </div>
   </div>
 
-  <div class="row my-3 justify-content-start">
+
+  <div class="row justify-content-center activity-show-avatars my-3">
     <h5><strong>Amigos participants</strong></h5>
-      <% @activity.participations.each do |participation| %>
-        <div class="col-2">
-          <%= cl_image_tag participation.user.photo.key, class:"avatar-sm" %>
-        </div>
-      <% end %>
+    <div class="col">
+      <ul class="text-start">
+        <% @activity.participations.each do |participation| %>
+          <li><%= cl_image_tag participation.user.photo.key, class:"avatar-md" %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
+     
 
   <div class="row">
     <h5><strong>Description</strong></h5>

@@ -1,4 +1,4 @@
-<div class="container h-100 my-4 px-2">
+<div class="container responsive h-100 my-4 px-2">
   <div class="nav nav-tabs tabs-bank mx-2 mb-4 rounded-4 p-0 row justify-content-between" id="myTab" role="tablist">
     <div class="col-4 nav-item" role="presentation">
       <button class="nav-link active" id="wallet-tab" data-bs-toggle="tab" data-bs-target="#wallet-tab-pane" type="button" role="tab" aria-controls="wallet-tab-pane" aria-selected="true">
@@ -20,10 +20,10 @@
   <div class="tab-content px-2" id="myTabContent">
 
     <div class="tab-pane fade show active" id="wallet-tab-pane" role="tabpanel" aria-labelledby="wallet-tab" tabindex="0">
-      <div class="container h-100 centered-box flex-column bg-white rounded-4">
-        <h1 class="pt-4">My Amigo Bank</h1>
+      <div class="container h-100 centered-box flex-column rounded-4">
+        <h1 class="pt-4 pb-2">My AmigoBank</h1>
           <% if @wallet.balance && @wallet.balance >= 0 %>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQroWVkXP02ZOkWGGKDzX1xJSBEE1GJGMObBmdaWlb-IxTXxDs8NdU-vbX0KKGHBWBOq3E&usqp=CAU" height="200">
+            <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662494113/happy_kanye_osjsox.png" height="200">
           <% else %>
             <img src="https://64.media.tumblr.com/tumblr_m320tlkm0Q1rue873o1_400.png" height="200">
           <% end %>

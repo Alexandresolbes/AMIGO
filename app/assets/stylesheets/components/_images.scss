@@ -49,6 +49,40 @@
   width: 100%;
 }
 
+.trip-card-avatars{
+  position: relative;
+  top : -20px;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    -webkit-transition: .2s ease;
+    transition: .2s ease;
+    
+  }
+    li:nth-child(n+2) { margin-left: -20px; }
+  
+    ul:hover li:nth-child(n+2) {
+      margin-left: -10px;
+  }
+
+  .invite-friend{
+    border-radius: 50%;
+    object-fit: cover;
+    height: 70px;
+    width: 70px;
+    background-color: rgba(255, 255, 255, 0.408);
+  }
+  
+}
+
 @media (min-width: 576px) {
   #illustration{
     max-width: 400px;

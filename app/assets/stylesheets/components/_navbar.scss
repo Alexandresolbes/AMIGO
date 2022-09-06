@@ -27,10 +27,10 @@
 }
 
 /*****************************************************/
-// Navbar Activity with tabs
+// Navbars with tabs
 /*****************************************************/
 
-.tabs-activity{
+.tabs-activity, .tabs-trip, .tabs-bank{
   background: $blue;
   background: $gradient-blue;
   box-shadow: 0px 10px 20px rgba(117, 152, 233, 0.3);
@@ -57,7 +57,15 @@
   .nav{
     padding: 10px;
   }
+}
 
+/*****************************************************/
+// Navbar ACTIVITIES with tabs
+/*****************************************************/
+
+
+.tabs-activity{
+  
   #all-activities-tab{
     border-radius: 10px;
   }
@@ -68,34 +76,6 @@
 /*****************************************************/
 
 .tabs-trip{
-  background: $blue;
-  background: $gradient-blue;
-  box-shadow: 0px 10px 20px rgba(117, 152, 233, 0.3);
-
-
-  .nav-link{
-    font-size: 1rem;
-    border:0;
-    display: block;
-    width: 100%;
-    font-size: 1.4rem;
-    color: white;
-  }
-
-  .active{
-    background: $blue;
-    background: $gradient-blue;
-    margin: 0;
-    border-radius: 15px 0 0 15px;
-    i{
-      color: white;
-    }
-  }
-
-  .nav{
-    padding: 10px;
-  }
-
   #trip-users-tab{
     border-radius: 10px;
   }
@@ -106,33 +86,6 @@
 /*****************************************************/
 
 .tabs-bank{
-  background: $blue;
-  background: $gradient-blue;
-  box-shadow: 0px 10px 20px rgba(117, 152, 233, 0.3);
-
-  .nav-link{
-    font-size: 1rem;
-    border:0;
-    display: block;
-    width: 100%;
-    font-size: 1.4rem;
-    color: white;
-  }
-
-  .active{
-    background: $blue;
-    background: $gradient-blue;
-    margin: 0;
-    border-radius: 15px 0 0 15px;
-    i{
-      color: white;
-    }
-  }
-
-  .nav{
-    padding: 10px;
-  }
-
   #wallet-tab{
     border-radius: 10px;
   }
@@ -146,5 +99,34 @@
   .nav-link{
     font-size: 1rem;
     border-radius: 10px;
+  }
+}
+
+/*****************************************************/
+// Navbar Bill with Tabs
+/*****************************************************/
+
+#bank-pills-tab{
+
+  #debit-tab, #credit-tab{
+    font-size: 1rem;
+    border-radius: 30px;
+  }
+  #debit-tab{
+    border: $red 1px solid;
+    color:$red;
+  }
+  #credit-tab{
+    background-color: transparent;
+    border: $green 1px solid;
+    color:$green;
+  }
+  #credit-tab:hover, #credit-tab.active{
+    background-color: $green;
+    color:white;
+  }
+  #debit-tab:hover, #debit-tab.active{
+    background-color: $red;
+    color:white;
   }
 }

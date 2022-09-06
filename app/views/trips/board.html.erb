@@ -29,8 +29,16 @@
               <div class="col-8">
                 <p class="m-0 fw-bold"><%= user.first_name %> <%= user.last_name %></p>
                 <p class="m-0"><%= user.email %></p>
-                <p class="m-0"><%= Participation.where(user_id: user.id).count %> activités en commun</p>
-                <p class="m-0"><%= user.bills.where(paid: false).count %> transactions à régler</p>
+                <p class="m-0"><%= Participation.where(user_id: user.id).count %> activities in common</p>
+                <p class="m-0">
+                  <% if current_user.wallet.account(user) < 0 %>
+                    😱 You owe this amigo
+                  <% elsif current_user.wallet.account(user) == 0 %>
+                    👍🏼 Amigo Balances 
+                  <% else %>
+                    😎 This amigo owes you
+                  <% end %>
+                </p>
               </div>
             </div>
           </div>

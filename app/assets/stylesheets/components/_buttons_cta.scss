@@ -26,10 +26,24 @@
 }
 
 .btn-second:hover{
-  border: transparent solid 1px;
+  border: white solid 1px;
 }
 
 .btn-blue:hover{
   background-color: $yellow;
   border: transparent solid 1px;
+}
+
+.btn-yellow{
+  padding: 8px 20px;
+  background-color: $yellow;
+  border-radius: 8px;
+  color: white;
+  text-shadow: 1px 1px 5px grayscale($color: #00000021);
+}
+
+.btn-yellow:hover{
+  color: white;
+  border: white solid 1px;
+  font-weight: 500;
 }

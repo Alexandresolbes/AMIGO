@@ -31,9 +31,9 @@
 /*****************************************************/
 
 .tabs-activity{
-  background: rgba(255,146,82,1);
-  background: $gradient-yellow;
-  box-shadow: 0px 10px 20px rgba(244, 102, 20, 0.3);
+  background: $blue;
+  background: $gradient-blue;
+  box-shadow: 0px 10px 20px rgba(117, 152, 233, 0.3);
 
   .nav-link{
     font-size: 1rem;
@@ -45,8 +45,8 @@
   }
 
   .active{
-    background: rgba(255,146,82,1);
-    background: $gradient-yellow;
+    background: $blue;
+    background: $gradient-blue;
     margin: 0;
     border-radius: 15px 0 0 15px;
     i{
@@ -68,9 +68,10 @@
 /*****************************************************/
 
 .tabs-trip{
-  background: rgba(144,223,117,1);
-  background: $gradient-green;
-  box-shadow: 0px 10px 20px rgba(144,223,117,0.3);
+  background: $blue;
+  background: $gradient-blue;
+  box-shadow: 0px 10px 20px rgba(117, 152, 233, 0.3);
+
 
   .nav-link{
     font-size: 1rem;
@@ -82,8 +83,8 @@
   }
 
   .active{
-    background: rgba(144,223,117,1);
-    background: $gradient-green;
+    background: $blue;
+    background: $gradient-blue;
     margin: 0;
     border-radius: 15px 0 0 15px;
     i{
@@ -105,9 +106,9 @@
 /*****************************************************/
 
 .tabs-bank{
-  background: rgba(255,146,82,1);
-  background: $gradient-orange;
-  box-shadow: 0px 10px 20px rgba(255,146,82,0.3);
+  background: $blue;
+  background: $gradient-blue;
+  box-shadow: 0px 10px 20px rgba(117, 152, 233, 0.3);
 
   .nav-link{
     font-size: 1rem;
@@ -119,8 +120,8 @@
   }
 
   .active{
-    background: rgba(255,146,82,1);
-    background: $gradient-orange;
+    background: $blue;
+    background: $gradient-blue;
     margin: 0;
     border-radius: 15px 0 0 15px;
     i{

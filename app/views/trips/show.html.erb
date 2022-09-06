@@ -1,26 +1,24 @@
-<div class="bg-gradient-blue-white px-3">
-  <h1 class="fs-2 pt-4 pb-3 px-3 text-center text-light">Welcome, <%= current_user.first_name %> !</h1>
-
-  <div class="container responsive bg-transparent px-2 py-4 rounded-4 trip-card position-relative mb-5 bg-transparent">
+<div class="bg-gradient-general px-3 pt-4">
+  <div class="container responsive mt-4 px-2 pt-4 pb-4 rounded-4 trip-card position-relative mb-5 bg-transparent">
     <div class="row px-2">
       <div class="col-4">
         <div class="centered-box flex-column" data-controller="weather">
           <img src="" alt="Weather Icon" data-weather-target="img" height=70 class="">
-          <p class="fs-3" data-weather-target="temp"></p>
+          <p class="fs-4 fw-bold" data-weather-target="temp"></p>
 
         </div>
       </div>
       <div class="col-8 d-flex justify-content-center flex-column rounded-4 p-2">
-        <h3><strong><%= @trip.destination %></strong></h3>
+        <h4 class=""><strong><%= @trip.destination %></strong></h4>
         <h6 class="mb-2"><%= @trip.start_date.strftime("%d %b") %> - <%= @trip.end_date.strftime("%d %b %Y") %>
         </h6>
         <div class="d-flex">
-          <h5 class="me-1 bg-light fw-bold d-block rounded-4 border border-secondary px-3 py-1"><i class="fa-solid fa-users text-blue"></i> <%= @trip.users.count %></h5>
-          <h5 class="fw-bold bg-light  d-block rounded-4 border border-secondary px-3 py-1"><i class="fa-solid fa-person-hiking text-yellow"></i> <%= @trip.activities.count %></h5>
+          <h5 class="fw-bold d-block rounded-4 px-3 py-1"><i class="fa-solid fa-users"></i> <%= @trip.users.count %></h5>
+          <h5 class="fw-bold d-block rounded-4 px-3 py-1"> <%= image_tag 'icons/hiking.png', height: 30 %><%= @trip.activities.count %></h5>
         </div>
       </div>
     </div>
-    <div class="row mt-5 mb-3 justify-content-center position-absolute trip-card-avatars">
+    <div class="row mt-2 mb-3 pt-2 justify-content-center position-absolute trip-card-avatars">
       <% @trip.users.each do |user| %>
         <div class="col-2">
         <%= cl_image_tag user.photo.key, class:"avatar-sm overflow-visible" %>
@@ -40,37 +38,40 @@
       </div>
   </div>
   <% if @trip.participates?(current_user) %>
-    <div class="container mt-5 pt-3 trip-buttons-box">
+    <div class="container mt-3 pt-2 trip-buttons-box">
       <div class="row centered-box text-center">
         <div class="col-6 centered-box ps-0">
-          <div class="btn-activity d-flex justify-content-center align-items-center rounded-4 my-2">
+          <div class="main-btn d-flex justify-content-center align-items-center rounded-4 my-2">
             <%= link_to trip_activities_path(@trip) do %>
-            <i class="fa-solid fa-person-hiking icon-size text-light"></i>
-            <p class="mt-2 mb-0 text-light">Activities</p>
+            <div class="opacity-80">
+              <!-- <%= image_tag 'icons/hiking.png', height:50 %> -->
+            </div>
+            <i class="fa-solid fa-person-hiking icon-size"></i>
+            <p class="mt-2 mb-0 ">Activities</p>
             <% end %>
           </div>
         </div>
         <div class="col-6 centered-box pe-0">
-          <div class="btn-random centered-box rounded-4 my-2">
+          <div class="main-btn centered-box rounded-4 my-2">
             <%= link_to trip_random_wheel_path(@trip), data: {turbo: false} do %>
               <i class="fa-solid fa-dice icon-size"></i>
-              <p class="mt-2 mb-0 text-light">AmigoFortune</p>
+              <p class="mt-2 mb-0 ">AmigoFortune</p>
             <% end %>
           </div>
         </div>
         <div class="col-6 centered-box ps-0 mt-2">
-          <div class="btn-trip centered-box rounded-4">
+          <div class="main-btn centered-box rounded-4">
             <%= link_to trip_board_path(@trip) do %>
-              <i class="fa-solid fa-plane-up icon-size"></i>
-              <p class="mt-2 mb-0 text-light">My Trip</p>
+              <%= image_tag 'icons/backpack.png', height:50%>
+              <p class="mt-2 mb-0 ">My Trip</p>
             <% end %>
           </div>
         </div>
         <div class="col-6 centered-box pe-0 mt-2">
-          <div class="btn-bank centered-box rounded-4">
+          <div class="main-btn centered-box rounded-4">
             <%= link_to trip_wallet_path(@trip, UserTrip.find_by_user_id(current_user.id).wallet) do %>
-              <i class="fa-solid fa-piggy-bank icon-size"></i>
-              <p class="mt-2 mb-0 text-light">AmigoBank</p>
+              <%= image_tag 'icons/transaction.png', height:50 %>
+              <p class="mt-2 mb-0 ">AmigoBank</p>
             <% end %>
           </div>
         </div>

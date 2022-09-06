@@ -1,46 +1,4 @@
-/*
-
-.btn-activity, .btn-random, .btn-trip, .btn-bank{
-  font-weight: 500;
-  border-radius: 10px;
-}
-
-.btn-activity, .btn-random, .btn-trip, .btn-bank{
-  height: 110px;
-  width: 100%;
-  a{
-    color: white;
-    text-decoration: none;
-    text-shadow: 2px 2px solid rgba(0, 0, 0, 0.178);
-  }
-}
-
-.btn-activity{
-  background: rgba(255,146,82,1);
-  background: $gradient-yellow;
-  box-shadow: 0px 10px 20px rgba(244, 102, 20, 0.3);
-}
-
-.btn-random{
-  background: rgba(68,187,254,1);
-  background: $gradient-blue;
-  box-shadow: 0px 10px 20px rgba(68,187,254,0.3);
-}
-
-.btn-trip{
-  background: rgba(144,223,117,1);
-  background: $gradient-green;
-  box-shadow: 0px 10px 20px rgba(144,223,117,0.3);
-}
-
-.btn-bank{
-  background: rgba(255,146,82,1);
-  background: $gradient-orange;
-  box-shadow: 0px 10px 20px rgba(255,146,82,0.3);
-}
-*/
-
-.btn-eye, .btn-bill{
+.btn-eye{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,22 +12,9 @@
   right: -10px;
 }
 
-.btn-bill{
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  background: rgba(255,146,82,1);
-  background: $gradient-orange;
-  box-shadow: 0px 10px 20px rgba(255,146,82,0.2);
-  color: white;
-  font-size: 1.4rem;
-  border: 0;
-}
-
-.btn-bill:hover{
-  color:white;
-  opacity: 0.9;
-  box-shadow: 0px 10px 20px rgba(255,146,82,0.8);
+.btn-hover{
+  background-color: white;
+  color: $orange
 }
 
 @media(min-width: 576px){
@@ -77,3 +22,4 @@
     max-width: 50%;
   }
 }
+

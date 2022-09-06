@@ -1,9 +1,7 @@
 class Bill < ApplicationRecord
-  belongs_to :wallet
   belongs_to :user
-  validates :credit, numericality: { other_than: 0 }
-  validates :debit, numericality: { other_than: 0 }
-
+  belongs_to :wallet
+  validates :user_id, presence: { message: "must be given please" }
   def amigo
     return self.user
   end

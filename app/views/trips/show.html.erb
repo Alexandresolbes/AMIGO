@@ -1,5 +1,5 @@
 <div class="bg-gradient-general px-3 pt-4">
-  <div class="container responsive mt-4 px-2 pt-4 pb-4 rounded-4 trip-card position-relative mb-5 bg-transparent">
+  <div class="container responsive mt-4 px-2 py-4 rounded-4 trip-card position-relative mb-5 bg-transparent">
     <div class="row px-2">
       <div class="col-4">
         <div class="centered-box flex-column" data-controller="weather">
@@ -12,9 +12,9 @@
         <h4 class=""><strong><%= @trip.destination %></strong></h4>
         <h6 class="mb-2"><%= @trip.start_date.strftime("%d %b") %> - <%= @trip.end_date.strftime("%d %b %Y") %>
         </h6>
-        <div class="d-flex">
-          <h5 class="fw-bold d-block rounded-4 px-3 py-1"><i class="fa-solid fa-users"></i> <%= @trip.users.count %></h5>
-          <h5 class="fw-bold d-block rounded-4 px-3 py-1"><%= @trip.activities.count %></h5>
+        <div class="d-flex mt-2">
+          <h5 class="fw-bold d-block rounded-4 px-3 py-1 border border-secondary me-1"><i class="fa-solid fa-users"></i> <%= @trip.users.count %></h5>
+          <h5 class="fw-bold d-block rounded-4 px-3 py-1 border border-secondary"><i class="fa-solid fa-hiking"></i> <%= @trip.activities.count %></h5>
         </div>
       </div>
     </div>

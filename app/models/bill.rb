@@ -1,6 +1,8 @@
 class Bill < ApplicationRecord
   belongs_to :wallet
   belongs_to :user
+  validates :credit, numericality: { other_than: 0 }
+  validates :debit, numericality: { other_than: 0 }
 
   def amigo
     return self.user

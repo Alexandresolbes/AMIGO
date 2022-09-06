@@ -1,11 +1,9 @@
 <div class="container responsive h-100">
-  <div class="row centered-box mt-5">
-    <div class="col mb-5">
+  <div class="row h-100 centered-box">
+    <div class="col flex-column centered-box mb-5">
 
       <img src="https://pngimg.com/uploads/minions/minions_PNG65.png" width="300">
-      <h1 class="text-center my-3 fs-2">
-        Invite an Amigo to join your Trip !
-        </h1>
+      <h1 class="text-center my-4 fs-2 px-3">Invite an Amigo to join your Trip !</h1>
         <%= form_with url: trip_invite_path, method: :post, class: "d-flex" do %>
           <%= text_field_tag :address,
             params[:address],

@@ -19,7 +19,7 @@
               <%= link_to trip_rooms_path(@trip), class:"nav-link" do  %>
                   <%= image_tag("icons/chat-icon.svg", height: '36', width: 'auto') %>
                   <% if UserMessage.display_unread(current_user.id) > 0 %>
-                    <span class="position-absolute top-25 start-30 translate-middle badge rounded-pill bg-danger fs-6">
+                     <span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger fs-6">
                     <%= UserMessage.display_unread(current_user.id) %>
                     <span class="visually-hidden">unread messages</span>
                     </span>

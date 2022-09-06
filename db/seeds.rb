@@ -11,6 +11,9 @@ require "open-uri"
 UserNotification.destroy_all
 puts "✅ User Notifications destroyed"
 
+UserMessage.destroy_all
+puts "✅ User Messages destroyed"
+
 Notification.destroy_all
 puts "✅ Notifications destroyed"
 

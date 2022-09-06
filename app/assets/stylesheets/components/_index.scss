@@ -12,6 +12,7 @@
 @import "cards";
 @import "map";
 @import "wheel";
+@import "main_buttons";
 
 html {
   height: 100vh;
@@ -20,7 +21,7 @@ html {
 body{
   height: 100%;
   position: relative;
-  color: $gray;
+  color: rgb(50, 50, 50);
 }
 
 .centered-box{
@@ -55,8 +56,9 @@ body{
   background-color: rgb(198, 226, 241);
 }
 
-.bg-gradient-blue-white {
-  background: linear-gradient(180deg, #0066FF 0%, #a2afed 30%, #FFFFFF 70.53%);
+.bg-gradient-general {
+  background: rgba(255, 255, 255, 0.8);
+  background: $gradient-general;
   height: 100%;
 }
 
@@ -71,6 +73,14 @@ body{
 
 .border-sm{
   border-radius: 10px;
+}
+
+.text-shadow{
+  text-shadow: 1px 1px 5px grayscale($color: #00000021);
+}
+
+.opacity{
+  opacity: 0.8;
 }
 
 @media (min-width: 768px) {

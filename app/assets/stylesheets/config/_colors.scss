@@ -2,15 +2,18 @@
 
 // For example:
 $red: #FD1015;
-$orange: #E67E22;
-$green:  rgba(98,182,85,1);
+$orange: #F2780C;
 $gray: #1f1f1f;
 $light-gray: #F4F4F4;
-$blue: #5271FF;
-$yellow: #F6C13D;
+$success: green;
+$blue: #5B92D9;
+$light-blue: #7EAED9;
+$pastel-blue: #C2E0F2;
+$yellow: #F2B705;
 $dark-grey: #333333;
-$gradient-blue: linear-gradient(180deg, rgba(68,187,254,1) 0%, rgba(30,120,254,1) 100%);
-$gradient-yellow: linear-gradient(180deg, rgba(255,207,83,1) 0%, rgba(255,153,0,1) 100%);
-$gradient-orange: linear-gradient(180deg, rgba(255,146,82,1) 0%, rgba(255,63,21,1) 100%);
+$gradient-blue: linear-gradient(180deg, $light-blue 0%, $blue 100%);
+$gradient-general: linear-gradient(180deg, $orange 0%, $yellow 20%, rgb(255, 222, 101) 30%, white 55%,white 65%, $pastel-blue 80%, $blue 100%);
+$gradient-orange: linear-gradient(180deg, $yellow 0%, $orange 50%);
 $gradient-green: linear-gradient(180deg, rgba(144,223,117,1) 0%, rgba(98,182,85,1) 100%);
 
+$gradient-blue-white: linear-gradient(180deg, $blue 0%, white 50%);

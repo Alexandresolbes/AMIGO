@@ -18,4 +18,20 @@ class User < ApplicationRecord
   has_many :user_notifications, dependent: :destroy
   has_one_attached :photo
 
+  def amigos
+    User.all.reject { |u| u.id == self.id }
+  end
+
+  def wallet
+    Wallet.find_by_user_trip_id(UserTrip.find_by_user_id(self.id).id)
+  end
+
+  def balances
+    balances = 0
+    self.amigos.each do |a|
+      balances += 1 if self.wallet.account(a) > 0
+      balances -= 1 if self.wallet.account(a) > 0
+    end
+    balances
+  end
 end

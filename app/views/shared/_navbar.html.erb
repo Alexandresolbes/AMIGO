@@ -25,7 +25,7 @@
             <li class="nav-item d-inline-block">
               <%= link_to trip_notifications_path(@trip), class:"nav-link position-relative" do  %>
                 <%= image_tag("icons/notification-icon.svg", height: '32', width: 'auto') %>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger fs-6">
                 <%= UserNotification.display_unread(current_user.id) %>
                 <span class="visually-hidden">unread messages</span>
                  </span>

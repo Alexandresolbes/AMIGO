@@ -20,7 +20,8 @@
 
   <body>
     <%= render "shared/flashes" %>
-    <div class="h-100">      <%= yield %>
+    <div class="h-100 bg-white">
+      <%= yield %>
     </div>
     <% if user_signed_in? %>
         <%= render "shared/navbar" %>

@@ -25,11 +25,11 @@ class MessagesController < ApplicationController
   end
 
   def generate_notifications
-    @trip.users.each do |user|
-      if user.id == current_user.id
-        UserMessage.create(user_id: user.id, message_id: @message.id, read: true)
+    @trip.users.each do |trip_user|
+      if trip_user.id == current_user.id
+        UserMessage.create(user_id: trip_user.id, message_id: @message.id, read: true)
       else
-        UserMessage.create(user_id: user.id, message_id: @message.id)
+        UserMessage.create(user_id: trip_user.id, message_id: @message.id)
       end
     end
   end

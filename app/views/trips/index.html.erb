@@ -1,5 +1,5 @@
-<div class="bg-gradient-blue-white text-light">
-  <div class="container responsive py-5 px-3">
+<div class="bg-gradient-general text-light px-3 min-h-100">
+  <div class="container responsive pt-4  p-large">
     <div class="row justify-content-between">
       <div class="col">
         <h1>My Trips</h1>
@@ -8,8 +8,9 @@
         <%= link_to "Create a trip", new_trip_path, class:"btn btn-second" %>
       </div>
     </div>
-    <% @trips.each do |user_trip|%>
-        <div class="my-4 p-4 bg-light text-center border-sm">
+    <div class="row">
+      <% @trips.each do |user_trip|%>
+        <div class="col-12 my-4 p-4 bg-light text-center border-sm">
           <h2 class="fs-3"><strong><%= link_to user_trip.trip.destination, trip_path(user_trip.trip), class:"text-decoration-none" %></strong></h2>
           <p class="p-0 mb-2 text-dark">
             ⌛<%= user_trip.trip.start_date.strftime("%d %b") %> - <%= user_trip.trip.end_date.strftime("%d %b %Y") %>
@@ -21,6 +22,7 @@
           <hr class="text-dark">
           <%= link_to "Manage my trip", trip_path(user_trip.trip) %>
         </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

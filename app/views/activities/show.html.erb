@@ -8,8 +8,8 @@
     <div class="col-9 ps-4">
       <h3 class="fs-4 fw-bold m-0"><%= @activity.categories %></h3>
       <p class="mb-1">Proposed by <%= @activity.creator.first_name %></p>
-            <p class="card-text d-inline-block fw-bold m-0 rounded-4 border border-secondary px-3 py-1 bg-light me-1">📆 <%= @activity.date.strftime('%d/%m') %></p>
-      <p class="card-text d-inline-block fw-bold m-0 rounded-4 border border-secondary px-3 py-1 bg-light">👥
+            <p class="card-text d-inline-block fw-bold m-0 rounded-4 border border-secondary px-2 py-1 bg-light me-1">📆 <%= @activity.date.strftime('%d/%m') %></p>
+      <p class="card-text d-inline-block fw-bold m-0 rounded-4 border border-secondary px-2 py-1 bg-light">👥
       <% if @activity.participations.count >= @activity.min_amigos %>
         <span class="text-success">
         <%= @activity.participations.count %>

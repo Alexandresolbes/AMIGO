@@ -1,5 +1,5 @@
-<div class="container responsive h-100">
-  <div class="nav nav-tabs tabs-trip mx-2 my-4 rounded-4 p-0 row justify-content-between" id="myTab" role="tablist">
+<div class="container responsive min-h-100 pt-4">
+  <div class="nav nav-tabs tabs-trip mx-2 mb-4 rounded-4 p-0 row justify-content-between" id="myTab" role="tablist">
 
     <div class="col-4 nav-item" role="presentation">
       <button class="nav-link active" id="trip-users-tab" data-bs-toggle="tab" data-bs-target="#trip-users-tab-pane" type="button" role="tab" aria-controls="trip-users-tab-pane" aria-selected="true"><i class="fa-solid fa-users"></i></button>
@@ -29,16 +29,8 @@
               <div class="col-8">
                 <p class="m-0 fw-bold"><%= user.first_name %> <%= user.last_name %></p>
                 <p class="m-0"><%= user.email %></p>
-                <p class="m-0"><%= Participation.where(user_id: user.id).count %> activities in common</p>
-                <p class="m-0">
-                  <% if current_user.wallet.account(user) < 0 %>
-                    😱 You owe this amigo
-                  <% elsif current_user.wallet.account(user) == 0 %>
-                    👍🏼 Amigo Balances 
-                  <% else %>
-                    😎 This amigo owes you
-                  <% end %>
-                </p>
+                <p class="m-0"><%= Participation.where(user_id: user.id).count %> activités en commun</p>
+                <p class="m-0"><%= user.bills.where(paid: false).count %> transactions à régler</p>
               </div>
             </div>
           </div>

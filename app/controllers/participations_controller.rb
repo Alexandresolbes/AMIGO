@@ -4,7 +4,6 @@ class ParticipationsController < ApplicationController
     authorize @participation
     @participation.user = current_user
     @participation.activity_id = params[:activity_id]
-    @trip = Trip.find(params[:trip_id])
     if @participation.save!
       create_notification("joined", @participation.activity)
       redirect_to trip_activity_path(trip_id: @trip.id, id: params[:activity_id])

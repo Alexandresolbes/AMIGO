@@ -18,17 +18,24 @@
             <li class="nav-item d-inline-block">
               <%= link_to trip_rooms_path(@trip), class:"nav-link" do  %>
                   <%= image_tag("icons/chat-icon.svg", height: '36', width: 'auto') %>
-                  <%= UserMessage.display_unread(current_user.id) %>
+                  <% if UserMessage.display_unread(current_user.id) > 0 %>
+                    <span class="position-absolute top-25 start-30 translate-middle badge rounded-pill bg-danger fs-6">
+                    <%= UserMessage.display_unread(current_user.id) %>
+                    <span class="visually-hidden">unread messages</span>
+                    </span>
+                  <% end %>
               <% end %>
             </li>
 
             <li class="nav-item d-inline-block">
               <%= link_to trip_notifications_path(@trip), class:"nav-link position-relative" do  %>
                 <%= image_tag("icons/notification-icon.svg", height: '32', width: 'auto') %>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                <%= UserNotification.display_unread(current_user.id) %>
-                <span class="visually-hidden">unread messages</span>
-                 </span>
+                <% if UserNotification.display_unread(current_user.id) > 0 %>
+                  <span class="position-absolute top-25 start-90 translate-middle badge rounded-pill bg-danger fs-6">
+                  <%= UserNotification.display_unread(current_user.id) %>
+                  <span class="visually-hidden">unread notifications</span>
+                  </span>
+                <% end %>
               <% end %>
             </li>
           <% end %>

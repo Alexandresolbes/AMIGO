@@ -14,7 +14,7 @@
         </h6>
         <div class="d-flex">
           <h5 class="fw-bold d-block rounded-4 px-3 py-1"><i class="fa-solid fa-users"></i> <%= @trip.users.count %></h5>
-          <h5 class="fw-bold d-block rounded-4 px-3 py-1"> <%= image_tag 'icons/hiking.png', height: 30 %><%= @trip.activities.count %></h5>
+          <h5 class="fw-bold d-block rounded-4 px-3 py-1"><%= @trip.activities.count %></h5>
         </div>
       </div>
     </div>
@@ -44,9 +44,8 @@
           <div class="main-btn d-flex justify-content-center align-items-center rounded-4 my-2">
             <%= link_to trip_activities_path(@trip) do %>
             <div class="opacity-80">
-              <!-- <%= image_tag 'icons/hiking.png', height:50 %> -->
+                <%= image_tag 'icons/banana-boat.png', height:50 %>
             </div>
-            <i class="fa-solid fa-person-hiking icon-size"></i>
             <p class="mt-2 mb-0 ">Activities</p>
             <% end %>
           </div>
@@ -54,7 +53,7 @@
         <div class="col-6 centered-box pe-0">
           <div class="main-btn centered-box rounded-4 my-2">
             <%= link_to trip_random_wheel_path(@trip), data: {turbo: false} do %>
-              <i class="fa-solid fa-dice icon-size"></i>
+              <%= image_tag 'icons/fortune-wheel.png', height:50 %>
               <p class="mt-2 mb-0 ">AmigoFortune</p>
             <% end %>
           </div>
@@ -62,7 +61,7 @@
         <div class="col-6 centered-box ps-0 mt-2">
           <div class="main-btn centered-box rounded-4">
             <%= link_to trip_board_path(@trip) do %>
-              <%= image_tag 'icons/backpack.png', height:50%>
+              <%= image_tag 'icons/passeport.png', height:50%>
               <p class="mt-2 mb-0 ">My Trip</p>
             <% end %>
           </div>
@@ -70,7 +69,7 @@
         <div class="col-6 centered-box pe-0 mt-2">
           <div class="main-btn centered-box rounded-4">
             <%= link_to trip_wallet_path(@trip, UserTrip.find_by_user_id(current_user.id).wallet) do %>
-              <%= image_tag 'icons/transaction.png', height:50 %>
+              <%= image_tag 'icons/piggy-bank.png', height:50 %>
               <p class="mt-2 mb-0 ">AmigoBank</p>
             <% end %>
           </div>

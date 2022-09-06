@@ -6,11 +6,11 @@
   
     <h6 class="text-secondary"><strong>Account with <%= amigo.first_name %></strong></h6>
     <% if account > 0 %>
-      <h6 class="text-success m-0">You lent <%= account %>$<br><span class="fs-3"></h6>
+      <h6 class="text-success m-0">You gave <%= account %>$<br><span class="fs-3"></h6>
     <% elsif account == 0 %>
       <h6 class="text-success m-0">No transactions to balance</h6>
     <% else %>
-      <h6 class="text-danger m-0">You owe <%= account %>$</h6>
+      <h6 class="text-danger m-0">You were given <%= account %>$</h6>
     <% end %>
   </div>
 </div>

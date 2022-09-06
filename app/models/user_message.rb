@@ -7,9 +7,4 @@ class UserMessage < ApplicationRecord
     @all_unread_user_messages = @all_user_messages.where(read: false)
     return @all_unread_user_messages.count
   end
-
-  def read
-    self.read = true
-    self.save!
-  end
 end

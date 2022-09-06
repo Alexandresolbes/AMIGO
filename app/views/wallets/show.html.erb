@@ -20,18 +20,18 @@
   <div class="tab-content px-2" id="myTabContent">
 
     <div class="tab-pane fade show active" id="wallet-tab-pane" role="tabpanel" aria-labelledby="wallet-tab" tabindex="0">
-      <div class="container h-100 centered-box flex-column bg-white rounded-4 shadow-sm">
+      <div class="container h-100 centered-box flex-column bg-white rounded-4">
         <h1 class="pt-4">My Amigo Bank</h1>
           <% if @wallet.balance && @wallet.balance >= 0 %>
-            <img src="https://cdn.dribbble.com/users/347403/screenshots/2660094/_oink.gif" style="width:100%">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQroWVkXP02ZOkWGGKDzX1xJSBEE1GJGMObBmdaWlb-IxTXxDs8NdU-vbX0KKGHBWBOq3E&usqp=CAU" height="200">
           <% else %>
-            <img src=" https://pngimg.com/uploads/piggy_bank/piggy_bank_PNG49.png" style="width:70%">
+            <img src="https://64.media.tumblr.com/tumblr_m320tlkm0Q1rue873o1_400.png" height="200">
           <% end %>
 
           <% if @wallet.bills.any? %>
             <div class="pb-3 text-center row">
               <div class="col-12">
-                <h3 class="text-secondary mt-2 mb-3">Balance</h3>
+                <h3 class="text-secondary mt-3 mb-3">Total Balance</h3>
                 <p class="text-<% if @wallet.balance && @wallet.balance >= 0 %>success<% else %>danger<% end %> fs-1">
                   <%= @wallet.balance.round(2) %> $
                 </p>

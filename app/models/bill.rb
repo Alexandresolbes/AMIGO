@@ -2,6 +2,7 @@ class Bill < ApplicationRecord
   belongs_to :user
   belongs_to :wallet
   validates :user_id, presence: { message: "must be given please" }
+  
   def amigo
     return self.user
   end

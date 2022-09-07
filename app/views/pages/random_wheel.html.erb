@@ -2,7 +2,7 @@
   <div class="container responsive h-100 text-center flex-column centered-box">
     <h1 data-random-wheel-target="intro" class="pb-3 text-light fs-2 fw-bold">Pick randomly an amigo !</h1>
     <div class="row centered-box mt-2">
-      <div class="col-12 d-flex flex-column centered-box text-center">
+      <div class="col d-flex flex-column centered-box text-center">
         <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662470724/random-wheel-amigo_ofosrc.png" class="fortune-wheel mb-3" data-random-wheel-target="wheel">
 
         <div id="carouselExampleInterval" class="carousel slide d-none mb-5" data-bs-ride="carousel" data-random-wheel-target="carousel">
@@ -21,13 +21,16 @@
 
         <div class="d-none my-3" id="result" data-random-wheel-target="result">
           <%= cl_image_tag @user.photo.key, class:"avatar-lg" %>
-          <h2 class="mt-2">🥳😱😢<br><%= @user.first_name %></h2>
-          <p>will spend money tonight ! 💸</p>
+          <div>
+            <h2 class="mt-4">🥳😱😢</h2>
+            <h3 class="m-0"><%= @user.first_name %></h3>
+            <p>will spend money tonight ! 💸</p>
+          </div>
         </div>
 
-        <%= link_to "Randomize", trip_random_wheel_path(@trip), class:"btn btn-blue mb-5", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>
+        <%= link_to "Start", trip_random_wheel_path(@trip), class:"btn btn-blue mt-2 mb-5", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>
 
-        <%= link_to "Recommencer", trip_random_wheel_path(@trip), class:"btn btn-blue d-none mb-5", data: {random_wheel_target: "restart", action:"click->random-wheel#restart"} %>
+        <%= link_to "Spin again", trip_random_wheel_path(@trip), class:"btn btn-blue d-none mb-5", data: {random_wheel_target: "restart", action:"click->random-wheel#restart"} %>
 
       </div>
     </div>

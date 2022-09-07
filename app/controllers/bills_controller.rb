@@ -13,7 +13,7 @@ class BillsController < ApplicationController
       generate_counter_bill
       redirect_to trip_wallet_path(@trip, @wallet), notice: "Bill created!"
     else
-      render "form", status: :unprocessable_entity
+      render 'bills/form', status: :unprocessable_entity
     end
   end
 

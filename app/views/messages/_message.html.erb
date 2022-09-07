@@ -12,10 +12,10 @@
   </div>
 <% else %>
   <div class="row my-2" id="message-<%= message.id %>">
-    <div class="col-2 col-md-11">
+    <div class="col-2 col-md-1">
       <%= cl_image_tag message.user.photo.key, width: 50, height:50, radius: :max %>
     </div>
-    <div class="col-10 col-md-1">
+    <div class="col-10 col-md-11">
       <div class="ps-3 bg-light-green rounded-4 py-1">
         <small><i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i></small>
         <p class="m-0"><%= message.content %></p>

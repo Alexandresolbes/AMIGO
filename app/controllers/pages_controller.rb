@@ -42,7 +42,7 @@ class PagesController < ApplicationController
 
   def create_notification(wheel_choice)
     @trip = Trip.find(params[:trip_id])
-    @notification = Notification.new(content: "#{wheel_choice.first_name} was chosen by the wheel ! What s/he amigo will do ? 💸🧽")
+    @notification = Notification.new(content: "#{wheel_choice.first_name} was chosen by the wheel! What will be their trick? 💸🧽")
     @notification.user_id = wheel_choice.id
     @notification.trip_id = @trip.id
     @notification.save!

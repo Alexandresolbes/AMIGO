@@ -1,14 +1,12 @@
-.btn-second, .btn-blue{
+.btn-second, .btn-blue, .btn-yellow{
   font-weight: 500;
   border-radius: 8px;
-}
-
-.btn-second, .btn-blue{
   padding: 8px 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-blue, .btn-second:hover, .btn-outline-danger:hover{
+  color: white;
   color: white;
 }
 
@@ -17,7 +15,7 @@
   color: $blue;
 }
 
-.btn-second:hover{
+.btn-second:hover, .btn-yellow:hover{
   border: white solid 1px;
 }
 
@@ -35,15 +33,7 @@
 }
 
 .btn-yellow{
-  padding: 8px 20px;
   background-color: $yellow;
-  border-radius: 8px;
   color: white;
-  text-shadow: 1px 1px 5px grayscale($color: #00000021);
-}
-
-.btn-yellow:hover{
-  color: white;
-  border: white solid 1px;
-  font-weight: 500;
+  text-shadow: 1px 1px 5px grayscale($color: #00000047);
 }

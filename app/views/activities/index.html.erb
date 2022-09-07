@@ -16,26 +16,26 @@
   <div class="tab-content" id="myTabContent">
 
     <div class="tab-pane fade show active" id="all-activities-tab-pane" role="tabpanel" aria-labelledby="all-activities-tab" tabindex="0">
-
+      <h1 class="text-center fs-2 py-2">All activities</h1>
       <% @activities.each do |activity| %>
         <div class="card mb-3 mx-2 rounded-4" style="max-width: 100%;">
           <div class="row g-0">
             <div class="col-4">
               <% if activity.photo.key != nil %>
-                <%= cl_image_tag activity.photo.key, class:"img-fluid rounded-4 rounded-end obj-fit activity-img" %>
+                <%= cl_image_tag activity.photo.key, class:"img-fluid obj-fit activity-img" %>
               <% else %>
                 <%= image_tag "https://source.unsplash.com/random",  class:"img-fluid rounded-start" %>
               <% end %>
             </div>
             <div class="col-8 position-relative">
-              <div class="card-body">
+              <div class="card-body ps-4 pb-0">
                 <h6 class="card-title p-0 m-0 fw-bold"><%= link_to activity.title, trip_activity_path(@trip, activity), class:"text-decoration-none" %></h6>
                 <p class="card-title p-0 m-0 fw-normal fs-6"><%= activity.categories %></p>
                 <p class="card-text p-0 m-0">🧑🏻‍🤝‍🧑🏽
                   <% if activity.participations.count >= activity.min_amigos %>
-                    <span class="text-success"><%= activity.participations.count %></span>/<%= activity.min_amigos %>
+                    <span class="text-success"><%= activity.participations.count %></span>/<%= activity.min_amigos %> amigos min.
                   <% else %>
-                    <span class="text-danger"><%= activity.participations.count %></span>/<%= activity.min_amigos %>
+                    <span class="text-danger"><%= activity.participations.count %></span>/<%= activity.min_amigos %> amigos min.
                   <% end %>
                   <%= link_to trip_activity_path(@trip, activity), class:"btn btn-eye rounded-5 shadow position-absolute" do %>
                     <i class="fa-solid fa-eye text-blue"></i>

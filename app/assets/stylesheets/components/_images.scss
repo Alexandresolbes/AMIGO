@@ -47,6 +47,7 @@
 .activity-img{
   height: 160px;
   width: 100%;
+  border-radius: 15px 0 0 15px;
 }
 
 .trip-card-avatars, .activity-card-avatars, .activity-show-avatars{
@@ -73,7 +74,7 @@
 
   .invite-friend{
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
     height: 70px;
     width: 70px;
     background-color: rgba(255, 255, 255, 0.408);

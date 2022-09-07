@@ -1,14 +1,14 @@
 <div class="container min-h-100">
   <div class="row">
     <% if @activity.id %>
-        <h1 class="text-center fs-2 py-2">Update activity</h1>
+        <h1 class="text-center fs-2 pt-4">Update activity</h1>
     <% else %>
       <h1 class="text-center fs-2 py-2">Create activity</h1>
     <% end %>
       <div class="col-12 px-3">
         <%= simple_form_for [trip, @activity] do |f| %>
           <%= f.input :title %>
-          <%= f.input :categories, collection: %w[🍺Bar 🚴🏼‍♀️Sport 🎟️Show 🧘🏼‍♂️Health 🥳Nightclub 🍽️Restaurant 🍵CoffeeShop 🎨Cultural 🏔️Nature ] %>
+          <%= f.input :categories, collection: %w[🍺Bar 🚴🏼‍♀️Sport 🎟️Show 🧘🏼‍♂️Health 🥳Nightlife 🍽️Restaurant 🍵CoffeeShop 🎨Cultural 🏔️Nature ] %>
           <%= f.input :description %>
           <%= f.input :address,
           input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},

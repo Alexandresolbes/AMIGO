@@ -66,12 +66,13 @@
     transition: .2s ease;
     
   }
-    li:nth-child(n+2) { margin-left: -20px; }
-  
+    li:nth-child(n+2) { margin-left: -25px; }
+    /*
     ul:hover li:nth-child(n+2) {
-      margin-left: -10px;
+      margin-left: -25px;
+      
   }
-
+  */
   .invite-friend{
     border-radius: 50%;
     object-fit: contain;

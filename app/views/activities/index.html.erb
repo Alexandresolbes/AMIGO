@@ -1,4 +1,4 @@
-<div class="container responsive h-100">
+<div class="container responsive min-h-100 p-large">
   <div class="nav nav-tabs tabs-activity mx-2 my-4 rounded-4 p-0 row justify-content-between" id="myTab" role="tablist">
     <div class="col-4 nav-item" role="presentation">
       <button class="nav-link active" id="all-activities-tab" data-bs-toggle="tab" data-bs-target="#all-activities-tab-pane" type="button" role="tab" aria-controls="all-activities-tab-pane" aria-selected="true"><i class="fa-solid fa-list"></i></button>
@@ -61,12 +61,8 @@
       <%= render 'form', trip: @trip %>
     </div>
 
-    <div class="tab-pane fade d-flex justify-content-center px-3" id="map-tab-pane" role="tabpanel" aria-labelledby="map-tab" tabindex="0">
-      <div style="width: 100%; height: 500px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_URL'] %>">
-      </div>
+    <div class="tab-pane fade px-3" id="map-tab-pane" role="tabpanel" aria-labelledby="map-tab" tabindex="0">
+      <%= render "map" %>
     </div>
   </div>
 </div>

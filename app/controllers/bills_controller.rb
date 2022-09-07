@@ -9,11 +9,13 @@ class BillsController < ApplicationController
     authorize @bill
     @bill.wallet_id = @wallet.id
     @bill.paid = false
-    if @bill.save!
+    @amigos = @trip.users
+    if @bill.save
       generate_counter_bill
       redirect_to trip_wallet_path(@trip, @wallet), notice: "Bill created!"
     else
-      render "form", status: :unprocessable_entity
+      flash[:alert] = "Error! Looks like some details are missing in your bill."
+      render partial: "bills/form", :locals => { trip: @trip, wallet: @wallet }
     end
   end
 

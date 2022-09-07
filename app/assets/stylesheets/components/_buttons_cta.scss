@@ -13,11 +13,12 @@
 }
 
 .btn-second{
+  background-color: white;
   color: $blue;
 }
 
-.btn-second{
-  background-color: white;
+.btn-second:hover{
+  border: white solid 1px;
 }
 
 .btn-blue{
@@ -25,9 +26,6 @@
   border: white solid 1px;
 }
 
-.btn-second:hover{
-  border: white solid 1px;
-}
 
 .btn-blue:hover{
   background-color: $yellow;

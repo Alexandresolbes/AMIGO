@@ -1,0 +1,5 @@
+meta_product_name: "Amigo"
+meta_title: "Amigo - Voyager mieux entre amis, moins d'organisation plus de voyage"
+meta_description: "Application d'organisation de voyages entre amis, centraliser la gestion des activités, des échanges et des dépenses."
+meta_image: "amigo-open-graph.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

@@ -112,21 +112,18 @@
     font-size: 1rem;
     border-radius: 30px;
   }
-  #debit-tab{
-    border: $red 1px solid;
-    color:$red;
-  }
-  #credit-tab{
+  #credit-tab, #debit-tab{
     background-color: transparent;
-    border: $green 1px solid;
-    color:$green;
+    border: grey 1px solid;
+    color: grey;
   }
   #credit-tab:hover, #credit-tab.active{
-    background-color: $green;
-    color:white;
+    color:$blue;
+    border: $blue 1px solid;
   }
   #debit-tab:hover, #debit-tab.active{
-    background-color: $red;
-    color:white;
+    color:$orange;
+    border: $orange 1px solid;
   }
+
 }

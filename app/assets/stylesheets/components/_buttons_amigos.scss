@@ -2,9 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.btn-eye{
   height: 40px;
   width: 40px;
   background-color: white;
@@ -12,9 +9,13 @@
   right: -10px;
 }
 
-.btn-hover{
+.btn-eye:hover{
   background-color: white;
-  color: $orange
+  .fa-solid{
+    color: $orange;
+    border: $orange 1px solid;
+  }
+ 
 }
 
 @media(min-width: 576px){

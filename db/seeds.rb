@@ -92,21 +92,20 @@ first_name: "Alexandre",
 last_name: "Solbes",
 email: "alexandre@test.com",
 password: "123456",
-admin: true
+
 )
 
 alexandre.photo.attach(io: file_alex, filename: "alex.jpg", content_type:"image/jpg")
 alexandre.save!
 p "✅ Alexandre created"
 
-file_dante = URI.open("https://dam.malt.com/9103a706-b4c1-4375-959a-42b82aa149f6?gravity=face&func=face&face_margin=60&w=440&h=440&force_format=webp")
+file_dante = URI.open("https://avatars.githubusercontent.com/u/11738628?v=4")
 
 dante = User.new(
 first_name: "Dante",
 last_name: "Planterose",
 email: "dante@test.com",
-password: "123456",
-admin: true
+password: "123456"
 )
 
 dante.photo.attach(io: file_dante, filename: "dante.jpg", content_type:"image/jpg")
@@ -144,6 +143,12 @@ UserTrip.create(
 UserTrip.create(
   trip_id: Trip.last.id,
   user_id: User.find_by_first_name('Laura').id,
+  creator: true
+)
+
+UserTrip.create(
+  trip_id: Trip.last.id,
+  user_id: User.find_by_first_name('Dante').id,
   creator: true
 )
 
@@ -198,7 +203,7 @@ file_kabuki = URI.open("https://tokyo.for91days.com/wp-content/uploads/sites/16/
 
 kabuki = Activity.new(
 title:"Kabuki-za",
-address: "4 Chome-12-15 Ginza, Chuo City, 104-0061 Tokyo",
+address: "104-0061 Ginza, Tokyo",
 description: "he Kabuki-za was originally opened by a Meiji era journalist, Fukuchi Gen'ichirō. Fukuchi wrote kabuki dramas in which Ichikawa Danjūrō IX and others starred; upon Danjūrō's death in 1903, Fukuchi retired from the management of the theater. The theater is now run by the Shochiku Corporation which took over in 1914.",
 categories: "Culture",
 date: "Wed, 07 Sep 2022",
@@ -209,11 +214,11 @@ trip_id: Trip.first.id
 kabuki.photo.attach(io: file_kabuki , filename: "kabuki.jpg", content_type:"image/jpg")
 kabuki.save!
 
-file_karaoke = URI.open("https://commons.wikimedia.org/wiki/File:Karaoke_Khan.jpg")
+file_karaoke = URI.open("https://64.media.tumblr.com/b406a11d5017cf6b5b5392b1cff2fd5c/tumblr_inline_pk070a2Mx61qc7ff0_500.jpg")
 
 karaoke = Activity.new(
 title:"Karaokekan",
-address: " 150-0042, Shibuya City, Udagawachō, Tokyo ",
+address: "160-0023 Tokyo, Nishishinjuku, Tokyo ",
 description: "Shibuya branch where the karaoke scene in Lost in Translation was filmed. Ask for rooms 601 and 602 if you want to recreate the experience!",
 categories: "Night life",
 date: "Wed, 07 Sep 2022",
@@ -228,7 +233,7 @@ file_cat_cafe = URI.open("https://dynamic-media-cdn.tripadvisor.com/media/photo-
 
 cat_cafe = Activity.new(
 title:"Cat cafe Mocha",
-address: "Shibuya City, Jingumae, 1 Chome−14−25 4F 150-0001 Tokyo",
+address: "Jingumae, Shibuya, Tokyo",
 description: "The purring cafe, meet the cats of harajuku",
 categories: "Entertainment",
 date: "Wed, 07 Sep 2022",
@@ -283,6 +288,24 @@ Participation.create(
   user_id: User.find_by_first_name('Laura').id
 )
 
+Participation.create(
+  activity_id: kabuki.id,
+  user_id: User.find_by_first_name('Alexandre').id,
+  creator: true
+)
+
+Participation.create(
+  activity_id: karaoke.id,
+  user_id: User.find_by_first_name('Alexandre').id,
+  creator: true
+)
+
+Participation.create(
+  activity_id: cat_cafe.id,
+  user_id: User.find_by_first_name('Alexandre').id,
+  creator: true
+)
+
 p "✅ Participations created"
 
 
@@ -298,6 +321,11 @@ Room.create(
 
 Room.create(
   name: "Housing",
+  trip_id: amigo_trip.id
+)
+
+Room.create(
+  name: "Bank",
   trip_id: amigo_trip.id
 )
 

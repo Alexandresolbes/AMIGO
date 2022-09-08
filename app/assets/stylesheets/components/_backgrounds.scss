@@ -14,10 +14,11 @@
 
 .bg-gradient-img{
   background-image: url('https://res.cloudinary.com/laura-latuillerie/image/upload/v1662631235/amigo-bg_e45h8d.png');
+  background-attachment: fixed;
 }
 
-.bg-light-green{
-  background-color: rgb(198, 241, 207);
+.bg-light-orange{
+  background-color: rgba(255, 166, 0, 0.236);
 }
 
 .bg-light-blue{

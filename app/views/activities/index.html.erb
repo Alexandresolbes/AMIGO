@@ -1,68 +1,70 @@
 <div class="container responsive min-h-100 p-large">
-  <div class="nav nav-tabs tabs-activity mx-2 my-4 rounded-4 p-0 row justify-content-between" id="myTab" role="tablist">
-    <div class="col-4 nav-item" role="presentation">
-      <button class="nav-link active" id="all-activities-tab" data-bs-toggle="tab" data-bs-target="#all-activities-tab-pane" type="button" role="tab" aria-controls="all-activities-tab-pane" aria-selected="true"><i class="fa-solid fa-list"></i></button>
+  <div class="px-1">
+    <div class="nav nav-tabs tabs-activity mx-2 my-3 rounded-4 p-0 row justify-content-between" id="myTab" role="tablist">
+      <div class="col-4 nav-item" role="presentation">
+        <button class="nav-link active" id="all-activities-tab" data-bs-toggle="tab" data-bs-target="#all-activities-tab-pane" type="button" role="tab" aria-controls="all-activities-tab-pane" aria-selected="true"><i class="fa-solid fa-list"></i></button>
+      </div>
+
+      <div class="col-4 nav-item" role="presentation">
+        <button class="nav-link" id="create-tab" data-bs-toggle="tab" data-bs-target="#create-tab-pane" type="button" role="tab" aria-controls="create-tab-pane" aria-selected="false"><i class="fa-solid fa-pen-to-square"></i></button>
+      </div>
+
+      <div class="col-4 nav-item" role="presentation">
+        <button class="nav-link" id="map-tab" data-bs-toggle="tab" data-bs-target="#map-tab-pane" type="button" role="tab" aria-controls="map-tab-pane" aria-selected="false"><i class="fa-solid fa-map-location-dot"></i></button>
+      </div>
     </div>
 
-    <div class="col-4 nav-item" role="presentation">
-      <button class="nav-link" id="create-tab" data-bs-toggle="tab" data-bs-target="#create-tab-pane" type="button" role="tab" aria-controls="create-tab-pane" aria-selected="false"><i class="fa-solid fa-pen-to-square"></i></button>
-    </div>
+    <div class="tab-content" id="myTabContent">
 
-    <div class="col-4 nav-item" role="presentation">
-      <button class="nav-link" id="map-tab" data-bs-toggle="tab" data-bs-target="#map-tab-pane" type="button" role="tab" aria-controls="map-tab-pane" aria-selected="false"><i class="fa-solid fa-map-location-dot"></i></button>
-    </div>
-  </div>
-
-  <div class="tab-content" id="myTabContent">
-
-    <div class="tab-pane fade show active" id="all-activities-tab-pane" role="tabpanel" aria-labelledby="all-activities-tab" tabindex="0">
-      <h1 class="text-center fs-2 py-2">All activities</h1>
-      <% @activities.each do |activity| %>
-        <div class="card mb-3 mx-2 rounded-4" style="max-width: 100%;">
-          <div class="row g-0">
-            <div class="col-4">
-              <% if activity.photo.key != nil %>
-                <%= cl_image_tag activity.photo.key, class:"img-fluid obj-fit activity-img" %>
-              <% else %>
-                <%= image_tag "https://source.unsplash.com/random",  class:"img-fluid rounded-start" %>
-              <% end %>
-            </div>
-            <div class="col-8 position-relative">
-              <div class="card-body ps-4 pb-0">
-                <h6 class="card-title p-0 m-0 fw-bold"><%= link_to activity.title, trip_activity_path(@trip, activity), class:"text-decoration-none" %></h6>
-                <p class="card-title p-0 m-0 fw-normal fs-6"><%= activity.categories %></p>
-                <p class="card-text p-0 m-0">🧑🏻‍🤝‍🧑🏽
-                  <% if activity.participations.count >= activity.min_amigos %>
-                    <span class="text-success"><%= activity.participations.count %></span>/<%= activity.min_amigos %> amigos min.
-                  <% else %>
-                    <span class="text-danger"><%= activity.participations.count %></span>/<%= activity.min_amigos %> amigos min.
-                  <% end %>
-                  <%= link_to trip_activity_path(@trip, activity), class:"btn btn-eye rounded-5 shadow position-absolute" do %>
-                    <i class="fa-solid fa-eye text-blue"></i>
-                  <% end %>
-                </p>
-               <div class="row justify-content-center activity-card-avatars p-2">
-                <div class="col p-0">
-                  <ul class="text-start">
-                    <% activity.participations.each do |p| %>
-                      <li><%= cl_image_tag p.user.photo.key, class:"avatar-xs" %></li>
-                    <% end %>
-                  </ul>
-                </div>
+      <div class="tab-pane fade show active" id="all-activities-tab-pane" role="tabpanel" aria-labelledby="all-activities-tab" tabindex="0">
+        <h1 class="text-center fs-2 py-2">All activities</h1>
+        <% @activities.each do |activity| %>
+          <div class="card mb-4 mx-2 rounded-4" style="max-width: 100%;">
+            <div class="row g-0">
+              <div class="col-5 p-2">
+                <% if activity.photo.key != nil %>
+                  <%= cl_image_tag activity.photo.key, class:"img-fluid obj-fit activity-img" %>
+                <% else %>
+                  <%= image_tag "https://source.unsplash.com/random",  class:"img-fluid rounded-start" %>
+                <% end %>
               </div>
+              <div class="col-7 position-relative">
+                <div class="card-body ps-2 pb-0">
+                  <h6 class="card-title p-0 m-0 fw-bold fs-6"><%= link_to activity.title, trip_activity_path(@trip, activity), class:"text-decoration-none" %></h6>
+                  <p class="p-0 m-0 fw-normal fs-6"><%= activity.categories %></p>
+                  <p class="card-text p-0 m-0">🧑🏻‍🤝‍🧑🏽
+                    <% if activity.participations.count >= activity.min_amigos %>
+                      <span class="text-success"><%= activity.participations.count %></span>/<%= activity.min_amigos %> amigos
+                    <% else %>
+                      <span class="text-danger"><%= activity.participations.count %></span>/<%= activity.min_amigos %> amigos
+                    <% end %>
+                    <%= link_to trip_activity_path(@trip, activity), class:"btn btn-eye rounded-5 shadow position-absolute" do %>
+                      <i class="fa-solid fa-eye text-blue"></i>
+                    <% end %>
+                  </p>
+                <div class="row justify-content-center activity-card-avatars p-2">
+                  <div class="col p-0">
+                    <ul class="text-start">
+                      <% activity.participations.each do |p| %>
+                        <li><%= cl_image_tag p.user.photo.key, class:"avatar-xs" %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
 
-    <div class="tab-pane fade" id="create-tab-pane" role="tabpanel" aria-labelledby="create-tab" tabindex="0">
-      <%= render 'form', trip: @trip %>
-    </div>
+      <div class="tab-pane fade" id="create-tab-pane" role="tabpanel" aria-labelledby="create-tab" tabindex="0">
+        <%= render 'form', trip: @trip %>
+      </div>
 
-    <div class="tab-pane fade px-3" id="map-tab-pane" role="tabpanel" aria-labelledby="map-tab" tabindex="0">
-      <%= render "map" %>
+      <div class="tab-pane fade px-3" id="map-tab-pane" role="tabpanel" aria-labelledby="map-tab" tabindex="0">
+        <%= render "map" %>
+      </div>
     </div>
   </div>
 </div>

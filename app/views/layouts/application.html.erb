@@ -35,18 +35,23 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
   </head>
-
-  <body>
-    <%= render "shared/flashes" %>
-    <% if @trip %>
-      <div class="h-100 bg-gradient-img">
-    <% else %>
+  
+  <% if @trip && user_signed_in? %>
+    <body class="bg-gradient-img">
+      <div class="h-100">
+  <% elsif !@trip && user_signed_in? %>
+    <body>
       <div class="h-100 bg-illustration">
-    <% end %>
-      <%= yield %>
-    </div>
-    <% if user_signed_in? && @trip || @trips %>
-        <%= render "shared/navbar" %>
-    <% end %>
+  <% else %>
+    <body class="bg-gradient-img">
+      <div class="h-100">
+  <% end %>
+  <%= render "shared/flashes" %>
+  <%= yield %>
+  </div>
+  <% if user_signed_in? && @trip || @trips %>
+    <%= render "shared/navbar" %>
+  <% end %>
+
   </body>
 </html>

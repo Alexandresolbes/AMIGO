@@ -7,17 +7,20 @@
 }
 
 .btn-blue{
-  font-weight: 500;
   border: 1px $dark-blue solid;
   background-color: $dark-blue;
 }
 
 .btn-white{
-  font-weight: 500;
   background-color: white;
   color: $dark-blue;
+  border: 0;
 }
 
 .btn-white:hover, .btn-blue:hover{
   border: 1px white solid;
+}
+
+.btn-danger, .btn-outline-danger{
+  color:white
 }

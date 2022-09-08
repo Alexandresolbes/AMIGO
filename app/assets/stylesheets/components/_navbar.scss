@@ -33,8 +33,7 @@
 
 
 .tabs-activity, .tabs-trip, .tabs-bank{
-  background: $orange;
-  background: $gradient-orange;
+  background: white;
 
   .nav-link{
     font-size: 1rem;
@@ -46,29 +45,12 @@
   }
 
   .active{
-    background: $orange;
-    background: $gradient-orange;
+    background-color: rgb(194, 177, 255);
     margin: 0;
-    border-radius: 15px 0 0 15px;
-    i{
-      color: white;
-    }
   }
 
   .nav{
     padding: 10px;
-  }
-}
-
-/*****************************************************/
-// Navbar ACTIVITIES with tabs
-/*****************************************************/
-
-
-.tabs-activity{
-  
-  #all-activities-tab{
-    border-radius: 10px;
   }
 }
 
@@ -101,6 +83,11 @@
     font-size: 0.9rem;
     padding : 8px;
     border-radius: 10px;
+    color:white;
+    font-weight: 600;
+  }
+  .nav-pills, .nav-link.active{
+    background-color: $dark-blue;
   }
 }
 
@@ -116,16 +103,11 @@
   }
   #credit-tab, #debit-tab{
     background-color: transparent;
-    border: grey 1px solid;
-    color: grey;
+    border: $dark-blue 1px solid;
+    color: $dark-blue;
   }
-  #credit-tab:hover, #credit-tab.active{
-    color:$blue;
-    border: $blue 1px solid;
+  #credit-tab:hover, #credit-tab.active, #debit-tab:hover, #debit-tab.active{
+    background-color: white;
+    border: transparent 1px solid;
   }
-  #debit-tab:hover, #debit-tab.active{
-    color:$orange;
-    border: $orange 1px solid;
-  }
-
 }

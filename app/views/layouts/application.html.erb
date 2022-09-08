@@ -38,10 +38,14 @@
 
   <body>
     <%= render "shared/flashes" %>
-    <div class="h-100">
+    <% if @trip %>
+      <div class="h-100 bg-gradient-img">
+    <% else %>
+      <div class="h-100 bg-illustration">
+    <% end %>
       <%= yield %>
     </div>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @trip || @trips %>
         <%= render "shared/navbar" %>
     <% end %>
   </body>

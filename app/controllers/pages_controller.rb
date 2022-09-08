@@ -29,7 +29,7 @@ class PagesController < ApplicationController
 
   def notifications
     @trip = Trip.find(params[:trip_id])
-    @user_notifications = UserNotification.where(user_id: current_user.id)
+    @user_notifications = UserNotification.where(user_id: current_user.id).reverse
   end
 
   private

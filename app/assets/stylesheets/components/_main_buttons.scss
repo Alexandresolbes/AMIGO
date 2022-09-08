@@ -18,7 +18,22 @@
       font-size: 2.2rem;
       color: $dark-blue;
     }
+    
+  a:hover{
+    color: $dark-blue;
+  }
+    
 
+  }
+}
+
+.main-btn:hover{
+  .fa-solid{
+    font-size: 2.4rem;
+  }
+  a:hover{
+    font-weight: bolder;
+    color: $dark-blue;
   }
 }
 
@@ -27,28 +42,3 @@
     width: 100%;
   }
 }
-/*
-.main-btn {
-  background: linear-gradient(145deg, #ffffff, #f1f1f1);
-  box-shadow:  15px 15px 30px rgba(122, 122, 122, 0.3),
-              -15px -15px 30px #ffffff4c;
-  font-weight: 400;
-  border-radius: 10px;
-  height: 130px;
-  width: 100%;
-
-  a{
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: grey;
-    text-decoration: none;
-    text-shadow: 2px 2px solid rgba(0, 0, 0, 0.178);
-
-    .fa-solid{
-      font-size: 2.4rem;
-      color: $orange;
-    }
-
-  }
-}
-*/

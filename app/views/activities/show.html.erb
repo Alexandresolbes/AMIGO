@@ -1,69 +1,72 @@
 <div class="container responsive px-3 mb-5 min-h-100 p-large">
-  <h1 class="mt-4 mb-2 fw-bold"><%= @activity.title %></h1>
-
-  <div class="row activity-show-card">
-    <div class="col-3">
-      <%= cl_image_tag @activity.photo.key, class:"activity-show-card--img rounded-4" %>
+  <h1 class="mt-3"><%= @activity.title %></h1>
+  <div class="bg-light-transparent rounded-3 mt-3 p-3">
+    <div class="row activity-show-card">
+      <div class="col-3">
+        <%= cl_image_tag @activity.photo.key, class:"activity-show-card--img rounded-3" %>
+      </div>
+      <div class="col-9">
+        <div class="ps-4">
+          <h3 class="fs-5 fw-bold m-0"><%= @activity.categories %></h3>
+          <p class="mb-1 fs-7">Proposed by <%= @activity.creator.first_name %></p>
+          <p class="card-text d-inline-block fw-bold m-0 rounded-4 border border-light bg-transparent px-2 py-1 me-1  fs-7"><i class="fa-solid fa-calendar"></i> <%= @activity.date.strftime('%d/%m') %></p>
+          <p class="card-text d-inline-block fw-bold m-0 rounded-4 border border-light bg-transparent px-2 py-1 fs-7"><i class="fa-solid fa-users"></i>
+          <% if @activity.participations.count >= @activity.min_amigos %>
+            <span class="text-success">
+            <%= @activity.participations.count %>
+            </span>/<%= @activity.min_amigos %>
+          <% else %>
+            <span class="text-danger">
+            <%= @activity.participations.count %></span>
+            /<%= @activity.min_amigos %>
+          <% end %>
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="col-9 ps-4">
-      <h3 class="fs-4 fw-bold m-0"><%= @activity.categories %></h3>
-      <p class="mb-1">Proposed by <%= @activity.creator.first_name %></p>
-            <p class="card-text d-inline-block fw-bold m-0 rounded-4 border border-secondary px-2 py-1 bg-light me-1">📆 <%= @activity.date.strftime('%d/%m') %></p>
-      <p class="card-text d-inline-block fw-bold m-0 rounded-4 border border-secondary px-2 py-1 bg-light">👥
-      <% if @activity.participations.count >= @activity.min_amigos %>
-        <span class="text-success">
-        <%= @activity.participations.count %>
-        </span>/<%= @activity.min_amigos %>
-      <% else %>
-        <span class="text-danger">
-        <%= @activity.participations.count %></span>
-        /<%= @activity.min_amigos %>
-      <% end %>
-      </p>
+
+
+    <div class="row justify-content-center activity-show-avatars my-3">
+      <h5><strong>Amigos participants</strong></h5>
+      <div class="col">
+        <ul class="text-start">
+          <% @activity.participations.each do |participation| %>
+            <li><%= cl_image_tag participation.user.photo.key, class:"avatar-md" %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
+      
 
+    <div class="row">
+      <h5><strong>Description</strong></h5>
+      <div class="col-12">
+        <p class="text-wrap text-break fs-7"><%= @activity.description %></p>
+      </div>
+    </div>
 
-  <div class="row justify-content-center activity-show-avatars my-3">
-    <h5><strong>Amigos participants</strong></h5>
-    <div class="col">
-      <ul class="text-start">
-        <% @activity.participations.each do |participation| %>
-          <li><%= cl_image_tag participation.user.photo.key, class:"avatar-md" %></li>
+    <div class="row">
+      <div class="col d-flex mt-2 mb-4">
+        <% if  @activity.creator?(current_user) %>
+          <%= link_to "Edit", edit_trip_activity_path(@activity.trip_id, @activity), class:"btn btn-outline-secondary me-1" %>
+          <%= link_to "Delete", trip_activity_path(@activity.trip_id, @activity), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'}, class:"btn btn-outline-danger me-1" %>
+        <% elsif @activity.participates?(current_user) %>
+          <%= button_to "Quit activity", trip_activity_participation_path(user: current_user, activity_id: @activity.id, participation: @activity.participations.find_by_user_id(current_user.id)), method: :delete, class:"btn btn-danger me-1"  %>
+        <% else %>
+          <%= button_to "Participate", trip_activity_participations_path(current_user, @activity), method: :post, class:"btn btn-success text-light me-1"  %>
         <% end %>
-      </ul>
+
+        <%= link_to "Back", trip_activities_path(@activity.trip), class:"btn btn-light"  %>
+      </div>
     </div>
-  </div>
-     
 
-  <div class="row">
-    <h5><strong>Description</strong></h5>
-     <div class="col-12">
-      <p class=" text-wrap text-break"><%= @activity.description %></p>
-     </div>
-  </div>
-
-  <div class="row">
-    <div class="col d-flex mt-2 mb-4">
-      <% if  @activity.creator?(current_user) %>
-        <%= link_to "Edit", edit_trip_activity_path(@activity.trip_id, @activity), class:"btn btn-outline-secondary me-1" %>
-        <%= link_to "Delete", trip_activity_path(@activity.trip_id, @activity), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'}, class:"btn btn-outline-danger me-1" %>
-      <% elsif @activity.participates?(current_user) %>
-        <%= button_to "Quit activity", trip_activity_participation_path(user: current_user, activity_id: @activity.id, participation: @activity.participations.find_by_user_id(current_user.id)), method: :delete, class:"btn btn-outline-danger me-1"  %>
-      <% else %>
-        <%= button_to "Participate", trip_activity_participations_path(current_user, @activity), method: :post, class:"btn btn-success text-light me-1"  %>
-      <% end %>
-
-      <%= link_to "Back", trip_activities_path(@activity.trip), class:"btn text-blue"  %>
-    </div>
-  </div>
-
-  <div class="row mb-5 activity-show--map">
-    <div class="col-12" height='400'>
-      <div style="width: 100%; height: 300px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_URL'] %>">
+    <div class="row mb-2 activity-show--map">
+      <div class="col-12" height='400'>
+        <div style="width: 100%; height: 300px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_URL'] %>">
+        </div>
       </div>
     </div>
   </div>

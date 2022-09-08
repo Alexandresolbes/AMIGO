@@ -6,6 +6,13 @@
             <%= link_to trip_path(@trip), class: "nav-link" do %>
               <%= image_tag("icons/home-icon.svg", height: '32', width: '32') %>
             <% end %>
+          <% elsif @trip && current_page?(trip_path(@trip)) %>
+            <%= link_to trip_path(@trip), class: "nav-link" do %>
+              <%= image_tag("icons/home-icon.svg", height: '32', width: '32') %>
+            <% end %>
+            <%= link_to trips_path, class: "nav-link" do %>
+              <%= image_tag("icons/plane-icon.svg", height: '32', width: '32') %>
+            <% end %>
           <% else %>
             <%= link_to root_path, class: "nav-link" do %>
               <%= image_tag("icons/home-icon.svg", height: '32', width: '32') %>
@@ -13,7 +20,6 @@
           <% end %>
         </li>
         <% if user_signed_in? %>
-
           <% if !@trip.nil? && !@trip.id.nil? %>
             <li class="nav-item d-inline-block">
               <%= link_to trip_rooms_path(@trip), class:"nav-link" do  %>

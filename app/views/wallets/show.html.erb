@@ -31,7 +31,7 @@
           <% if @wallet.bills.any? %>
             <div class="row py-3 text-center w-100">
               <div class="col-6 px-1">
-                <div class="bg-white rounded-4 shadow-sm py-3 px-1 centered-box flex-column">
+                <div class="bg-transparent rounded-4 shadow-sm py-3 px-1 centered-box flex-column">
                   <h3 class="m-0 fs-6">Balance</h3>
                   <p class="text-<% if @wallet.balance && @wallet.balance >= 0 %>success<% else %>danger<% end %> fs-2 m-0">
                     <%= @wallet.balance.round(2) %> $
@@ -39,7 +39,7 @@
                 </div>
               </div>
               <div class="col-6 px-1">
-                <div class="bg-white rounded-4 shadow-sm py-3  px-1  centered-box flex-column">
+                <div class="bg-transparent rounded-4 shadow-sm py-3  px-1  centered-box flex-column">
                   <h3 class="m-0 fs-6">All my bills</h3>
                   <p class="fs-2 m-0">
                     <%= @wallet.bills.count %>

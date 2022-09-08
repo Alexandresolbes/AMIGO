@@ -10,12 +10,17 @@ class BillsController < ApplicationController
     @bill.wallet_id = @wallet.id
     @bill.paid = false
     @amigos = @trip.users
+
     if @bill.save
       generate_counter_bill
       redirect_to trip_wallet_path(@trip, @wallet), notice: "Bill created!"
     else
-      flash[:alert] = "Error! Looks like some details are missing in your bill."
-      render partial: "bills/form", :locals => { trip: @trip, wallet: @wallet }
+      raise
+      respond_to do |format|
+        format.html { redirect_to trip_wallet_path(@trip, @wallet) }
+        format.turbo_stream { flash.now[:alert] = "Error! Looks like some details are missing in your bill." }
+      end
+      # render partial: "bills/form", :locals => { trip: @trip, wallet: @wallet }
     end
   end
 

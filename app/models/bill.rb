@@ -5,7 +5,7 @@ class Bill < ApplicationRecord
   validate :amount_presence
 
   def amount_presence
-    credit.positive? || debit.positive?
+    errors.add :amount, "can't be 0$" unless credit.positive? || debit.positive?
   end
 
   def amigo

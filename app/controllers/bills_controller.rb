@@ -15,7 +15,6 @@ class BillsController < ApplicationController
       generate_counter_bill
       redirect_to trip_wallet_path(@trip, @wallet), notice: "Bill created!"
     else
-      raise
       respond_to do |format|
         format.html { redirect_to trip_wallet_path(@trip, @wallet) }
         format.turbo_stream { flash.now[:alert] = "Error! Looks like some details are missing in your bill." }

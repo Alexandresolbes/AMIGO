@@ -39,13 +39,12 @@
   <% if @trip && user_signed_in? %>
     <body class="bg-gradient-img">
       <div class="h-100">
-  <% elsif @trip %>
+  <% elsif !@trip && user_signed_in? %>
+    <body>
+      <div class="h-100 bg-illustration">
+  <% else %>
     <body class="bg-gradient-img">
       <div class="h-100">
-  <% else %>
-   <body>
-      <div class="h-100 bg-illustration">
-    
   <% end %>
   <%= render "shared/flashes" %>
   <%= yield %>

@@ -1,7 +1,7 @@
 <div class="container h-100">
   <div class="row">
     <div class="col">
-      <h1 class="text-center fs-2 py-2">Manage my trip</h1>
+      <h1 class="text-center fs-2 py-1">Manage my trip</h1>
       <%= simple_form_for @trip do |f| %>
         <%= f.input :destination %>
         <%= f.input :start_date, as: :string, required: false, html5: true, as: :date %>
@@ -10,9 +10,9 @@
           <%= f.submit class:"btn btn-blue" %>
       <% end %>
           <% if @trip.user_trips.find_by_user_id(current_user.id) %>
-            <%= button_to "Quit trip", trip_user_trip_path(@trip, @trip.user_trips.find_by_user_id(current_user.id)), method: :delete, class:"btn btn-outline-danger ms-1" %>
+            <%= button_to "Quit trip", trip_user_trip_path(@trip, @trip.user_trips.find_by_user_id(current_user.id)), method: :delete, class:"btn btn-danger ms-1" %>
           <% end %>
-          <%= link_to 'Back', trips_path, class:"btn text-secondary ms-1" %>
+          <%= link_to 'Back', trips_path, class:"btn btn-outline-light ms-1" %>
         </div>
         <!--
           <% if  @trip.user_id == current_user.id %>

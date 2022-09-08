@@ -16,7 +16,7 @@
       <%= cl_image_tag message.user.photo.key, width: 50, height:50, radius: :max %>
     </div>
     <div class="col-10 col-md-11">
-      <div class="ps-3 bg-light-green rounded-4 py-1">
+      <div class="ps-3 bg-light-orange rounded-4 py-1">
         <small><i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i></small>
         <p class="m-0"><%= message.content %></p>
         <% message.read_user_message(message.id, current_user.id) %>

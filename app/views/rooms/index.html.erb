@@ -14,7 +14,7 @@
           <div class="container chatroom rounded-4"
           data-controller="chatroom-subscription"
           data-chatroom-subscription-chatroom-id-value="<%= room.id %>">
-            <div class="messages mb-3" data-chatroom-subscription-target="messages">
+            <div class="messages mb-3 pt-2" data-chatroom-subscription-target="messages">
               <% room.messages.each do |message| %>
                 <%= render "messages/message", message: message %>
               <% end %>

@@ -40,6 +40,12 @@ h1{
   font-weight: bold;
   text-transform: uppercase;
   font-family: $quicksand;
+  color:white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.fs-7{
+  font-size: 0.8rem;
 }
 
 a:hover{

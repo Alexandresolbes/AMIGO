@@ -23,15 +23,15 @@
       <% @trip.users.each do |user| %>
         <% if user != current_user %>
           <div class="container p-2 my-3 shadow rounded-3 bg-white">
-            <div class="row p-1 centered-box">
+            <div class="row p-1 d-flex align-items-start">
               <div class="col-4 col-md-2">
                 <%= cl_image_tag user.photo.key, height:100, class:"rounded-3 obj-fit" %>
               </div>
-              <div class="col-8 col-md-10">
+              <div class="col-8 col-md-10 ps-3">
                 <p class="m-0 fw-bold"><%= user.first_name %> <%= user.last_name %></p>
-                <p class="m-0"><%= user.email %></p>
-                <p class="m-0"><%= Participation.where(user_id: user.id).count %> activities in common</p>
-                <p class="m-0">
+                <p class="m-0 fs-7"><%= user.email %></p>
+                <p class="m-0 fs-7"><%= Participation.where(user_id: user.id).count %> activities in common</p>
+                <p class="m-0 fs-7">
                   <% if current_user.wallet.account(user) < 0 %>
                     😱 You owe this amigo
                   <% elsif current_user.wallet.account(user) == 0 %>

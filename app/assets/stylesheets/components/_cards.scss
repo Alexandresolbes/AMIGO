@@ -3,12 +3,23 @@
 
   .activity-show-card--img{
     height: 90px;
-    width: 90px;
+    max-width: 100%;
     object-fit: cover;
   }
 }
 
 @media (min-width: 576px) {
+
+  .activity-show-card{
+    height: 200px;
+  
+    .activity-show-card--img{
+      height: 200px;
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+  
   .trip-card{
     max-width: 50%;
   }

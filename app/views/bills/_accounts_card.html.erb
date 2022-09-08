@@ -1,4 +1,4 @@
-<div class="row pe-2 py-3 my-3 bg-white rounded-4 shadow-sm">
+<div class="row pe-2 py-2 my-3 bg-white rounded-pill shadow-sm">
   <div class="col-3">
     <%= cl_image_tag amigo.photo.key, class:"avatar-sm obj-fit", height:50, width:50 %>
   </div>
@@ -6,11 +6,11 @@
   
     <h6><strong>Account with <%= amigo.first_name %></strong></h6>
     <% if account > 0 %>
-      <p class="text-success m-0">You are owed <%= account %>$<br><span class="fs-3"></p>
+      <p class="text-success m-0 fs-7">You are owed <%= account %>$<br><span class="fs-3"></p>
     <% elsif account == 0 %>
-      <p class="text-blue m-0">No transactions to balance</p>
+      <p class="text-blue m-0 fs-7">No transactions to balance</p>
     <% else %>
-      <p class="text-danger m-0">You owe <%= account %>$</p>
+      <p class="text-danger m-0 fs-7">You owe <%= account %>$</p>
     <% end %>
   </div>
 </div>

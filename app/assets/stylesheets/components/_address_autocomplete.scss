@@ -2,9 +2,9 @@
 // Input autocomplete for Geocoder
 /*****************************************************/
 
-.mapboxgl-ctrl-geocoder {
-  max-width: none;
-  width: 100%;
+.mapboxgl-ctrl-geocoder, .mapboxgl-ctrl{
+  max-width: none!important;
+  width: 100%!important;
   box-shadow: none;
   background-color: transparent;
 }

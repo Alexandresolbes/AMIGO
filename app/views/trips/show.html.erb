@@ -1,6 +1,6 @@
 <div class="h-100 px-3 pt-4">
   <div class="container responsive rounded-4 trip-card">
-    <div class="row justify-content-between align-items-end border-bottom border-white pb-2">
+    <div class="row justify-content-between align-items-end">
       <div class="col p-0">
         <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662627064/amigo-logo_iagptt.svg" id="logo">
       </div>
@@ -8,8 +8,7 @@
         <h6 class="m-0 text-white">Hello, <%= current_user.first_name%> !</h6>
       </div>
     </div>
-    <div class="row mt-2 px-2 
-    pb-4 rounded-4 text-white">
+    <div class="row mt-3 px-2 pt-2 pb-4 rounded-4 bg-light-transparent">
       <div class="col-4">
         <div class="centered-box flex-column rounded-4" data-controller="weather">
           <img src="" alt="Weather Icon" data-weather-target="img" height=70 class="">
@@ -21,8 +20,8 @@
         <h6 class="mb-2"><%= @trip.start_date.strftime("%d %b") %> - <%= @trip.end_date.strftime("%d %b %Y") %>
         </h6>
         <div class="d-flex">
-          <h5 class="d-block rounded-4 px-3 py-1 border border-white me-1 fw-normal"><i class="fa-solid fa-users text-white"></i> <%= @trip.users.count %></h5>
-          <h5 class="d-block rounded-4 px-3 py-1 border border-white fw-normal"><i class="fa-solid fa-hiking  text-white"></i> <%= @trip.activities.count %></h5>
+          <h5 class="d-block rounded-4 px-3 py-1 border-blue me-1 fw-normal"><i class="fa-solid fa-users text-blue"></i> <%= @trip.users.count %></h5>
+          <h5 class="d-block rounded-4 px-3 py-1 border-blue fw-normal"><i class="fa-solid fa-hiking  text-blue"></i> <%= @trip.activities.count %></h5>
         </div>
       </div>
     </div>

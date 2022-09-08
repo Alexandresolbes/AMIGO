@@ -2,7 +2,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.btn-blue, .btn-second:hover, .btn-outline-danger:hover, .btn-white:hover, .btn-blue:hover{
+.btn-blue, .btn-second:hover, .btn-outline-danger:hover, .btn-white:hover, .btn-blue:hover, .btn-blue-full{
   color: white;
 }
 
@@ -23,4 +23,15 @@
 
 .btn-danger, .btn-outline-danger{
   color:white
+}
+
+.btn-blue-full{
+  border: 1px $dark-blue solid;
+  background-color: $dark-blue;
+}
+
+.btn-blue-full:hover{
+  border: 1px $dark-blue solid;
+  background-color: transparent;
+  color: $dark-blue;
 }

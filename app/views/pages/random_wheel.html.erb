@@ -28,9 +28,9 @@
           </div>
         </div>
 
-        <%= link_to "Start", trip_random_wheel_path(@trip), class:"btn btn-blue mt-2 mb-5", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>
+        <%= link_to "Start", trip_random_wheel_path(@trip), class:"btn btn-blue-full mt-2 mb-5", data: {random_wheel_target: "randomize", action: "click->random-wheel#spin"} %>
 
-        <%= link_to "Spin again", trip_random_wheel_path(@trip), class:"btn btn-blue d-none mb-5", data: {random_wheel_target: "restart", action:"click->random-wheel#restart"} %>
+        <%= link_to "Spin again", trip_random_wheel_path(@trip), class:"btn btn-blue-full d-none mb-5", data: {random_wheel_target: "restart", action:"click->random-wheel#restart"} %>
 
       </div>
     </div>

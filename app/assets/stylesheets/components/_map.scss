@@ -1,22 +1,17 @@
 /*****************************************************/
 // Mapbox pop-up (when clicking on marker)
 /*****************************************************/
-
 .mapboxgl-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 200px;
+  padding: 10px;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Poppins", sans-serif;
-}
-
-/*****************************************************/
-// Mapbox pop-up (when clicking on marker)
-/*****************************************************/
-
-//Changing the size of the map for it to be full-sized for index activities map
-.mapboxgl-canvas{
 }
 
 // Hiding the search bar of the map because we don't need it lol

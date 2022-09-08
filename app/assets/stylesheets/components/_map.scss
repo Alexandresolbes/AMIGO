@@ -2,8 +2,26 @@
 // Mapbox pop-up (when clicking on marker)
 /*****************************************************/
 
+#map-tab-pane{
+  position: relative;
+  height: calc(80vh - 40px);
+  width: 100%;
+}
+
+#map { 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left:0;
+  right: 0;
+}
+
 .mapboxgl-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 200px;
+  padding: 10px;
 }
 
 .mapboxgl-popup-content {
@@ -14,10 +32,6 @@
 /*****************************************************/
 // Mapbox pop-up (when clicking on marker)
 /*****************************************************/
-
-//Changing the size of the map for it to be full-sized for index activities map
-.mapboxgl-canvas{
-}
 
 // Hiding the search bar of the map because we don't need it lol
 .mapboxgl-ctrl-top-right{

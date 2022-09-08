@@ -41,8 +41,12 @@ class PagesController < ApplicationController
     @notification.user_id = wheel_choice.id
     @notification.trip_id = @trip.id
     @notification.save!
-    @notification.generate_user_notifications
+    @notification_self = Notification.new(content: "You were chosen by the wheel! Oh noes! 💸")
+    @notification_self.user_id = wheel_choice.id
+    @notification_self.trip_id = @trip.id
+    @notification_self.save!
     create_message(current_user, @trip, @content)
+    generate_user_notifications(@notification, @notification_self, wheel_choice)
   end
 
   def create_message(user, trip, content)
@@ -60,6 +64,18 @@ class PagesController < ApplicationController
       else
         UserMessage.create(user_id: trip_user.id, message_id: @message.id)
       end
+    end
+  end
+
+  def generate_user_notifications(notification, notification_self, current_user)
+    @users = @trip.users
+    @users.each do |user|
+      if user == current_user
+        user_notification = UserNotification.new(user_id: user.id, notification_id: notification_self.id, read: false)
+      else
+        user_notification = UserNotification.new(user_id: user.id, notification_id: notification.id, read: false)
+      end
+      user_notification.save!
     end
   end
 end

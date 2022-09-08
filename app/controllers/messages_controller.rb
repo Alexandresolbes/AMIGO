@@ -18,12 +18,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  private
-
-  def message_params
-    params.require(:message).permit(:content)
-  end
-
   def generate_notifications
     @trip.users.each do |trip_user|
       if trip_user.id == current_user.id
@@ -32,5 +26,11 @@ class MessagesController < ApplicationController
         UserMessage.create(user_id: trip_user.id, message_id: @message.id)
       end
     end
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:content)
   end
 end

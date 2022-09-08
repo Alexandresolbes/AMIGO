@@ -42,10 +42,30 @@ class PagesController < ApplicationController
 
   def create_notification(wheel_choice)
     @trip = Trip.find(params[:trip_id])
-    @notification = Notification.new(content: "#{wheel_choice.first_name} was chosen by the wheel! What will be their trick? 💸🧽")
+    @content = "#{wheel_choice.first_name} was chosen by the wheel! What will be their treat? 💸🧽"
+    @notification = Notification.new(content: @content)
     @notification.user_id = wheel_choice.id
     @notification.trip_id = @trip.id
     @notification.save!
     @notification.generate_user_notifications
+    create_message(current_user, @trip, @content)
+  end
+
+  def create_message(user, trip, content)
+    @trip = trip
+    room = @trip.rooms.find_by_name("General")
+    @message = Message.new(user_id: user.id, room_id: room.id, content: content)
+    @message.save!
+    generate_notifications
+  end
+
+  def generate_notifications
+    @trip.users.each do |trip_user|
+      if trip_user.id == current_user.id
+        UserMessage.create(user_id: trip_user.id, message_id: @message.id, read: true)
+      else
+        UserMessage.create(user_id: trip_user.id, message_id: @message.id)
+      end
+    end
   end
 end

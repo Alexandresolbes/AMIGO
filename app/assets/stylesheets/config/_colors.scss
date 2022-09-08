@@ -14,6 +14,7 @@ $dark-blue:#2A1459;
 $blue: #4173A4;
 $sanguine: #FE4728;
 $transparent: rgba(255, 255, 255, 0.7);
+$light-transparent: rgba(255, 255, 255, 0.5);
 
 /**************************************/
 
@@ -23,6 +24,7 @@ $gradient-orange: linear-gradient(180deg, $orange 0%, $yellow 100%);
 $gradient-green: linear-gradient(180deg, rgba(144,223,117,1) 0%, rgba(98,182,85,1) 100%);
 $gradient-blue-white: linear-gradient(180deg, $blue 0%, white 50%);
 $gradient-transparent: linear-gradient(180deg, $transparent 0%, $transparent 50%);
+$gradient-light-transparent: linear-gradient(180deg, $light-transparent 0%, $light-transparent 50%);
 
 /**************************************/
 

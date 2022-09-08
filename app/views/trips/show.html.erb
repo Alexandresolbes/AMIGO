@@ -5,7 +5,7 @@
         <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662627064/amigo-logo_iagptt.svg" id="logo">
       </div>
       <div class="col p-0 text-end">
-        <h6 class="m-0 text-white">Hello, <%= current_user.first_name%></h6>
+        <h6 class="m-0 text-white">Hello, <%= current_user.first_name%> !</h6>
       </div>
     </div>
     <div class="row mt-2 px-2 
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="col-8 d-flex justify-content-center flex-column rounded-4 p-2">
-        <h4 class=""><strong><%= @trip.destination %></strong></h4>
+        <h3><strong><%= @trip.destination %></strong></h3>
         <h6 class="mb-2"><%= @trip.start_date.strftime("%d %b") %> - <%= @trip.end_date.strftime("%d %b %Y") %>
         </h6>
         <div class="d-flex">

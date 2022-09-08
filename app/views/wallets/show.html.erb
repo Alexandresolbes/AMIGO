@@ -21,7 +21,7 @@
 
     <div class="tab-pane fade show active" id="wallet-tab-pane" role="tabpanel" aria-labelledby="wallet-tab" tabindex="0">
       <div class="container h-100 centered-box flex-column rounded-4">
-        <h1 class="pt-4 pb-2">My AmigoBank</h1>
+        <h1 class="py-2">My AmigoBank</h1>
           <% if @wallet.balance && @wallet.balance >= 0 %>
             <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662501258/happykanye_y006kw.png" height="200" class="mb-2">
           <% else %>
@@ -32,7 +32,7 @@
             <div class="row py-3 text-center w-100">
               <div class="col-6 px-1">
                 <div class="bg-white rounded-4 shadow-sm py-3 px-1 centered-box flex-column">
-                  <h3 class="text-secondary m-0 fs-5">Balance</h3>
+                  <h3 class="m-0 fs-6">Balance</h3>
                   <p class="text-<% if @wallet.balance && @wallet.balance >= 0 %>success<% else %>danger<% end %> fs-2 m-0">
                     <%= @wallet.balance.round(2) %> $
                   </p>
@@ -40,7 +40,7 @@
               </div>
               <div class="col-6 px-1">
                 <div class="bg-white rounded-4 shadow-sm py-3  px-1  centered-box flex-column">
-                  <h3 class="text-secondary m-0 fs-5">All my bills</h3>
+                  <h3 class="m-0 fs-6">All my bills</h3>
                   <p class="fs-2 m-0">
                     <%= @wallet.bills.count %>
                   </p>

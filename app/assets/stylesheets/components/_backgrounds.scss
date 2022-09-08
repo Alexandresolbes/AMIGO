@@ -35,6 +35,11 @@
   background: $gradient-transparent;
 }
 
+.bg-light-transparent{
+  background: $light-transparent;
+  background: $gradient-light-transparent;
+}
+
 @media (min-width: 768px) {
   .bg-illustration{
     background-image: url('https://res.cloudinary.com/laura-latuillerie/image/upload/v1662624787/trip-friends_ti3wo4.jpg');

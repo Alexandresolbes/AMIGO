@@ -3,7 +3,7 @@
     <div class="col centered-box flex-column mb-5">
 
       <img src="https://pngimg.com/uploads/minions/minions_PNG65.png" width="300">
-      <h1 class="text-center my-3 fs-2">
+      <h1 class="text-center my-4 fs-2">
         Invite an Amigo to join your Trip !
         </h1>
         <%= form_with url: trip_invite_path, method: :post, class: "d-flex" do %>
@@ -12,10 +12,10 @@
             class: "form-control",
             placeholder: "my-amigo@email.com"
           %>
-          <%= submit_tag "Invite", class: "btn btn-blue rounded-start" %>
+          <%= submit_tag "Invite", class: "btn btn-blue" %>
         <% end %>
         <div class="text-center">
-          <%= link_to 'Back', trips_path, class:"btn text-blue mt-4 rounded-0" %>
+          <%= link_to 'Back', trips_path, class:"btn btn-light my-4" %>
         </div>
       </div>
     </div>

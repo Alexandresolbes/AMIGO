@@ -17,7 +17,7 @@ class BillsController < ApplicationController
     else
       respond_to do |format|
         format.html { redirect_to trip_wallet_path(@trip, @wallet) }
-        format.turbo_stream { flash.now[:alert] = "Error! Looks like some details are missing in your bill." }
+        format.turbo_stream { flash.now[:alert] = @bill.errors.full_messages.last }
       end
       # render partial: "bills/form", :locals => { trip: @trip, wallet: @wallet }
     end

@@ -84,9 +84,25 @@ class ActivitiesController < ApplicationController
     @user = current_user
     @trip = Trip.find(params[:trip_id])
     @notification = Notification.new(content: "#{target.title} was #{action} by #{@user.first_name}")
+    @notification_self = Notification.new(content: "You #{action} #{target.title}")
     @notification.user_id = current_user.id
     @notification.trip_id = @trip.id
     @notification.save!
-    @notification.generate_user_notifications
+    @notification_self.user_id = current_user.id
+    @notification_self.trip_id = @trip.id
+    @notification_self.save!
+    generate_user_notifications(@notification, @notification_self, @user)
+  end
+
+  def generate_user_notifications(notification, notification_self, current_user)
+    @users = @trip.users
+    @users.each do |user|
+      if user == current_user
+        user_notification = UserNotification.new(user_id: user.id, notification_id: notification_self.id, read: false)
+      else
+        user_notification = UserNotification.new(user_id: user.id, notification_id: notification.id, read: false)
+      end
+      user_notification.save!
+    end
   end
 end

@@ -92,7 +92,7 @@ first_name: "Alexandre",
 last_name: "Solbes",
 email: "alexandre@test.com",
 password: "123456",
-
+admin: true
 )
 
 alexandre.photo.attach(io: file_alex, filename: "alex.jpg", content_type:"image/jpg")
@@ -116,8 +116,8 @@ p "✅ Dante created"
 
 amigo_trip = Trip.new(
 destination:"Tokyo",
-start_date:"Mon, 29 Aug 2022",
-end_date:"Mon, 12 Sep 2022",
+start_date:"29 October 2022",
+end_date:"12 November 2022",
 user_id: User.first.id,
 )
 
@@ -163,7 +163,7 @@ title:"Red bar",
 address: "4-5-9 Shibuya, Tokyo",
 categories: "Night life",
 description: "The Red Bar has a chic atmosphere inspired by the rich European past (crystal chandeliers and red fabrics), but unlike the exclusive clubs of Aoyama, the entrance is open to all and the drinks are surprisingly inexpensive (500 yen glass).",
-date: "Tue, 30 Aug 2022",
+date: "30 October 2022",
 min_amigos: "2",
 trip_id: Trip.first.id
 )
@@ -177,7 +177,7 @@ title:"Edo Tokyo Museum",
 address: "1-4-1 Yokoami, Sumida-Ku, Tokyo",
 description: "The Edo-Tokyo Museum (Edo Tōkyō Hakubutsukan) is a historical museum located at 1-4-1 Yokoami, Sumida-Ku, Tokyo in the Ryogoku district. The museum opened in March 1993 to preserve Edo's cultural heritage",
 categories: "Culture",
-date: "Wed, 31 Aug 2022",
+date: "3 November 2022",
 min_amigos: "4",
 trip_id: Trip.first.id
 )
@@ -191,7 +191,7 @@ title:"Sumo tournament",
 address: "Ryogoku Kokugikan, Sumida-ku, Tokyo",
 description: "Each tournament lasts 15 days during which wrestlers compete in one bout per day except lower ranked wrestlers who compete in fewer bouts. All sumo wrestlers are classified in a ranking hierarchy (banzuke), which is updated after each tournament based on the wrestlers' performance.",
 categories: "Sports",
-date: "Thu, 01 Sep 2022",
+date: "5 November 2022",
 min_amigos: "4",
 trip_id: Trip.first.id
 )
@@ -206,7 +206,7 @@ title:"Kabuki-za",
 address: "104-0061 Ginza, Tokyo",
 description: "he Kabuki-za was originally opened by a Meiji era journalist, Fukuchi Gen'ichirō. Fukuchi wrote kabuki dramas in which Ichikawa Danjūrō IX and others starred; upon Danjūrō's death in 1903, Fukuchi retired from the management of the theater. The theater is now run by the Shochiku Corporation which took over in 1914.",
 categories: "Culture",
-date: "Wed, 07 Sep 2022",
+date: "2 November 2022",
 min_amigos: "5",
 trip_id: Trip.first.id
 )
@@ -221,7 +221,7 @@ title:"Karaokekan",
 address: "160-0023 Tokyo, Nishishinjuku, Tokyo ",
 description: "Shibuya branch where the karaoke scene in Lost in Translation was filmed. Ask for rooms 601 and 602 if you want to recreate the experience!",
 categories: "Night life",
-date: "Wed, 07 Sep 2022",
+date: "07 November 2022",
 min_amigos: "6",
 trip_id: Trip.first.id
 )
@@ -295,19 +295,33 @@ Participation.create(
 )
 
 Participation.create(
+  activity_id: kabuki.id,
+  user_id: User.find_by_first_name('Dante').id
+)
+
+Participation.create(
   activity_id: karaoke.id,
-  user_id: User.find_by_first_name('Alexandre').id,
+  user_id: User.find_by_first_name('Lounes').id,
   creator: true
+)
+
+Participation.create(
+  activity_id: karaoke.id,
+  user_id: User.find_by_first_name('Laura').id
 )
 
 Participation.create(
   activity_id: cat_cafe.id,
   user_id: User.find_by_first_name('Alexandre').id,
+)
+
+Participation.create(
+  activity_id: cat_cafe.id,
+  user_id: User.find_by_first_name('Laura').id,
   creator: true
 )
 
 p "✅ Participations created"
-
 
 Room.create(
   name: "General",

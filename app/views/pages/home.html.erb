@@ -9,7 +9,7 @@
       <% if user_signed_in? %>
       <h6 class="text-white fw-normal">Logged as <strong></em><%= current_user.first_name %></em></strong></h6>
         <%= link_to "My trips", trips_path, class: "btn btn-blue" %>
-        <%= link_to "Sign out", new_user_registration_path, class: "btn  btn-white" %>
+        <%= link_to "Sign out", destroy_user_session_path, class: "btn  btn-white", :method => :delete, :data => { :no_turbolink => true } %>
       <% else %>
         <%= link_to "Sign in", new_user_session_path, class: "btn btn-blue" %>
         <%= link_to "Sign up", new_user_registration_path, class: "btn btn-white" %>

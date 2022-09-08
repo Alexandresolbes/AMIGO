@@ -10,11 +10,7 @@
 }
 
 .btn-eye:hover{
-  background-color: white;
-  .fa-solid{
-    color: $orange;
-  }
- 
+  background-color: $transparent; 
 }
 
 @media(min-width: 576px){

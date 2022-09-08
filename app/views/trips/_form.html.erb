@@ -1,7 +1,9 @@
-<div class="container h-100">
-  <div class="row">
-    <div class="col">
-      <h1 class="text-center fs-2 py-1">Manage my trip</h1>
+<% if @trip.id.nil? %>
+  <h1 class="text-center fs-2 py-2">Create my trip</h1>
+<% else %>
+  <h1 class="text-center fs-2 py-2">Update my trip</h1>
+<% end %>
+<hr>
       <%= simple_form_for @trip do |f| %>
         <%= f.input :destination %>
         <%= f.input :start_date, as: :string, required: false, html5: true, as: :date %>
@@ -19,6 +21,3 @@
             <%= link_to "Destroy Trip", trip_path(@trip), class:"btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'} %>
           <% end %>
         -->
-    </div>
-  </div>
-</div>

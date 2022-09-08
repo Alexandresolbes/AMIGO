@@ -103,16 +103,18 @@
 #bank-pills-tab{
 
   #debit-tab, #credit-tab{
+    font-weight: 500;
     font-size: 1rem;
     border-radius: 30px;
   }
   #credit-tab, #debit-tab{
-    background-color: transparent;
+    background-color: $light-transparent;
     border: $dark-blue 1px solid;
     color: $dark-blue;
   }
   #credit-tab:hover, #credit-tab.active, #debit-tab:hover, #debit-tab.active{
     background-color: white;
     border: transparent 1px solid;
+    color: $dark-blue;
   }
 }

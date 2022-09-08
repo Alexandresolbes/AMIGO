@@ -1,9 +1,9 @@
 <div class="container min-h-100">
   <div class="row">
-    <% if @activity.id %>
-        <h1 class="text-center fs-2 pt-4">Update activity</h1>
-    <% else %>
+    <% if @activity.id.nil? %>
       <h1 class="text-center fs-2 py-2">Create activity</h1>
+    <% else %>
+      <h1 class="text-center fs-2 pt-4">Update activity</h1>
     <% end %>
       <div class="col-12 px-3">
         <%= simple_form_for [trip, @activity] do |f| %>

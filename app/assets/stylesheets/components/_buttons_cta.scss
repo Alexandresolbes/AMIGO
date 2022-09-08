@@ -1,4 +1,4 @@
-.btn-blue, .btn-white{
+.btn-blue, .btn-white, .btn-danger{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -17,7 +17,7 @@
   border: 0;
 }
 
-.btn-white:hover, .btn-blue:hover, .btn-danger{
+.btn-white:hover, .btn-blue:hover{
   border: 1px white solid;
 }
 

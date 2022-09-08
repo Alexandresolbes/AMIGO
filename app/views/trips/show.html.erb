@@ -1,10 +1,15 @@
-<div class="bg-gradient-general h-100 px-3 pt-4">
-  <div class="container responsive px-2 rounded-4 trip-card text-white text-shadow">
-  <div class="d-flex justify-content-between">
-   <%= link_to "< My trips", trips_path, class:"text-white pb-2 text-decoration-none" %> 
-   <p>Hello, <%= current_user.first_name%></p>
-   </div>
-    <div class="row mt-2 px-2 pt-3 pb-4 rounded-4 bg-transparent">
+<div class="h-100 px-3 pt-4">
+  <div class="container responsive rounded-4 trip-card">
+    <div class="row justify-content-between align-items-end border-bottom border-white pb-2">
+      <div class="col p-0">
+        <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662627064/amigo-logo_iagptt.svg" id="logo">
+      </div>
+      <div class="col p-0 text-end">
+        <h6 class="m-0 text-white">Hello, <%= current_user.first_name%></h6>
+      </div>
+    </div>
+    <div class="row mt-2 px-2 
+    pb-4 rounded-4 text-white">
       <div class="col-4">
         <div class="centered-box flex-column rounded-4" data-controller="weather">
           <img src="" alt="Weather Icon" data-weather-target="img" height=70 class="">
@@ -16,8 +21,8 @@
         <h6 class="mb-2"><%= @trip.start_date.strftime("%d %b") %> - <%= @trip.end_date.strftime("%d %b %Y") %>
         </h6>
         <div class="d-flex">
-          <h5 class="d-block rounded-4 px-3 py-1 border border-white me-1 fw-normal"><i class="fa-solid fa-users"></i> <%= @trip.users.count %></h5>
-          <h5 class="d-block rounded-4 px-3 py-1 border border-white fw-normal"><i class="fa-solid fa-hiking"></i> <%= @trip.activities.count %></h5>
+          <h5 class="d-block rounded-4 px-3 py-1 border border-white me-1 fw-normal"><i class="fa-solid fa-users text-blue"></i> <%= @trip.users.count %></h5>
+          <h5 class="d-block rounded-4 px-3 py-1 border border-white fw-normal"><i class="fa-solid fa-hiking text-blue"></i> <%= @trip.activities.count %></h5>
         </div>
       </div>
     </div>
@@ -29,7 +34,7 @@
           <% end %>
           <li class="bg-white">
             <%= link_to trip_invite_path(@trip) do %>
-              <%= image_tag 'icons/plus.png', class:"invite-friend" %>
+              <%= image_tag 'icons/plus-icon.png', class:"invite-friend" %>
             <% end %>
           </li>
         </ul>
@@ -39,36 +44,51 @@
   <% if @trip.participates?(current_user) %>
     <div class="container trip-buttons-box">
       <div class="row centered-box text-center">
-        <div class="col-6 centered-box ps-0">
+        <div class="col-6 d-flex justify-content-end mb-2">
           <div class="main-btn d-flex justify-content-center align-items-center rounded-4 my-2">
             <%= link_to trip_activities_path(@trip) do %>
+            <!--
             <div class="opacity-80">
-                <%= image_tag 'icons/banana-boat.png', height:50 %>
+              <%= image_tag 'icons/banana-boat.png', height:50 %>
             </div>
+            -->
+            <h2 class="fs-1">
+              <i class="fa-solid fa-person-hiking"></i>
+            </h2>
             <p class="mt-2 mb-0 ">Activities</p>
             <% end %>
           </div>
         </div>
-        <div class="col-6 centered-box pe-0">
+        <div class="col-6 d-flex justify-content-start mb-2 ">
           <div class="main-btn centered-box rounded-4 my-2">
             <%= link_to trip_random_wheel_path(@trip), data: {turbo: false} do %>
+              <i class="fa-solid fa-dice"></i>
+              <!--
               <%= image_tag 'icons/fortune-wheel.png', height:50 %>
+              -->
               <p class="mt-2 mb-0 ">AmigoFortune</p>
+              
             <% end %>
           </div>
         </div>
-        <div class="col-6 centered-box ps-0 mt-2">
+        <div class="col-6  d-flex justify-content-end mt-2 mb-2 ">
           <div class="main-btn centered-box rounded-4">
             <%= link_to trip_board_path(@trip) do %>
+              <!--
               <%= image_tag 'icons/passeport.png', height:50%>
+              -->
+              <i class="fa-solid fa-passport"></i>
               <p class="mt-2 mb-0 ">My Trip</p>
             <% end %>
           </div>
         </div>
-        <div class="col-6 centered-box pe-0 mt-2">
+        <div class="col-6 d-flex justify-content-start mt-2  mb-2 ">
           <div class="main-btn centered-box rounded-4">
             <%= link_to trip_wallet_path(@trip, UserTrip.find_by_user_id(current_user.id).wallet) do %>
+              <!--
               <%= image_tag 'icons/piggy-bank.png', height:50 %>
+              -->
+              <i class="fa-solid fa-piggy-bank"></i>
               <p class="mt-2 mb-0 ">AmigoBank</p>
             <% end %>
           </div>

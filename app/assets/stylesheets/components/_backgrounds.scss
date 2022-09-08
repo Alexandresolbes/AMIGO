@@ -1,0 +1,45 @@
+.bg-blue{
+  background-color: $blue;
+}
+
+.bg-dark-blue{
+  background-color: $dark-blue;
+}
+
+.bg-illustration{
+  background-image: url('https://res.cloudinary.com/laura-latuillerie/image/upload/v1662627924/amigo-trip-friends-mobile_xphejd.png');
+  background-position-x: 50%;
+  background-position-y: 70%;
+}
+
+.bg-gradient-img{
+  background-image: url('https://res.cloudinary.com/laura-latuillerie/image/upload/v1662631235/amigo-bg_e45h8d.png');
+}
+
+.bg-light-green{
+  background-color: rgb(198, 241, 207);
+}
+
+.bg-light-blue{
+  background-color: rgb(198, 226, 241);
+}
+
+.bg-gradient-general {
+  background: rgba(255, 255, 255, 0.8);
+  background: $gradient-general;
+}
+
+.bg-transparent{
+  background: $transparent;
+  background: $gradient-transparent;
+}
+
+@media (min-width: 768px) {
+  .bg-illustration{
+    background-image: url('https://res.cloudinary.com/laura-latuillerie/image/upload/v1662624787/trip-friends_ti3wo4.jpg');
+    background-position: center;
+  }
+  .bg-gradient-img{
+    background-image: url('https://res.cloudinary.com/laura-latuillerie/image/upload/v1662638270/bg-image-gradient_dt0kp1.jpg');
+  }
+}

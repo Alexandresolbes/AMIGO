@@ -1,16 +1,19 @@
-<div class="bg-blue h-100">
+<div class="h-100">
   <div class="row centered-box m-0 h-100">
-    <div class="col-md-6 centered-box flex-column">
-      <div class="centered-box flex-column pb-3">
-         <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662454584/AMIGO_cqpvru.png" id="logo">
-          <h1 class="text-light fs-2 fw-light text-center">Moins d'organisation<br><span class="fw-bold"><strong><em>Plus de voyages</em></strong></span></h1>
-      </div>
-      <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662454585/illustration-amigo_2_co1iev.png" id="illustration">
-      <div class="pt-3 pb-5 text-center">
-        <% if !user_signed_in? %>
-          <%= link_to "Sign in", new_user_session_path, class: "btn btn-yellow" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-second" %>
-        <% end %>
+    <div class="col-md-6 d-flex align-items-center flex-column">
+      <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662627064/amigo-logo_iagptt.svg" id="logo-homepage">
+        <h1 class="text-light fs-1 text-center ff-quicksand">
+        Moins d'organisation<br><span class="fw-bold"><strong><em>Plus de voyages</em></strong></span></h1>
+    </div>
+    <div class="pt-3 pb-5 text-center">
+      <% if user_signed_in? %>
+      <h6 class="text-white fw-normal">Logged as <strong></em><%= current_user.first_name %></em></strong></h6>
+        <%= link_to "My trips", trips_path, class: "btn btn-blue" %>
+        <%= link_to "Sign out", new_user_registration_path, class: "btn  btn-white" %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path, class: "btn btn-blue" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-white" %>
+      <% end %>
       </div>
     </div>
   </div>

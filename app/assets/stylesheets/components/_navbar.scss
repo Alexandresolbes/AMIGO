@@ -3,6 +3,7 @@
 /*****************************************************/
 
 .navbar-expand{
+  background-color: white;
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -29,26 +30,7 @@
 /*****************************************************/
 // Navbars with tabs
 /*****************************************************/
-@keyframes blink {
-  0% { box-shadow: 0 0px 15px orange; }
-  50% { box-shadow: none; }
-  100% { box-shadow: 0 0px 15px orange; }
-}
 
-@-webkit-keyframes blink {
-  0% { box-shadow: 0 0 15px orange; }
-  50% { box-shadow: 0 0 0; }
-  100% { box-shadow: 0 0 15px orange; }
-}
-
-.nav-tabs{
-  -webkit-animation: blink 3.0s linear infinite;
-  -moz-animation: blink 3.0s linear infinite;
-  -ms-animation: blink 3.0s linear infinite;
-  -o-animation: blink 3.0s linear infinite;
-  animation: blink 3.0s linear infinite;
-  --bs-nav-tabs-border-width: 0;
-}
 
 .tabs-activity, .tabs-trip, .tabs-bank{
   background: $orange;

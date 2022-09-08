@@ -1,42 +1,23 @@
-.btn-second, .btn-blue, .btn-yellow{
-  font-weight: 500;
-  border-radius: 8px;
-  padding: 8px 20px;
+.btn-blue, .btn-white{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.btn-blue, .btn-second:hover, .btn-outline-danger:hover{
+.btn-blue, .btn-second:hover, .btn-outline-danger:hover, .btn-white:hover, .btn-blue:hover{
   color: white;
-  color: white;
-}
-
-.btn-second{
-  background-color: white;
-  color: $blue;
-}
-
-.btn-second:hover, .btn-yellow:hover{
-  border: white solid 1px;
 }
 
 .btn-blue{
-  background-color: $blue;
-  border: white solid 1px;
+  font-weight: 500;
+  border: 1px $dark-blue solid;
+  background-color: $dark-blue;
 }
 
-
-.btn-blue:hover{
-  background-color: $yellow;
-  color:white;
-  text-shadow: 1px 1px 5px grayscale($color: #00000021);
-  border: transparent solid 1px;
+.btn-white{
+  font-weight: 500;
+  background-color: white;
+  color: $dark-blue;
 }
 
-.btn-yellow{
-  background-color: $yellow;
-  color: white;
-  text-shadow: 1px 1px 5px grayscale($color: #00000047);
-}
-.btn-yellow:hover{
-  color:white;
+.btn-white:hover, .btn-blue:hover{
+  border: 1px white solid;
 }

@@ -62,7 +62,8 @@
     <div class="tab-pane fade" id="all-bills-tab-pane" role="tabpanel" aria-labelledby="alls-bills-tab" tabindex="0">
       <div class="container min-h-100">
         <% if @bills %>
-          <h2></h2>
+          
+          <h1 class="fs-2 py-2 text-center">Accounts with Amigos</h1>
           <% @amigos.each do |amigo| %>
             <%= render "bills/accounts_card", trip: @trip, account: @wallet.account(amigo.id), amigo: amigo %>
           <% end %>

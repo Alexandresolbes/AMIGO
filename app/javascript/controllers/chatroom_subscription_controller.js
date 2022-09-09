@@ -12,6 +12,11 @@ export default class extends Controller {
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data)}
       )
+    this.chatBtn = document.querySelector('.button-chat')
+    this.chatBtn.on('focus', selector, function() {
+      document.querySelector(selector).scrollIntoView();
+    });
+
     }
 
     #insertMessageAndScrollDown(data) {

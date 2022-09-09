@@ -1,4 +1,4 @@
-.btn-blue, .btn-white, .btn-danger{
+.btn-blue, .btn-white, .btn-danger, .btn-full-blue, .btn-blue-white{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -11,7 +11,7 @@
   background-color: $dark-blue;
 }
 
-.btn-white{
+.btn-white, .btn-blue-white{
   background-color: white;
   color: $dark-blue;
   border: 0;
@@ -25,6 +25,11 @@
   color:white;
 }
 
+.btn-danger:hover{
+  background-color: $sanguine;
+  color: white;
+}
+
 .btn-blue-full{
   border: 1px $dark-blue solid;
   background-color: $dark-blue;
@@ -34,4 +39,9 @@
   border: 1px $dark-blue solid;
   background-color: transparent;
   color: $dark-blue;
+}
+
+.btn-blue-white:hover{
+  color: $dark-blue;
+  border: 1px $dark-blue solid;
 }

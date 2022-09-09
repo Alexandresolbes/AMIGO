@@ -12,7 +12,8 @@ class ActivitiesController < ApplicationController
       {
       lat: activity.latitude,
       lng: activity.longitude,
-      info_window: render_to_string(partial: "info_window", locals: {activity: activity})
+      info_window: render_to_string(partial: "info_window", locals: {activity: activity}),
+      image_url: helpers.asset_url('tong.svg')
     }
     end
   end
@@ -22,7 +23,8 @@ class ActivitiesController < ApplicationController
     @markers = [{
       lat: @activity.latitude,
       lng: @activity.longitude,
-      info_window: render_to_string(partial: "info_window", locals: {activity: @activity})
+      info_window: render_to_string(partial: "info_window", locals: {activity: @activity}),
+      image_url: helpers.asset_url('tong.svg')
     }]
   end
 

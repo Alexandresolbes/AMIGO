@@ -23,7 +23,7 @@
       <hr class="my-4">
         <%= f.association :user, :label => "To my Amigo : ", :collection => @amigos.sort_by(&:first_name), :label_method => :first_name, :value_method => :id, as: :radio_buttons, required: true %>
         <div class="mt-1 mb-5 d-flex justify-content-center">
-          <%= f.submit class:"btn btn-blue me-2" %><br>
+          <%= f.submit class:"btn btn-blue-full me-2" %><br>
       <% end %>
           <%= link_to 'Back', trip_wallet_path(@trip, @wallet), class:"btn btn-white" %>
         </div>

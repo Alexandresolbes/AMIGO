@@ -47,7 +47,7 @@
     <div class="row">
       <div class="col d-flex mt-2 mb-4">
         <% if  @activity.creator?(current_user) %>
-          <%= link_to "Edit", edit_trip_activity_path(@activity.trip_id, @activity), class:"btn btn-blue me-1" %>
+          <%= link_to "Edit", edit_trip_activity_path(@activity.trip_id, @activity), class:"btn btn-blue-full me-1" %>
           <%= link_to "Delete", trip_activity_path(@activity.trip_id, @activity), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?'}, class:"btn btn-danger me-1" %>
         <% elsif @activity.participates?(current_user) %>
           <%= button_to "Quit activity", trip_activity_participation_path(user: current_user, activity_id: @activity.id, participation: @activity.participations.find_by_user_id(current_user.id)), method: :delete, class:"btn btn-danger me-1"  %>
@@ -55,7 +55,7 @@
           <%= button_to "Participate", trip_activity_participations_path(current_user, @activity), method: :post, class:"btn btn-success text-light me-1"  %>
         <% end %>
 
-        <%= link_to "Back", trip_activities_path(@activity.trip), class:"btn btn-white"  %>
+        <%= link_to "Back", trip_activities_path(@activity.trip), class:"btn btn-blue-white"  %>
       </div>
     </div>
 

@@ -2,7 +2,9 @@
   <div class="container responsive pt-3 p-large">
     <div class="row align-items-center justify-content-between pb-3 border-bottom border-light">
       <div class="col p-0">
-        <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662627064/amigo-logo_iagptt.svg" id="logo">
+        <%= link_to root_path do %>
+          <img src="https://res.cloudinary.com/laura-latuillerie/image/upload/v1662627064/amigo-logo_iagptt.svg" id="logo">
+        <% end %>
       </div>
       <div class="col p-0 text-end">
         <%= link_to "Create a trip", new_trip_path, class:"btn btn-white" %>

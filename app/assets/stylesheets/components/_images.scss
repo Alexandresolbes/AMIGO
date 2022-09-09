@@ -26,8 +26,8 @@
 }
 
 .avatar-xs{
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
 }
 
 .avatar-sm{
@@ -70,13 +70,13 @@
     position: relative;
     -webkit-transition: .2s ease;
     transition: .2s ease;
-    
+
   }
     li:nth-child(n+2) { margin-left: -25px; }
     /*
     ul:hover li:nth-child(n+2) {
       margin-left: -25px;
-      
+
   }
   */
   .invite-friend{
@@ -86,7 +86,7 @@
     width: 70px;
     background-color: rgba(255, 255, 255, 0.408);
   }
-  
+
 }
 
 .trip-card-avatars{

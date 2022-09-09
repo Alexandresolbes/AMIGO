@@ -3,7 +3,6 @@
 <% else %>
   <h1 class="text-center fs-2 py-2">Update my trip</h1>
 <% end %>
-<hr>
       <%= simple_form_for @trip do |f| %>
         <%= f.input :destination %>
         <%= f.input :start_date, as: :string, required: false, html5: true, as: :date %>

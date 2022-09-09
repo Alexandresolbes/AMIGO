@@ -3,10 +3,10 @@
   
   <h1 class="py-2 text-blue text-shadow-none"><%= @activity.title %></h1>
     <div class="row activity-show-card">
-      <div class="col-3 col-md-6">
+      <div class="col-4 col-md-6">
         <%= cl_image_tag @activity.photo.key, class:"activity-show-card--img rounded-3" %>
       </div>
-      <div class="col-9 col-md-6">
+      <div class="col-8 col-md-6 p-0">
         <div class="ps-1">
           <h3 class="fs-5 fw-bold m-0"><%= @activity.categories %></h3>
           <p class="mb-1">Proposed by <%= @activity.creator.first_name %></p>

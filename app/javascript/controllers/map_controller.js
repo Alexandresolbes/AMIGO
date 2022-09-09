@@ -21,10 +21,11 @@ export default class extends Controller {
       mapboxgl: mapboxgl }))
     this.map.on('load', () => {
       this.mapTab = document.getElementById('map-tab')
-      this.mapTab.addEventListener('click', () => {
+      this.mapTab.addEventListener('click', (event) => {
         this.map.resize();
       });
-    });
+     });
+   
    
   }
     #addMarkersToMap() {

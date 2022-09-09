@@ -241,7 +241,7 @@ min_amigos: "3",
 trip_id: Trip.first.id
 )
 
-cat_cafe.photo.attach(io: file_cat_cafe, filename: "", content_type:"image/jpg")
+cat_cafe.photo.attach(io: file_cat_cafe, filename: "cat_cafe.jpg", content_type:"image/jpg")
 cat_cafe.save!
 
 p "✅ Activities created"
